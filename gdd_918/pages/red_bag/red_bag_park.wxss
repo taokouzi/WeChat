@@ -1,0 +1,5 @@
+/* pages/red_bag_park/index.wxss */
+.camera{border-bottom:1px solid #efefef;}
+.camera text,.camera .clear{font-size:14px;height:44px;line-height:44px;}
+.camera image{width:100%;height:350rpx;margin-bottom:5px;border-radius:5px;}
+

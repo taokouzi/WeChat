@@ -1,0 +1,45 @@
+/* pages/rank/index.wxss */
+.r-container{width: 100vw;height: 100vh;background:#eeeeee;padding: 2vh 0;box-sizing: border-box;}
+.rank{
+  width: 95vw;
+  background: rgba(255,255,255,1);
+  padding:2vw 3vw 0 3vw;
+  margin:2vh auto;
+  border-radius: 2vh;
+  box-sizing: border-box;
+}
+.z-rank{
+height: 80vh;
+margin-top: 0;
+overflow-y: scroll;
+}
+.my-rank{
+height: 10vh;
+padding-top: 0;
+}
+.rk{
+  height: 10vh;
+  line-height: 10vh;
+  font-size:24rpx;
+  border-bottom: 1px solid #eeeeee;
+  box-sizing: border-box;
+}
+.rki{
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  vertical-align: top;
+  }
+  .rk:last-child{border-bottom-color: transparent;}
+.head image{width:8vh;height: 8vh;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative;
+  top: 1vh;
+}
+.ph-tip{font-size:20rpx;text-align: center;color: #999999;height:1.6vh;}
+
+.nick{width: 30%;}
+.lv{text-align: right;}
+.mc{text-align: left;width:10%;}
+/* .nick,.mc,.num,.lv{position: relative;top:-2vh;} */

@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/login/index",
+    "pages/active/index",
+    "pages/user/index",
+    "pages/mbr_init/index",
+    "pages/home/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "转转女嘉宾",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#D2AF6B",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home1.png"
+      },
+      {
+        "pagePath": "pages/active/index",
+        "text": "更多女嘉宾",
+        "iconPath": "images/activity.png",
+        "selectedIconPath": "images/activity1.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "images/config.png",
+        "selectedIconPath": "images/config1.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+<!--pages/park_history/index.wxml-->
+
+<view wx:if="{{ is_empty }}" style='width:100%;text-align:center;font-size:13px;line-height:100px;'>
+  {{ empty_text }}
+</view>
+
+<view wx:else>
+
+  <view  class='views' wx:for="{{ park_history }}" >
+
+    <view>
+      <text class='span'>类型：</text>
+      <text>{{ item.types }}</text>
+    </view>
+
+    <view>
+      <text class='span'>时间：</text>
+      <text>{{ item.start_time }}</text>
+    </view>
+
+    <view>
+      <text class='span'>停车场：</text>
+      <text>{{ item.area_name }}</text>
+    </view>
+
+    <view>
+      <text class='span'>楼层：</text>
+      <text>{{ item.floor }}</text>
+    </view>
+
+    <view>
+      <text class='span'>车位：</text>
+      <text>{{ item.parking_no }}</text>
+    </view>
+
+    <view>
+      <text class='span'>状态：</text>
+      <text wx:if='{{item.log_status}}'>{{ item.log_status }}</text>
+      <text wx:else>-</text>
+    </view>
+
+    <view>
+      <text class='span'>费用：</text>
+      <text>{{ item.fee }}</text>
+    </view>
+
+  </view>
+</view>
+
+

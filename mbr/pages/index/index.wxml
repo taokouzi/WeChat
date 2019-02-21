@@ -1,0 +1,96 @@
+
+<view class='{{ showRedBox }}' style='position:fixed;bottom:0;top:0;left:0;right:0;z-index:99;'>
+  <text bindtap='closeRedBoxFunc' style='position:fixed;bottom:0;top:0;left:0;right:0;background:rgba(0,0,0,.6);'></text>
+  <view animation="{{animation2}}" style='width:65vw;height:86vw;margin-top:-43vw;margin-left:-32.5vw;display:block;position: absolute;top:50%;left:50%;transform:scale(0);overflow:hidden;z-index:100;'>
+      <image style='width:100%;height:100%;' src='./images/red_bg.png'></image>
+      <text style='width:100%;position:absolute;z-index:9;text-align:center;top:22%;left:0;color:#EBCD9A;font-weight:blod;font-size:8vw;'>{{ redT }}</text>
+      <text class='{{ isNone }}' style='width:100%;position:absolute;z-index:9;text-align:center;top:38%;left:0;color:#EBCD9A;font-weight:blod;font-size:2.5vw;'>红包已放入您的零钱中</text>
+      <image animation="{{ openAmt }}" bindtap='openRedBoxFunc' style='width:20vw;height:20vw;position:absolute;z-index:9;margin:-10vw 0 0 -10vw;left:50%;top:65%;' src='./images/ok.png'></image>
+  </view>
+</view>
+
+
+
+
+<scroll-view class="container2 none" style='width:30vw;margin:0 auto;'>
+  <view class="scrolltxt">
+    <view class="marquee_box">
+      <view class="marquee_text" style="transform: translateX(-{{marqueeDistance}}px)">
+        <text>{{text}}</text>
+        <text style="margin-right:{{marquee_margin}}px;"></text>
+        <text style="margin-right:{{marquee_margin}}px;">{{text}}</text>        
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+
+<view animation="{{animationTip}}"  style='left:-{{ W }}px;' class='tip'>
+  恭喜 <text class='num1' style='color:#03A9F4;max-width:40px;display:inline-block;vertical-align:middle;position:relative;top:-1px;'>{{ tipText.name }}</text> 抽中 <text style='color:#03A9F4;'>{{ tipText.num }}</text>，<text>{{ tipText.time }}</text>
+</view>
+
+
+<!-- 转盘 -->
+<view style='position:relative;overflow:hidden;'>
+  <image animation="{{animation}}" src='https://h5.laih5.cn/wxprogram/lyhd/zpll/public/static/zp.png?v=1.1.0' style='width:70vw;height:70vw;display:block;margin:4vw auto 1vw auto;'></image>
+  <!-- <image bindtap='rotate' src='./images/btn.png' style='width:11.76vw;height:16.17vw;display:block;margin:-8.085vw 0 0 -5.88vw;left:50%;top:50%;position:absolute;'></image> -->
+  <image bindtap='rotate' src='./images/btn.png' style='width:13.44vw;height:18.48vw;display:block;margin:-9.24vw 0 0 -6.72vw;left:50%;top:50%;position:absolute;'></image>
+</view>
+
+
+<!-- 邀请好友列表 -->
+<view class='clear yq_box'>
+<view style='font-size:11px;text-align:center;margin-bottom:3vw;color:#666666;margin-top:3vw;letter-spacing:.5px;'>每邀请1位新用户即可获赠20积分</view>
+
+<scroll-view scroll-x class='fr_box left'>
+  <view wx:for="{{ frs }}" class='fr_li'>
+    <image style='' src='{{ item }}'></image>
+  </view>
+</scroll-view>
+
+<button class='fr_li right' open-type='share' hover-class="none" style='padding:0;background:none;'>
+  <image style='width:8.5vw;height:8.5vw;border:none;margin-top:2.5vw;' src='./images/j.png'></image>
+</button>
+
+</view>
+
+
+<!-- 轮播广告 -->
+<swiper bindtap='addrFunc' class='idx_banner'
+  autoplay="true" interval="3500" duration="300" circular='true' style='margin:2vw auto;'>
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <!-- <image src="{{item}}" class="slide-image" width="355" height="150"/> -->
+      <ad unit-id="adunit-0564ca87d5e267da"></ad>
+    </swiper-item>
+  </block>
+</swiper>
+
+
+
+<!-- 积分商城 -->
+<view style='background:#eeeeee;'>
+<image src='./images/xrzq.png' style='width:100vw;height:10vw;margin-bottom:2vw;'></image>
+
+<view scroll-y='true' class='clear gf_box'>
+  <view class='gf_li' wx:for="{{ gfs }}" wx:key='index' style='background:#ffffff;width:42vw;border-radius:6px;margin-bottom:2vw;padding:2vw 2vw 0 2vw;'>
+    <image class='' src='{{ item.src }}' style='width:100%;height:42vw;padding:2vw 0;background:#eeeeee;'></image>
+    <text class='block num1' style='font-size:12px;line-height:20px;'>{{ index+1 }}号{{ item.name }}</text>
+    <view class='block num1 clear' style='font-size:12px;line-height:26px;color:#03A9F4;border-bottom:1px solid #eeeeee;'>
+      <view class='left' style='font-weight:bold;'><image src='./images/jf_icon.png' style='width:12px;height:12px;'></image> {{ item.jf }}</view>
+      <text class='right' style='font-size:10px;color:#aaaaaa;text-decoration:line-through;'>{{ item.old }}</text>
+    </view>
+    <view bindtap='excGfFunc' data-name='{{ index+1 }}号{{ item.name }}' style='color:#03A9F4;text-align:center;font-size:13px;line-height:40px;'>
+      <image src='./images/dh_icon.png' style='width:14px;height:14px;position:relative;top:2px;left:-5px;'></image>  立即拥有
+    </view>
+  </view>
+
+</view>
+
+</view>
+
+
+
+
+
+

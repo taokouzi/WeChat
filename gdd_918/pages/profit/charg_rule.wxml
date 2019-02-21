@@ -1,0 +1,73 @@
+<!--pages/charg_rule/index.wxml-->
+
+<view class='center90'>
+
+    <!--收益构成  -->
+    <view class='rule'>
+
+      <view class='rule_title'>
+          <image src='images/shu.png'></image>
+          <text class='rule_name'>收益构成</text>
+      </view>
+      <view class='rule_center'>
+          <view class='hui'>基础收益：{{ rule_arr.consitute.init_money }}元（最大收益￥{{ rule_arr.consitute.max_money }}）</view>
+          <view class='hui'>里程：{{ rule_arr.consitute.km_money }}元/km（≤{{ rule_arr.consitute.max_km_num }}公里）</view>
+          <view class='hui'>订单：{{ rule_arr.consitute.ord_money }}元/单（≤{{ rule_arr.consitute.max_order_num }}单）</view>
+      </view>
+      
+    </view>
+
+
+    <!--红包收益  -->
+    <view class='rule'>
+
+      <view class='rule_title'>
+          <image src='images/shu.png'></image>
+          <text class='rule_name'>红包收益</text>
+      </view>
+      <view class='rule_center'>
+
+          <view class='hui'>拍照红包：</view>
+          <view class='hui' wx:if="{{red_photo.length>0}}" style='margin-left:40rpx;' wx:for="{{red_photo}}" wx:key="*this1">
+              {{ item.red_money }}元/次（≤{{ item.red_per_money }}元/个，奖池￥{{ item.red_total_money }}）
+          </view>
+          
+          <view class='hui'>停车红包：</view>
+          <view class='hui' wx:if="{{red_stop.length>0}}" style='margin-left:40rpx;' wx:for="{{red_stop}}" wx:key="*this2">
+              {{ item.red_money }}元/次（≤{{ item.red_per_money }}元/个，奖池￥{{ item.red_total_money }}）
+          </view>
+       
+          <view class='hui'>广告红包：</view>
+          <view class='hui' wx:if="{{red_adver.length>0}}" style='margin-left:40rpx;' wx:for="{{red_adver}}" wx:key="*this2">
+              {{ item.red_money }}元/次（≤{{ item.red_per_money }}元/个，奖池￥{{ item.red_total_money }}）
+          </view>
+
+          <view class='hui'>分享红包：</view>
+          <view class='hui' wx:if="{{red_share.length>0}}" style='margin-left:40rpx;' wx:for="{{red_share}}" wx:key="*this2">
+              {{ item.red_money }}元/次（≤{{ item.red_per_money }}元/个，奖池￥{{ item.red_total_money }}）
+          </view>
+
+      </view>
+      
+    </view>
+
+
+    <!--当前收益  -->
+    <view class='rule'>
+
+      <view class='rule_title'>
+          <image src='images/shu.png'></image>
+          <text class='rule_name'>当前收益</text>
+      </view>
+      <view class='rule_center'>
+          <view class='hui'><text style='color:#09BA07;font-size:16px;font-weight:bold;'>= </text>基础收益（安装收益：￥{{ rule_arr.now_profit.init_up }}元，撤广告收益：￥{{rule_arr.now_profit.init_down}}元）</view>
+          <view class='hui kong'><text style='color:#09BA07;font-size:16px;font-weight:bold;'>+ </text>￥{{ rule_arr.consitute.km_money }}元/km x {{ rule_arr.now_profit.km_sum }}km</view>
+          <view class='hui kong'><text style='color:#09BA07;font-size:16px;font-weight:bold;'>+ </text>￥{{ rule_arr.consitute.ord_money }}元/单 x {{ rule_arr.now_profit.ord_sum }}单</view>
+          <view class='hui kong'><text style='color:#09BA07;font-size:16px;font-weight:bold;'>+ </text>￥{{ rule_arr.now_profit.red_total }}元 (动态红包收益)</view>
+      </view>
+      
+    </view>
+
+
+
+</view>

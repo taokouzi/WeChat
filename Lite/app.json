@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/index",
+    "pages/list_tel/index",
+    "pages/list_tip/index",
+    "pages/more_tip/index",
+    "pages/rank/index",
+    "pages/shequ/index",
+    "pages/about/index",
+    "pages/lv/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1E9FFF",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#3080EE",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/homea.png"
+      },
+      {
+        "pagePath": "pages/shequ/index",
+        "text": "社区",
+        "iconPath": "images/shequ.png",
+        "selectedIconPath": "images/shequa.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "images/self.png",
+        "selectedIconPath": "images/selfa.png"
+      }
+    ]
+  }
+}

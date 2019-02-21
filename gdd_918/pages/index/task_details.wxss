@@ -1,0 +1,46 @@
+/* pages/task_details/index.wxss */
+.swiper {
+  height: 300rpx;
+  width: 100%;
+}
+.banner_link,.swiper image {
+  height: 100%;
+  width: 100%;
+}
+.swiper .wx-swiper-dot{
+    width:6px;
+    height:6px;
+    border-radius: 50%;
+}
+.swiper .wx-swiper-dots.wx-swiper-dots-horizontal{
+     margin-left:280rpx;
+}
+
+.expertInfo,.service_wd,.service_sm{
+  width:90%;
+  margin: 30rpx auto;
+  height:auto;
+  font-size: 14px;flex-grow: 2;color: #B0B0B0;line-height:24px;
+ }
+.expertInfo .title{font-size: 15px;margin-bottom: 6px;}
+.expertInfo .sum,.expertInfo .times,.expertInfo .max-money,.sum_socre{line-height:22px;color:#aaaaaa;font-size:12px;}
+.sumBox{width:70%;display:inline-block;}
+.get_task{width:30%;display:inline-block;text-align: center;height:34px;line-height:34px;color:#fff;background:#008be6;border-radius:5px;margin-top:10px;}
+.clear{height:45px;}
+
+.service_wd .text_title,.service_sm .text_title{
+  display: block;
+  width:100%;
+  border-bottom:1px solid #efefef;
+  /* padding-bottom:5px; */
+  font-size:14px;
+  line-height:38px;
+}
+.ser_box,.map{margin:10px 0;}
+.hui.smoll{line-height:30px;}
+.hui.smoll image{width:18px;height:18px;position:relative;top:4px;}
+.hui.smoll text{margin-left:5px;}
+.ser_box{font-size:13px;}
+
+
+

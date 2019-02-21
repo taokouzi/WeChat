@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/logs/logs",
+    "pages/mall/index",
+    "pages/self/index",
+    "pages/addr/index",
+    "pages/rule/index",
+    "pages/list_dh/index",
+    "pages/list_cj/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "navigationStyle":"custom"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#DF4948",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/homea.png"
+      },
+      {
+        "pagePath": "pages/self/index",
+        "text": "我的",
+        "iconPath": "images/self.png",
+        "selectedIconPath": "images/selfa.png"
+      }
+    ]
+  }
+}

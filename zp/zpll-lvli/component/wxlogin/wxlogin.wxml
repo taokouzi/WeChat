@@ -1,0 +1,12 @@
+<!--登录-->
+<view class='login-box' wx:if='{{!isHasUserid}}'>
+	<view class='accredit-hint'>
+		<view class='hint-title'>
+			提示
+		</view>
+		<view class='hint-text'>
+			绿力商城需要你的授权信息{{test}}
+		</view>
+		<button class='login-btn' open-type='getUserInfo' bindgetuserinfo='fnLogin'>同意授权</button>
+	</view>
+</view>

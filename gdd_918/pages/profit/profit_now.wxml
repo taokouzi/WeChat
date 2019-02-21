@@ -1,0 +1,87 @@
+<!--pages/profit_now/index.wxml-->
+
+<view class='center90  _top' style='height:{{winHeight}}rpx'>
+    <text class='profit_'>￥{{profit}}</text>
+    <canvas canvas-id="columnCanvas" disable-scroll="true" class="canvas" style='width:100%;height:100%;'></canvas> 
+
+</view>
+
+<!--当前任务  -->
+<view class='view'>
+
+    <text class="title hui block">当前任务</text>
+
+    <navigator class="task_link" hover-class="none" >  
+          <view class='task'>{{task.task_name}}</view>   
+          <image src="./images/b3.png" class="slide-image" mode="aspectFill"/>  <!---{{task.pic1}}-->
+    </navigator> 
+    
+</view>
+
+<view class='row_hui'></view>
+
+<!--距离下刊  -->
+<view class='center90 sy_center'>
+    
+    <!--距离下刊  saoma_interaction-->
+     <navigator wx:if="{{ sy_center > 0 }}" class="" url='' hover-class="none">
+        <text class="block bottom_date red2">{{sy_center}}天</text>
+        <text class="block">距离下刊</text>
+    </navigator>
+
+    <!--扫一扫  -->
+    <navigator wx:else class="" bindtap='saoma_down' hover-class="none"  >
+        <image src="images/sys.png" class="slide-image " mode="aspectFill"/>
+        <text class="block">扫一扫</text>
+    </navigator>
+
+
+    <navigator class="" url='phb_list' hover-class="none">
+      <image src="images/phb.png" class="slide-image " mode="aspectFill"/>
+      <text class="block">收益排行</text>
+    </navigator>
+
+    <navigator class="top_kan2" bindtap='top_kan2' url='' hover-class="none">
+      <image src="images/sk2.png" class="slide-image " mode="aspectFill"/>
+      <text class="block">二次上刊</text>
+    </navigator>
+
+    <navigator class="" url='charg_rule' hover-class="none">
+      <image src="images/jfgz.png" class="slide-image " mode="aspectFill"/>
+      <text class="block">计费规则</text>
+    </navigator>
+
+</view>
+
+<view class='row_hui'></view>
+
+<!--下刊网点  -->
+<view class='service_wd'>
+    <text class='text_title'>下刊服务网点</text>
+    <view class='ser_box' >
+
+          <view class='map1 map' wx:for="{{ store }}" wx:key="*that" >
+              <text>{{ item.store_name }}</text>
+              <view class='hui smoll'><image src='images/wz.png' mode="aspectFill"></image><text>{{ item.address }}</text></view>
+              <view class='hui smoll'><image src='images/tel.png' mode="aspectFill"></image><text>{{ item.tel }}</text></view>
+          </view>
+
+    </view>
+</view>
+
+
+
+
+
+<!--悬浮的红包  -->
+<view class="red_bag_box {{showView?'block':'none'}}" wx:for="{{red_bag}}" wx:key="*this2" wx:for-index="index" >
+    <image class='close2' src='{{item.close2}}' bindtap='closeClick'></image>
+    <navigator url='{{red_bag_link}}' hover-class="none">
+        <image class='red_bag rotate' src='{{item.red}}'></image>
+    </navigator>
+</view>
+
+
+
+
+

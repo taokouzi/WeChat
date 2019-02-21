@@ -1,0 +1,57 @@
+/* pages/fault/index.wxss */
+
+form{
+  display: block;
+  padding: 0 4%;
+}
+
+
+form .input text{
+  display: block;
+  margin-top:15px;
+  font-size: 14px;
+  line-height: 40px;
+}
+
+form .text{
+  margin-top:25px;
+  font-size: 14px;
+  /* line-height: 40px; */
+}
+.text_1{
+  padding-right: 20px;
+}
+
+form view input,form view picker,form view textarea{
+  width: 98%;
+  background: #F0f0f0;
+  font-size: 14px;
+  height: 40px;
+  line-height:40px;
+  border-radius: 5px;
+  padding-left:2%;
+}
+
+form view textarea{
+  height:100px;
+  padding:8px 2% 8px 2%;
+  line-height:24px;
+}
+
+
+.my_btn{
+  margin-top: 50px;
+  background: -webkit-linear-gradient(right,#FF674F, #FF894B); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right,#FF674F, #FF894B); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right,#FF674F, #FF894B); /* Firefox 3.6 - 15 */
+  background: linear-gradient(right,#FF674F, #FF894B); /* 标准的语法 */
+}
+.history{
+  width: 92%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 14px;
+  text-decoration: underline;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}

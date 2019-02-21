@@ -1,0 +1,16 @@
+/* pages/red_bag_share/index.wxss */
+.title{font-size:14px;line-height:38px;border-bottom:1px solid #efefef;}
+.share_link{font-size:16px;margin:5px 0;}
+.share{line-height:44px;font-size:15px;}
+.slide-image{width:100%;height:300rpx;border-radius:5px;}
+
+
+.share_link .smoll.hui.num1{line-height:34px;}
+.share_link .smoll.hui text{font-size:14px;}
+.share_link .smoll.hui.kong{line-height:24px;}
+
+
+
+
+
+

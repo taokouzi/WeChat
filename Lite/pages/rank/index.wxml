@@ -1,0 +1,34 @@
+<!--pages/rank/index.wxml-->
+<view class='r-container'>
+<view class='z-rank rank'>
+
+
+  <view class='rk' wx:for="{{ rank }}">
+    <text class='mc rki'>{{ item.mc }}</text>
+    <view  class='head rki'>
+      <image src='{{ item.head }}'></image>
+    </view>
+    <text class='nick rki num1'>{{ item.nick }}</text>
+    <text class='num rki'>{{ item.num }}</text>
+    <text class='lv rki'>{{ item.lv_name }}</text>
+  </view>
+</view>
+ <view class='ph-tip'>仅展示前20位排名（浏览量：{{ readnum }}）</view>
+
+
+
+<view class='my-rank rank'>
+  <view class='rk' wx:for="{{ rank }}" wx:if="{{ item.is_me == '1' }}">
+    <text class='mc rki'>{{ item.mc }}</text>
+    <view  class='head rki'>
+      <image src='{{ item.head }}'></image>
+    </view>
+    <text class='nick rki num1'>{{ item.nick }}</text>
+    <text class='num rki'>{{ item.num }}</text>
+    <text class='lv rki'>{{ item.lv_name }}</text>
+  </view>
+</view>
+
+</view>
+
+

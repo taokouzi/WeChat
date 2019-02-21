@@ -1,0 +1,66 @@
+<!--pages/user/index.wxml-->
+<view class='list-container'>
+
+<view class='lists'>
+  <view class='title wuye'>
+    <image src='./images/wy.png'></image>
+    <text>物业</text>
+  </view>
+
+  <view class='clear list' wx:for="{{ tels }}" wx:if="{{ item.status == 1 }}" data-tel="{{item.tel}}" bindtap='call' >
+    <text class='left'>{{ item.t_name }}</text>
+    <image class="right jiant" src="./images/dayu.png"></image> 
+    <text class='right'>{{ item.tel }}</text>
+  </view>
+
+  
+  
+  
+
+  <view class='title shangj'>
+    <image src='./images/sj.png'></image>
+    <text>商家</text>
+  </view>
+
+  <view class='clear list' wx:for="{{ tels }}" wx:if="{{ item.status == 2 }}" data-tel="{{item.tel}}" bindtap='call'>
+    <text class='left'>{{ item.t_name }}</text>
+    <image class="right jiant" src="./images/dayu.png"></image> 
+    <text class='right'>{{ item.tel }}</text>
+  </view>
+
+
+
+<view class='title shangj'>
+    <image src='./images/qita.png'></image>
+    <text>其他</text>
+  </view>
+
+  <view class='clear list' wx:for="{{ tels }}" wx:if="{{ item.status == 3 }}" data-tel="{{item.tel}}" bindtap='call'>
+    <text class='left'>{{ item.t_name }}</text>
+    <image class="right jiant" src="./images/dayu.png"></image> 
+    <text class='right'>{{ item.tel }}</text>
+  </view>
+
+
+
+
+  <view style='font-size:20rpx;text-align:center;color:#999999;margin-top:5vh;'>欢迎提供更多常用电话号码（加微信：two21992）</view>
+  <view style='font-size:20rpx;text-align:center;margin:1vh auto;color:#999999;'>该页面被浏览了{{ readnum }}次，感谢您的支持！</view>
+
+
+
+
+
+
+
+
+
+
+
+</view>
+  
+
+
+
+
+</view>

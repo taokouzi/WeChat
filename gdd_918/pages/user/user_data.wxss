@@ -1,0 +1,17 @@
+.row{width:100%;height:auto;}
+.data{width:100%;height:auto;background:#ffffff;}
+
+.data view.clear{font-size:14px;width:90%;margin:auto;height:44px;line-height:44px;border-bottom:1px solid #efefef;}
+.radio{margin-top:10px;margin-right:20px;}
+
+
+.row view text{width:30%;}
+.row view .right,.bri{width:70%;height:100%;line-height:100%;color:#aaaaaa;}
+.picker{color:#aaaaaa;}
+
+.bri{height:44px;line-height:44px;}
+
+.card{width:90%;margin:auto;border-bottom:1px solid #efefef;}
+.row .data .card text{display: block;font-size:14px;height:44px;line-height:44px;}
+.row .data .card image{width:100%;min-height: 350rpx;height:350rpx;margin-bottom:5px;border-radius:5px;}
+.data4{padding-bottom:20px;}

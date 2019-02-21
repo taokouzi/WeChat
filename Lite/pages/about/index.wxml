@@ -1,0 +1,20 @@
+<!--pages/about/index.wxml-->
+<view class='about'>
+  
+  <view class='inf'>  
+    <image class='logo' src='./images/logo.png'></image>
+    <view style='margin-top:2vh;'>版本：v1.1.0</view>
+    <view>更新时间：2018年12月13日</view>
+  </view>
+
+
+  <view class='me' style='margin:10vh auto;'>
+    <view>开发者：讨口子（洲际春天广场业主）</view>
+    <view>咨询建议/广告投放/BUG修复 请加微信：two21992</view>
+    <view>（加v备注来意）</view>
+  </view>
+
+  <view class='oth' style='margin-top:10vh;color:#999999;font-size:20rpx;'>该小程序为个人无偿义务开发，与小区开发商及物业公司没有关系哦</view>
+  
+  <view style='color:#999999;font-size:20rpx;'>该页面被浏览了{{ readnum }}次，感谢您的支持！</view>
+</view>

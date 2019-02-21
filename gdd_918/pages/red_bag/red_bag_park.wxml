@@ -1,0 +1,60 @@
+<!--pages/red_bag_park/index.wxml-->
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class='center90'>
+
+    <!-- 上传侧后方45°车照 -->
+    <view class='camera_park camera'>
+        <text>上传路边停车照</text>
+        <view>
+          <image class= "show-image" name='parkImg' bindtap="parkChange" mode="widthFix" src="{{parkSrc}}"></image>
+        </view>
+    </view>
+
+    <view class='red smoll num1' style='line-height:34px;'>*汽车侧后方45°照片</view> 
+</view>
+
+
+<button form-type="submit"  data-statu="open" style='width:90%;margin:0 auto;margin-bottom:20px;background:#008be6;color:#fff;' type='default'>提交</button>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 背景蒙层 -->
+<view class="drawer_screen" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}"> 
+
+  <image src='images/red_bg.png' class='saoma_bg' style='height:{{redHeight}}px;padding:20px 0;'></image>
+
+  <view class='saomaRed_box'>
+      <view class="saoma_kou">
+          <image src='images/hua.png'></image>
+      </view> 
+
+      <view class='saoma_text'>恭喜你获得一个红包奖励</view>
+
+      <view wx:if="{{ red_over }}" style='font-size:15px !important;letter-spacing: 1px;' class="saoma_num">{{money_num}}</view>
+      <view wx:else class="saoma_num">￥{{money_num}}元</view>
+
+      <view class="btn_ok" >
+          <image bindtap="powerDrawer" data-statu="close" src='images/ok.png'></image>
+      </view> 
+
+      <view class='saoma_footer'>本次任务结束后到账</view>
+  </view>
+
+
+</view>

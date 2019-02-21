@@ -1,0 +1,226 @@
+<!--index.wxml-->
+
+<!--9011错误代码-->
+<!-- <view style='width:100%; text-align:center;font-size:14px;margin-top:100px;' wx:if="{{ is9011 }}"> 
+    <view>代码：9011</view>
+</view> -->
+
+
+<!--正式用户1（资料认证完成 选择任务完成 上刊扫码未完成） 当前任务-->
+<view wx:if="{{ is_task == '1' && is_test == '0' && is_guest == '1' }}">
+  <view class='view'>
+      <text class="title hui block">当前任务</text>
+      <view class="task_link">  
+            <view class='task'>{{ scan_task.task_name }}</view>   
+            <image src="{{ pic_url }}{{ scan_task.pic_head }}" class="slide-image" mode="aspectFill"/>
+
+            <!--我的接单详情回显 -->
+            <view class='my_ord'>
+                <view class='clear'><text class='left hui'>服务网点：</text><text class='right hui'>{{ scan_task.store_name }}</text></view>
+                <view class='clear'><text class='left hui'>网点地址：</text><text class='right hui'>{{ scan_task.address }}</text></view>
+                <view class='clear'><text class='left hui'>网点电话：</text>
+                    <text bindtap='call_me' id="{{tel01}}" class='right hui'>{{ tel01 }}</text>
+                </view>
+                <view class='clear'><text class='left hui'>预约时间：</text><text class='right hui'>{{ ord_date }} {{ scan_task.ord_times }}</text></view>
+            </view>
+      </view> 
+  </view>
+
+  <view class='row_hui'></view>
+
+  <view class='view'>
+      <text class="title hui block">开始任务</text>
+
+      <view class='sys'>
+          <image bindtap='saoma' src="images/sys1.png" class="sys-image" mode="aspectFill"/>
+          <view>安装扫码</view>
+      </view>
+
+  </view>
+
+</view>
+
+
+
+<!--正式用户2（资料认证完成 选择任务未完成 上刊扫码未完成）-->
+<view style='width:100%; text-align:center;font-size:14px;margin-top:100px;' wx:if="{{ is_guest == '1' && is_task == '0' }}"> 
+    <view>您当前还没有选择任务哦~</view>
+    <navigator bindtap='go_task' hover-class="none"  class='lan' style="margin-top:20px;text-decoration:underline">  
+      好的，我马上去选择
+    </navigator>
+</view>
+
+
+
+<!--正式用户3（资料认证完成/审核中... 选择任务未完成 上刊扫码未完成）-->
+<view style='width:100%; text-align:center;font-size:14px;margin-top:100px;' wx:if="{{ is_guest == '2' }}"> 
+    <view>资料审核中，没有收益展示哦~</view>
+    <navigator bindtap='go_shenhe' hover-class="none"  class='lan' style="margin-top:20px;text-decoration:underline">  
+      好的，知道了
+    </navigator>
+</view>
+
+
+
+<!--游客身份 （资料认证未完成 选择任务未完成 上刊扫码未完成） -->
+<view style='width:100%; text-align:center;font-size:14px;margin-top:100px;' wx:if="{{ is_guest == '0' && is_msg =='0' }}">
+    <view>您当前为游客身份，去认证资料吧~</view>
+    <navigator bindtap='go_user_data' hover-class="none"  class='lan' style="margin-top:20px;text-decoration:underline">  
+      好的，认证资料
+    </navigator>
+</view>
+
+
+
+
+<!--审核未通过回显及原因 -->
+<view style='width:100%; text-align:center;font-size:14px;margin-top:100px;' wx:if="{{ is_guest == '0' && is_msg !='0' }}">
+    <view>您在{{ is_addTime }}提交的资料认证审核未通过</view>
+    <view style='line-height:26px;' wx:if="{{ is_msg !='' }}">具体原因如下：</view>
+    
+    <view class='hui' style='font-size:13px;margin-top:10px;width:80%;margin:0 auto;' wx:for="{{ is_msg }}" wx:key="*that" >
+      <text>{{ item }}</text>
+    </view>
+    <navigator bindtap='go_user_data' hover-class="none"  class='lan' style="margin-top:20px;text-decoration:underline">  
+      重新认证
+    </navigator>
+</view>
+
+
+
+
+<!--当前收益 （资料认证完成 选择任务完成 上刊扫码完成） -->
+<view wx:if="{{ is_task == '1' && is_test == '1' && is_guest == '1' }}">
+  <view class='center90  _top' style='height:{{winHeight}}rpx'>
+    <text class='profit_'>￥{{profit}}</text>
+    <text wx:if="{{ is_down == 1 }}" style='position:absolute;right:5%;top:32px;font-size:10px;color:#ffffff;'>审核中...</text>
+    <canvas canvas-id="columnCanvas" disable-scroll="true" class="canvas" style='width:100%;height:100%;'></canvas> 
+  </view>
+
+  <!--当前任务  -->
+  <view class='view'>
+
+      <text class="title hui block">当前任务</text>
+
+      <navigator class="task_link" hover-class="none" >  
+            <view class='task'>{{task.task_name}}</view>   
+            <image src="{{ pic_url }}{{ task.pic1 }}" class="slide-image" mode="aspectFill"/>  <!---{{task.pic1}}-->
+      </navigator> 
+      
+  </view>
+
+  <view class='row_hui'></view>
+
+  <!--距离下刊  -->
+  <view class='center90 sy_center'>
+      
+      <!--距离下刊  saoma_interaction-->
+      <navigator wx:if="{{ back_day > 0 && xia_day == -1 }}" class="" url='' hover-class="none">
+          <text class="block bottom_date red2">{{back_day}}<text style='font-size:12px;'> 天</text></text>
+          <text class="block">后撤广告</text>
+      </navigator>
+
+      <!--扫一扫  -->
+      <navigator wx:if="{{ back_day <= 0 && xia_day == -1 }}" class="" bindtap='saoma_down' hover-class="none"  >
+          <image src="images/sys.png" class="slide-image " mode="aspectFill"/>
+          <text class="block">扫码撤广告</text>
+      </navigator>
+
+      <!--扫过码后展示  -->
+      <navigator wx:if="{{ xia_day >= 0 }}" class=""  hover-class="none"  >
+          <!-- <image src="images/sys.png" class="slide-image " mode="aspectFill"/> -->
+          <text class="block bottom_date red2">{{xia_day}}<text style='font-size:12px;'> 天</text></text>
+          <text class="block">已撤广告</text>
+      </navigator>
+
+
+      <navigator class="" url='phb_list' hover-class="none">
+        <image src="images/phb.png" class="slide-image " mode="aspectFill"/>
+        <text class="block">收益排行</text>
+      </navigator>
+
+
+
+      <!--任务已结束 不能点击二次安装  -->
+      <navigator wx:if="{{ back_day <= 0 }}" class="top_kan2" bindtap='top_kan3' url='' hover-class="none">
+        <image src="images/sk2.png" class="slide-image " mode="aspectFill"/>
+        <text class="block">补贴广告</text>
+      </navigator>
+      <!--否则 反之  -->
+      <navigator wx:else class="top_kan2" bindtap='top_kan2' url='' hover-class="none">
+        <image src="images/sk2.png" class="slide-image " mode="aspectFill"/>
+        <text class="block">补贴广告</text>
+      </navigator>
+
+
+
+      <navigator class="" url='charg_rule' hover-class="none">
+        <image src="images/jfgz.png" class="slide-image " mode="aspectFill"/>
+        <text class="block">计费规则</text>
+      </navigator>
+
+
+
+  </view>
+
+  <view class='row_hui'></view>
+
+
+  <!--接下来  -->
+  <view class='service_wd'>
+  
+      <text class='text_title'>接下来</text>
+      
+      <view wx:if="{{ back_day > 0 && xia_day == -1 }}" class='hui2 ser_box jie_xl' style='padding:5px 0;height:auto;'>
+          <view style='width:100%;line-height:20px;font-size:12px;'>当前任务会在{{ back_day }}天后到期哦~ （即{{ endDate }}任务结束）</view>
+      </view>
+
+      <view wx:if="{{ is_down == 1 }}" class='ser_box jie_xl clear'>
+          <view class='left'>您之前的任务已完成了，去接新的订单吧~</view>
+          <view bindtap='go_jied' class='right go_win'>去接单</view>
+      </view>
+
+      <view wx:if="{{ back_day <= 0 && xia_day == -1 }}" class='ser_box jie_xl clear'>
+          <view class='left'>您的任务已到期，赶快去撤广告吧~</view>
+          <view bindtap='saoma_down' class='right go_win'>去完成</view>
+      </view>
+
+      <view wx:if="{{ showView }}" class="ser_box jie_xl clear">
+          <view class='left'>您有红包未领取哦~</view>
+          <navigator url='{{red_bag_link}}' hover-class="none" class='right go_win'>领红包</navigator>
+      </view>
+  </view>
+
+  <view class='row_hui'></view>
+
+
+
+  <!--下刊网点  -->
+  <view class='service_wd'>
+      <text class='text_title'>服务网点</text>
+      <view class='ser_box' >
+
+            <view class='map1 map' wx:for="{{ store }}" wx:key="*that" >
+                <text>{{ item.store_name }}</text>
+                <view class='hui smoll'><image src='images/wz.png' mode="aspectFill"></image><text>{{ item.address }}</text></view>
+                   <!-- <view class='hui smoll'><image src='images/tel.png' mode="aspectFill"></image><text>{{ tel01 }}</text></view>     -->
+                 <view class='hui smoll'>
+                  <image src='images/tel.png' mode="aspectFill"></image>
+                  <text bindtap='call_me' id='{{item}}' style='margin-right:30rpx' wx:for="{{ wd_tel }}" wx:key="*this3">{{ item }}</text>
+                </view> 
+            </view>
+
+      </view>
+  </view>
+
+
+  <!--悬浮的红包  -->
+  <view class="red_bag_box {{showView?'block':'none'}}" wx:for="{{red_bag}}" wx:key="*this2" wx:for-index="index" >
+      <image class='close2' src='{{item.close2}}' bindtap='closeClick'></image>
+      <navigator url='{{red_bag_link}}' hover-class="none">
+          <image class='red_bag rotate' src='{{item.red}}'></image>
+      </navigator>
+  </view>
+
+</view>
+

@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="container cover">
+    <view class="cover_down" catchtap="bindOpenTap" style="bottom:{{coverImg.bottom}}" hidden="{{coverImg.hidden}}"></view>
+    <view class="cover_up" catchtap="bindOpenTap" style="top:{{coverImg.top}}" hidden="{{coverImg.hidden}}"></view>
+</view>

@@ -1,0 +1,255 @@
+<!--index.wxml-->
+<!-- <web-view src="https://www.oneh5.com/mbr_test_wx/index.php"></web-view> -->
+<!-- <navigator url='/pages/login/index'>跳转到登录</navigator> -->
+
+
+<!-- 头部 -->
+<view class='top clear' style="width:100vw;height:26vh;overflow:hidden;position:relative;background-image: url('http://www.oneh5.com/mbr_test/images/idx_main87.png');background-size:100% 100%;">
+
+  <!-- 头像 -->
+  <image class='left' style="width:17vh;height:17vh;margin:3vh 0 0 4vw;background-image: url('http://www.oneh5.com/thq/FLH/backend_api/api/../images/head/05.png');background-size:100% 100%;" src='http://www.oneh5.com/thq/FLH/backend_api/api/../images/head/frame004.png'></image>
+
+  <!-- 昵称 -->
+  <view class='left' style="margin-top:4.5vh; width:65vw; color: rgb(34, 34, 34);">
+    <view class="num1 nick">
+      <text class="num1" style='font-size:18px;font-weight:bold;'>路易（测试）</text>
+      <image style='display:inline-block;width:24px;height:24px;position:relative;top:6px;' class="is_mbr mbr" src='../images/mbr.png'></image>
+    </view>
+    <view class='sF nF' style='line-height:6vh;'>黄金会员：2019-06-28到期</view>
+    <view class='sF nF'>ID：18280078419</view>
+  </view>
+
+  <navigator url='/pages/mbr_init/index' hover-class="none">
+  <image class='mbr87' style='width:28vw;height:12vw;position:absolute;right:7vw;bottom:0;' src='../images/xfhy.png'></image>
+  </navigator>
+
+</view>
+
+
+
+<!-- 导航 -->
+<view class='tabbar' style='100vw;height:70px;'>
+  <view class='left'>
+    <image src='../images/show_num.png'></image>
+    <text class='sF nF'>0</text>
+  </view>
+  <view>
+    <image src='../images/go_cz.png'></image>
+    <text class='sF nF'>充值中心</text>
+  </view>
+  <view class='right'>
+    <image src='../images/show_level.png'></image>
+    <text class='sF nF'>成长等级</text>
+  </view>
+</view>
+
+<view class='line'></view>
+
+<!-- banner -->
+<swiper class='idx_banner'
+  autoplay="true" interval="3500" duration="300" circular='true'>
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class='line'></view>
+
+
+
+<!-- 盒子 -->
+<view id='moduBox'>
+
+  <!-- 模块1 -->
+  <view class="modu modu1">
+    <view class="idx_sign">
+      <view class="clear">
+        <view class="left title modu_title"><text class='icon' style='background:url(http://www.oneh5.com/mbr_test/images/titl.png)no-repeat center;background-size:100% 100%;'></text>超值会员</view>
+        <navigator class="right title none0" data-imgherf="" href="">更多></navigator>
+      </view>
+      
+      <view class="clear" style='width: 94vw;'>
+
+        <view class='list'>
+          <navigator style="position:relative;" class="" href="./panicBuyDtl3.php?goods_id=73" data-href="">
+            <text style="" class="iSpan p_have"></text>
+            <image alt="" src="http://www.oneh5.com/thq/FLH/backend_api/api/../images/upload/20180822/lj3.png"></image>
+            <view class="modu_center clear">
+              <view class="modu_text num1 nF sF">舞台剧VIP门票</view>
+              <view class="modu_bbz num1 nF sF">88800贝贝值</view>
+            </view>
+          </navigator>
+        </view>
+        
+      </view>
+    </view>
+    <view class='line'></view>
+  </view>
+
+
+
+  <!-- 模块2 -->
+  <view class="modu modu2">
+    <view class="idx_sign">
+      <view class="clear">
+        <view class="left title modu_title"><text class='icon' style='background:url(http://www.oneh5.com/mbr_test/images/titl.png)no-repeat center;background-size:100% 100%;'></text>超值会员</view>
+        <navigator class="right title nones" data-imgherf="" href="">更多></navigator>
+      </view>
+      
+      <view class="clear" style='width: 94vw;'>
+        <view class='list'>
+          <navigator style="position:relative;" class="" href="./panicBuyDtl3.php?goods_id=73" data-href="">
+            <text style="background:url(http://www.oneh5.com/mbr_test/images/p_over.png)no-repeat center;background-size:100% 100%;" class="iSpan"></text>
+            <image alt="" src="http://www.oneh5.com/thq/FLH/backend_api/api/../images/upload/20180822/lj3.png"></image>
+            <view class="modu_center clear">
+              <view class="modu_text num1  nF sF">舞台剧VIP门票</view>
+              <view class="modu_bbz num1  nF sF">88800贝贝值</view>
+            </view>
+          </navigator>
+        </view>
+
+        <view class='list'>
+          <navigator style="position:relative;" class="" href="./panicBuyDtl3.php?goods_id=73" data-href="">
+            <text style="background:url(http://www.oneh5.com/mbr_test/images/p_over.png)no-repeat center;background-size:100% 100%;" class="iSpan"></text>
+            <image alt="" src="http://www.oneh5.com/thq/FLH/backend_api/api/../images/upload/20180822/lj3.png"></image>
+            <view class="modu_center clear">
+              <view class="modu_text num1 nF sF">舞台剧VIP门票</view>
+              <view class="modu_bbz num1 nF sF">88800贝贝值</view>
+            </view>
+          </navigator>
+        </view>
+
+        <view class='list'>
+          <navigator style="position:relative;" class="" href="./panicBuyDtl3.php?goods_id=73" data-href="">
+            <text style="background:url(http://www.oneh5.com/mbr_test/images/p_over.png)no-repeat center;background-size:100% 100%;" class="iSpan"></text>
+            <image alt="" src="http://www.oneh5.com/thq/FLH/backend_api/api/../images/upload/20180822/lj3.png"></image>
+            <view class="modu_center clear">
+              <view class="modu_text num1  nF sF">舞台剧VIP门票</view>
+              <view class="modu_bbz num1  nF sF">88800贝贝值</view>
+            </view>
+          </navigator>
+        </view>
+
+
+        <view class='list'>
+          <navigator style="position:relative;" class="" href="./panicBuyDtl3.php?goods_id=73" data-href="">
+            <text style="background:url(http://www.oneh5.com/mbr_test/images/p_over.png)no-repeat center;background-size:100% 100%;" class="iSpan"></text>
+            <image alt="" src="http://www.oneh5.com/thq/FLH/backend_api/api/../images/upload/20180822/lj3.png"></image>
+            <view class="modu_center clear">
+              <view class="modu_text num1  nF sF">舞台剧VIP门票</view>
+              <view class="modu_bbz num1  nF sF">88800贝贝值</view>
+            </view>
+          </navigator>
+        </view>
+
+      </view>
+    </view>
+    <view class='line'></view>
+  </view>
+
+
+  
+
+  <!-- 模块3 -->
+  <view class="modu modu3">
+    <view class="idx_sign">
+      <view class="clear">
+        <view class="left title modu_title"><text class='icon' style='background:url(http://www.oneh5.com/mbr_test/images/titl.png)no-repeat center;background-size:100% 100%;'></text>超值会员</view>
+        <navigator class="right title nones" data-imgherf="" href="">更多></navigator>
+      </view>
+      
+      <view class="clear" style='width: 94vw;'>
+        <view class='list'>
+          <navigator style="position:relative;" class="" href="./panicBuyDtl3.php?goods_id=73" data-href="">
+            <text style="" class="iSpan p_have"></text>
+            <image alt="" src="http://www.oneh5.com/thq/FLH/backend_api/api/../images/upload/20180822/lj3.png"></image>
+            <view class="modu_center clear">
+              <view class="modu_text num1  nF sF">舞台剧VIP门票</view>
+              <view class="modu_bbz num1  nF sF">88800贝贝值</view>
+            </view>
+          </navigator>
+        </view>
+
+        <view class='list'>
+          <navigator style="position:relative;" class="" href="./panicBuyDtl3.php?goods_id=73" data-href="">
+            <text style="" class="iSpan p_have"></text>
+            <image alt="" src="http://www.oneh5.com/thq/FLH/backend_api/api/../images/upload/20180822/lj3.png"></image>
+            <view class="modu_center clear">
+              <view class="modu_text num1 nF sF">舞台剧VIP门票</view>
+              <view class="modu_bbz num1 nF sF">88800贝贝值</view>
+            </view>
+          </navigator>
+        </view>
+
+        <view class='list'>
+          <navigator style="position:relative;" class="" href="./panicBuyDtl3.php?goods_id=73" data-href="">
+            <text style="" class="iSpan p_have"></text>
+            <image alt="" src="http://www.oneh5.com/thq/FLH/backend_api/api/../images/upload/20180822/lj3.png"></image>
+            <view class="modu_center clear">
+              <view class="modu_text num1 nF sF">舞台剧VIP门票</view>
+              <view class="modu_bbz num1 nF sF">88800贝贝值</view>
+            </view>
+          </navigator>
+        </view>
+
+        <view class='list'>
+          <navigator style="position:relative;" class="" href="./panicBuyDtl3.php?goods_id=73" data-href="">
+            <text style="" class="iSpan p_have"></text>
+            <image alt="" src="http://www.oneh5.com/thq/FLH/backend_api/api/../images/upload/20180822/lj3.png"></image>
+            <view class="modu_center clear">
+              <view class="modu_text num1 nF sF">舞台剧VIP门票</view>
+              <view class="modu_bbz num1 nF sF">88800贝贝值</view>
+            </view>
+          </navigator>
+        </view>
+
+        <view class='list'>
+          <navigator style="position:relative;" class="" href="./panicBuyDtl3.php?goods_id=73" data-href="">
+            <text style="" class="iSpan p_have"></text>
+            <image alt="" src="http://www.oneh5.com/thq/FLH/backend_api/api/../images/upload/20180822/lj3.png"></image>
+            <view class="modu_center clear">
+              <view class="modu_text num1 nF sF">舞台剧VIP门票</view>
+              <view class="modu_bbz num1 nF sF">88800贝贝值</view>
+            </view>
+          </navigator>
+        </view>
+
+        <view class='list'>
+          <navigator style="position:relative;" class="" href="./panicBuyDtl3.php?goods_id=73" data-href="">
+            <text style="" class="iSpan p_have"></text>
+            <image alt="" src="http://www.oneh5.com/thq/FLH/backend_api/api/../images/upload/20180822/lj3.png"></image>
+            <view class="modu_center clear">
+              <view class="modu_text num1 nF sF">舞台剧VIP门票</view>
+              <view class="modu_bbz num1 nF sF">88800贝贝值</view>
+            </view>
+          </navigator>
+        </view>
+
+      </view>
+    </view>
+    <view class='line'></view>
+  </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+</view>
+
+<!-- 
+<import src="../wxParse/wxParse.wxml"/>
+<template is="wxParse" data="{{wxParseData:tCenter.nodes}}"/> -->

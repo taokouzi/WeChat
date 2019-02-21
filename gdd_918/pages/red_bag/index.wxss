@@ -1,0 +1,28 @@
+/* pages/red_bag/index.wxss */
+
+
+.body{background:#e4e4e4;height:100%;width:100%;}
+
+.list{height:auto;width:90%;margin:20rpx auto;}
+.list navigator{height:44px;line-height:44px;font-size:14px;border-bottom:1px solid #efefef;}
+.jiant{margin-top:15px;width:14px;height:14px;margin-left:20rpx;color:#aaaaaa;}
+
+
+.list_li text.left{font-size:14px;}
+
+.list_notice .bai{width:18px;height:18px;margin-top:13px;border-radius: 50%;background:#F22C21;text-align:center;line-height:18px;font-size:14px;}
+.list_data .red{font-size:12px;}
+.sh_type{width:auto;font-size:12px;position: absolute;top:0;right:5%;}
+
+
+@media screen and (min-width:320px) and (max-width: 374px){
+  .top_right view{line-height:40px;}
+}
+
+.list_li{height:100%;}
+.red_icon{width:20px;height:20px;margin-right:15px;margin-top:11px;}
+
+
+
+
+

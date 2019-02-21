@@ -1,0 +1,19 @@
+{
+	"pages": [
+		"pages/index/index",
+		"pages/grobred/grobred",
+		"pages/tarry/tarry",
+		"pages/wheel/wheel",
+		"pages/forum/forum"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "转盘来了",
+		"navigationBarTextStyle": "white",
+		"navigationStyle": "custom"
+	},
+	"networkTimeout":{
+		"request": "10000"
+	}
+}

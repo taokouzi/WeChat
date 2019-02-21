@@ -1,0 +1,19 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/open/open",
+    "pages/logs/logs",
+    "pages/list/list",
+    "pages/form/form"
+  ],
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "优惠猎手PRO",
+    "navigationBarTextStyle":"black"
+  }
+}

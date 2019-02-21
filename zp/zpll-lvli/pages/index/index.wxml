@@ -1,0 +1,27 @@
+<view class="content" wx:if='{{isShowPage}}'>
+	<view class='bg-img'>
+		<image src='../wheel/image/indexbg.jpg'></image>
+	</view>
+	<view class='bg-color'></view>
+	<view class='hint-box'>
+		<view class='hint-icon'>
+			<image src='../wheel/image/alert_notice.png'></image>
+		</view>
+		<view class='order-time'>
+			<view class='hint-1'>活动将于<text class='hint-red-1'>{{endTime}}</text>开启</view>
+			<view class='hint-2'>丰厚奖品等着你哟</view>
+			<view class='hint-2'>倒计时 <text class='hint-red-2'>{{count_down}}</text></view>
+			<!--<view class='hint-3'>(倒计时结束，自动跳入抽奖页)</view>-->
+		</view>
+	</view>
+	
+	<!--<view class='activity-state'>
+		<view class='state-title'>活动说明</view>
+		<view>1.活动每天抽奖,红包抽完后活动结束</view>
+		<view>2.每日3次机会；公众号里回复 “转盘来了”,每日可领取1次转盘机会；邀请好友每人领取1次转盘机会</view>
+		<view>3.红包及时到帐(现金红包0.3元以上可以提现),实物中奖后请24小时内完善邮寄地址,主办方将在1周内寄出奖品</view>
+		<view>4.参与本活动前须用户同意授权信息(有疑问,上论坛寻找帮助)</view>
+		<view>5.每次抽奖会积累冬瓜茶,积满一罐必中奖品</view>
+		<view>6.倒计时结束自动跳入抽奖页</view>
+	</view>-->
+</view>

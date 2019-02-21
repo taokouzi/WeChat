@@ -1,0 +1,48 @@
+<view style='position:fixed;top:0;height:50px;line-height:50px;left:0;right:0;background:#ffffff;z-index:999;text-align:center;font-size:15px;padding-top:20px;'>
+  <image bindtap='back' src='../../images/back.png' style='width:15px;height:15px;position:absolute;left:0;top:25px;padding:15px;'></image>
+  <text>抽奖记录</text>
+</view>
+
+<view class='box'>
+
+  <view class='clear' wx:for='{{ 5 }}'>
+
+    <view class='left'>
+        <image src='./images/xie.png' style='position:relative;top:2px;margin-right:4px;width:14px;height:14px;'></image>
+        <text>谢谢参与</text>
+    </view>
+
+    <view class='right'>
+      2018.09.30 10:23:00
+    </view>
+    
+  </view>
+
+  <view class='clear' wx:for='{{ 5 }}'>
+
+    <view class='left'>
+        <image src='./images/zai.png' style='position:relative;top:2px;margin-right:4px;width:14px;height:14px;'></image>
+        <text>再来一次</text>
+    </view>
+
+    <view class='right'>
+      2018.09.30 10:23:00
+    </view>
+
+  </view>
+
+
+  <view class='clear' wx:for='{{ 5 }}'>
+
+    <view class='left'>
+        <image src='./images/red.png' style='position:relative;top:2px;margin-right:4px;width:14px;height:14px;'></image>
+        <text>0.09元</text>
+    </view>
+
+    <view class='right'>
+      2018.09.30 10:23:00
+    </view>
+
+  </view>
+
+</view>

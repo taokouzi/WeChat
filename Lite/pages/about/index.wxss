@@ -1,0 +1,6 @@
+/* pages/about/index.wxss */
+
+.about{width: 95vw;margin:3vh auto;font-size:24rpx;text-align: center;color: #666666;}
+.inf{text-align: center;}
+.logo{width:15vw;height: 15vw;border-radius: 50%;}
+view{line-height:5vh;}

@@ -1,0 +1,31 @@
+<!--pages/fault/index.wxml-->
+
+<form bindsubmit="submitFaultInfoFunc" bindreset="formReset">
+
+  <view class='text'>
+    <text class='text_1'>车位编号：</text>
+    <text>{{car_id}}</text>
+  </view>
+
+  <view class='text'>
+    <text class='text_1'>地锁编号：</text>
+    <text>{{lock_id}}</text>
+  </view>
+
+   <view class='input'>
+    <text>故障类型</text>
+    <picker name='fault_type' bindchange="faultTypeChangeFunc" value="{{type_i}}" range="{{types}}">
+      <view class="picker">{{types[type_i]}}</view>
+    </picker>
+  </view>
+
+   <view class='input'>
+    <text>故障情况</text>
+    <!-- auto-focus -->
+    <textarea name="fault_text" placeholder="请填写故障情况"  />  
+  </view>
+
+  <button form-type="submit" class='my_btn' type='default' style='color: #ffffff;'>提交</button>
+</form>  
+
+  <navigator class='history' url='../fault_history/index' hover-class="none">历史申报</navigator>

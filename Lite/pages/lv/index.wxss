@@ -1,0 +1,5 @@
+/* pages/lv/index.wxss */
+.lv-container{
+  width: 95vw;margin:3vh auto;
+}
+.lv-container view{font-size: 26rpx;line-height:8vh;}

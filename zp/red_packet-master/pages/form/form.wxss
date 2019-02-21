@@ -1,0 +1,129 @@
+.cover{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,.6);
+    z-index:99;
+}
+.cover_img{
+    position:relative;
+    margin:200rpx 50rpx auto;
+    width:650rpx;
+    height:687rpx;
+}
+.btn_cover{
+    position:absolute;
+    left:165rpx;
+    bottom:99rpx;
+    width:320rpx;
+    height:88rpx;
+    line-height:88rpx;
+    font-size:18px;
+    color:#f82b37;
+    background-color:#faeb43;
+    border-radius:3px;
+}
+.form_bg{
+    position:fixed;
+    top:0;left:0;right:0;
+    width:100%;height:100%;
+    background:url('http://hongbao.h5h5h5.cn/BizHall/redApp/images/bg_get.jpg') center center no-repeat;
+    background-size:cover;
+    z-index:9;
+}
+.form_box{
+    margin:305rpx auto auto;
+    padding:0 20rpx;
+    width:640rpx;
+    height:540rpx;
+    background-color:#fff;
+    border:1px solid #ccc;
+}
+.form_title{
+    margin:20px 0 25px 0;
+    width:100%;
+    height:18px;
+    color:#e05549;
+    font-size:18px;
+    font-weight:600;
+    text-align:center;
+    background:url('http://hongbao.h5h5h5.cn/BizHall/redApp/images/img_line.png') center center no-repeat;
+    background-size:100% auto;
+}
+.form_box label{
+    position:relative;
+    margin-bottom:15px;
+    width:100%;
+    height:40px;
+    line-height:40px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    display:block;
+}
+.form_box input{
+    padding:0 15px;
+    width:100%;
+    height:100%;
+    font-size:15px;
+    font-weight:400;
+    color:#333;
+    display:inline-block;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+.form input::-webkit-input-placeholder{
+    color:#999;
+}
+#code{
+    width:415rpx;
+}
+.btn_code{
+    position:absolute;
+    right:0;
+    top:10px;
+    padding:0;
+    width:185rpx;
+    height:22px;
+    line-height:22px;
+    font-size:15px;
+    color:#e05549;
+    background-color:transparent;
+    border-left:1px solid #ccc;
+    border-radius:0;
+    display:inline-block;
+}
+.btn_get{
+    height:49px;
+    line-height:49px;
+    font-size:18px;
+    font-weight:500;
+    color:#fff;
+    background-color:#e05549;
+}
+.form_hint{
+    margin-top:15px;
+    width:100%;
+    text-align:center;
+    font-size:13px;
+    color:#e05549;
+    display:block;
+}
+.hint{
+    position:fixed;
+    top:235px;
+    left:25%;
+    right:25%;
+    width:50%;
+    height:3em;
+    line-height:3em;
+    font-size:14px;
+    text-align:center;
+    color:#fff;
+    background-color:rgba(0,0,0,.6);
+    border-radius:5px;
+    z-index:990;
+}

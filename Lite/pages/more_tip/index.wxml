@@ -1,0 +1,27 @@
+<!--pages/more_tip/index.wxml-->
+<view class='more-container' wx:if='{{ status == 1 }}'>
+  <view class='more_title'>小区地址，邮编</view>
+  <view class='clear'>
+    <view class='more_look left'>浏览量：{{ readnum }}</view>
+    <view class='more_time right'>{{ date }}</view>
+  </view>
+
+  <view class='more'>
+    <view>地址：四川省成都市温江区温泉大道二段177号（洲际春天广场）</view>
+    <view>邮编：611130</view>
+  </view>
+</view>
+
+<view class='more-container' wx:elif='{{ status == 2 }}'>
+  <view class='more_title'>小区QQ群</view>
+  <view class='clear'>
+    <view class='more_look left'>浏览量：{{ readnum }}</view>
+    <view class='more_time right'>{{ date }}</view>
+  </view>
+
+  <view class='more' style='margin-top:1vh;'>
+    <view class='qq'>洲际春天业主官方群：574228186</view>
+    <view class='qq'>洲际春天广场业主①群：199089676</view>
+    <view class='qq'>洲际春天广场业主②群：558939018</view>
+  </view>
+</view>

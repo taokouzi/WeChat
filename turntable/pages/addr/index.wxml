@@ -1,0 +1,66 @@
+<view style='position:fixed;top:0;height:50px;line-height:50px;left:0;right:0;background:#ffffff;z-index:999;text-align:center;font-size:15px;padding-top:20px;'>
+  <image bindtap='back' src='../../images/back.png' style='width:15px;height:15px;position:absolute;left:0;top:25px;padding:15px;'></image>
+  <text>收货地址</text>
+</view>
+
+<view class="row" style='padding-top:5vw;margin-top:70px;'>
+<form bindsubmit="formSubmit" bindreset="formReset">
+ 
+  <view class="data data1 section">
+      <view class='clear'>
+          <text class="left">收货人</text>
+          <input confirm-type="done" name='wname' type='text' value='{{wname}}' class="right" placeholder='请输入收货人真实姓名'/>
+      </view>
+      <view class='clear'>
+          <text class="left">手机号</text>
+          <input confirm-type="done" name='tel' type='number' value='{{tel}}' class="right" placeholder='请输入收货人手机号'/>
+      </view>
+  </view>
+  
+
+  <view class='row_hui'></view>
+
+
+
+  <view class="data data2 section">
+
+      <view class='clear' bindchange="addr">
+         <text class="left">省市区/县</text>
+           <picker mode="region" name='ssx' bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+              <view class="picker">
+                {{region[0]}}，{{region[1]}}，{{region[2]}}
+              </view>
+           </picker>
+      </view>
+      
+      <view class='clear'>
+          <text class="left">详细地址</text>
+          <input confirm-type="done" name='addr' type='text' value='{{addr}}' class="right " placeholder='请输入收货人详细地址'/>
+      </view>
+  </view>
+
+  <view class='row_hui' style='height:40px'></view>
+
+    
+      <button form-type="submit" style='width:90%;margin:20px auto;background:#DC4A4A;color:#fff;box-sizing: border-box;' type='default'>保存</button>
+  </form>  
+
+  <button bindtap='wxAddr' style='width:90%;margin:0 auto;background:#ffffff;color:#00C800;margin-bottom:20px;box-sizing: border-box;' type='default'>
+    <image src='./images/wx.png' style='width:22px;height:22px;margin-right:5px;position:relative;top:4px;'></image>一键导入微信地址
+  </button>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

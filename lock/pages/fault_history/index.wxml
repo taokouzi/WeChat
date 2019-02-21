@@ -1,0 +1,23 @@
+<!--pages/fault_history/index.wxml-->
+
+<view wx:if="{{ is_empty }}" style='width:100%;text-align:center;font-size:13px;line-height:100px;'>
+  {{ empty_text }}
+</view>
+
+<view wx:else>
+  <view class='views' wx:for="{{fault_history}}">
+    <view class='clear'>
+      <text class='left'>{{ item.add_time }}</text>
+      <image style='opacity:0' class='right' src='./images/sele1.png'></image>
+    </view>
+
+    <view class='num1'>{{ item.lock_no }}</view>
+
+    <view class='detail'>
+      <text>{{ item.type_id }}/</text>
+      {{ item.desc }}
+    </view>
+  </view>
+</view>
+
+

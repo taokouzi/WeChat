@@ -1,0 +1,17 @@
+<!--pages/edit_phone/index.wxml-->
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+<view class='center90'>
+    <input class='phone' type='number' bindinput="mobileInputEvent" value="{{ mobile }}" name='tel' placeholder='输入手机号码'></input>
+    
+    <view class='yzmBox clear'>
+        <input class='yzm1 left' type='number' name='code' placeholder='输入验证码'></input>
+        <button class='right' bindtap="verifyCodeEvent" style='min-height:1.4rem;width:35%;height:40px;line-height:40px;font-size:14px;' disabled="{{buttonDisable}}" type='default'>{{verifyCodeTime}}</button>
+    </view>
+
+
+    <button form-type="submit" style='width:100%;background:#008be6;color:#fff;margin-top:30px;' type='default'>提交</button>
+</view>
+
+</form>

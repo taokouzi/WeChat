@@ -1,0 +1,40 @@
+<!--pages/list_cj/index.wxml-->
+<view style='position:fixed;top:0;height:50px;line-height:50px;left:0;right:0;background:#ffffff;z-index:999;text-align:center;font-size:15px;padding-top:20px;'>
+  <image bindtap='back' src='../../images/back.png' style='width:15px;height:15px;position:absolute;left:0;top:25px;padding:15px;'></image>
+  <text>兑换记录</text>
+</view>
+
+<view wx:if="{{ isNot }}" style='text-align:center;font-size:14px;padding-top:20vh;color:#666666;margin-top:70px;'>
+  暂无兑换记录哦~
+</view>
+
+
+<view wx:else style='margin-top:70px;'>
+
+<view wx:for="{{ dh_list }}"  class='box'>
+
+  <view class=''>
+
+    <image class='img' src='{{ item.head_img }}'></image>
+
+    <view class='textB'>
+      <text class='textT'>{{ item.goods_name }}</text>
+      <text class='textJ'>兑换价：{{ item.price }}积分</text>
+    </view>
+    
+  </view>
+
+
+  <view class='clear'>
+
+    <view class='left'>
+        <text>订单号：{{ item.order_id }}</text>
+    </view>
+
+    <view class='right'>{{ item.create_time }}</view>
+  </view>
+
+
+</view>
+
+</view>

@@ -1,0 +1,8 @@
+/* pages/cooperation/index.wxss */
+.center90{width: 94vw;margin:0 auto;}
+.about{margin:15px 0;}
+
+.about view{font-size:14px;line-height:30px;color: #333333;}
+.about view.hui{font-size:12px;line-height:26px;color: #666666;}
+.about1 view{text-align: center;}
+.about1 view.hui{text-align: left;}

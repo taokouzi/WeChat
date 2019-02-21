@@ -1,0 +1,35 @@
+/* pages/phb_list/index.wxss */
+.phb_top{width:100%;height:150px;position: relative;}
+.phb_top_bg{width:100%;height:150px;position: absolute;top:0;}
+
+
+.user_row{width:100%;}
+.user_row.active{background:#E8F5FE;}
+.user_li{width:90%;margin:0 auto;height:80px;line-height:80px;font-size:14px;border-bottom:1px solid #efefef;}
+.user_icon{width:50px;height:50px;border-radius:50%;margin:0 15px;margin-top:15px;}
+.user_name{width:50%;}
+
+.phb_top3{width:80%;margin:0 auto;position:relative;z-index:9999;bottom:-6px;}
+.phb_left,.phb_right{width:30%;display:inline-block;text-align: center;}
+.phb_center{width:40%;display:inline-block;text-align: center;}
+
+.iconBox{position: relative;}
+.iconBox .user_icon{width:60px;height:60px;border:3px solid #6DC0F2;}
+.iconBox .phb_icon{width:18px;height:18px;position: absolute;bottom:0;right:10%;}
+.iconBox1.iconBox .user_icon{width:80px;height:80px;border:3px solid #6DC0F2;}
+.iconBox1.iconBox .phb_icon{right:20%;}
+
+.phb_top3 .user_socre{line-height:40px;font-weight:bold;}
+
+.phb_center .user_socre{color:#FF4F4F;font-size:14px;}
+.phb_left .user_socre{color:#FE6B21;font-size:14px;}
+.phb_right .user_socre{color:#FFB533;font-size:14px;}
+
+.rank{background:rgba(0,139,230,.2)}
+
+
+@media screen and (min-width:320px) and (max-width: 374px){
+  .phb_top3{width:85%;} 
+  .iconBox .phb_icon{right:5%;}
+  .iconBox1.iconBox .phb_icon{right:10%;}
+}

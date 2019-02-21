@@ -1,0 +1,10 @@
+/* pages/park_history/index.wxss */
+.views{
+  padding:15px 4%;
+  border-bottom: 1px solid #efefef;
+}
+
+.views view{
+  line-height: 24px;
+}
+.views view text{ font-size: 13px; }

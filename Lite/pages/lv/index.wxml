@@ -1,0 +1,13 @@
+<!--pages/lv/index.wxml-->
+<view class='lv-container'>
+  <view>LV1废铁：累计打卡/签到  0-9天</view>
+  <view>LV2青铜：累计打卡/签到  10-39天</view>
+  <view>LV3白银：累计打卡/签到  40-79天</view>
+  <view>LV4黄金：累计打卡/签到  80-159天</view>
+  <view>LV5铂金：累计打卡/签到  160-319天</view>
+  <view>LV6钻石：累计打卡/签到  320-639天</view>
+  <view>LV7王者：累计打卡/签到  >=640天</view>
+</view>
+<!-- 烂铁10、青铜20、白银40、黄金80、铂金160、钻石320、王者640 -->
+
+<view style='margin-top:10vh;color:#999999;font-size:24rpx;padding-left:2vh;'>浏览量：{{ readnum }}</view>

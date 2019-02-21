@@ -1,0 +1,5 @@
+<!--pages/auth/index.wxml-->
+
+<button type='primary' bindtap='authUserFunc' style='width:90vw;margin:0 auto;margin-top:20vw;' open-type='getUserInfo'>用户授权</button>
+
+<button type='primary' bindtap='authUserFunc' style='width:90vw;margin:0 auto;margin-top:10vw;' open-type='getUserInfo'>位置授权</button>

@@ -1,0 +1,151 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.nick text{font-size: 18px;}
+@media screen and (max-width: 320px) {
+  .nick text{font-size: 16px}
+}
+
+
+.mbr87 {
+    animation: mymove 3s infinite;
+    -webkit-animation: mymove 3s infinite;
+}
+@-webkit-keyframes mymove {
+0% { 
+  -webkit-transform: translateY(0);
+}
+50% {
+  -webkit-transform: translateY(5px);
+}
+100%{
+  -webkit-transform: translateY(0);
+}
+}
+@keyframes mymove {
+0% { 
+  -webkit-transform: translateY(0);
+}
+50% {
+  -webkit-transform: translateY(5px);
+}
+100%{
+  -webkit-transform: translateY(0);
+}
+}
+
+.tabbar>view{
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  /* height: 60px; */
+  margin-top: 5px;
+  border-right: 1px solid #efefef;
+  box-sizing: border-box;
+}
+.tabbar>view:nth-of-type(3){
+  border-right: 1px solid transparent;
+}
+.tabbar>view>image{
+  width: 30px;
+  height: 30px;
+  margin: 4px auto 5px auto;
+  /* padding-top:4px; */
+}
+.tabbar>view text.nF{
+  display: block;
+  font-size: 12px;
+}
+.idx_banner{
+  width: 100vw;
+  height: 25vw;
+}
+.idx_banner image{width: 100%;height: 100%;}
+
+
+
+
+.icon{
+   display: inline-block;
+    position: relative;
+    width: 14px;
+    height: 14px;
+    top: 2px;
+    margin-right: 5px;
+}
+
+
+
+
+
+
+.modu1 .list{
+  width: 100%;
+  height: 100%;
+  
+}
+
+.modu1 .list .modu_text{float: left;}
+.modu1 .list .modu_bbz{float: right;}
+
+.modu1 .list image{
+  width:100%;height:35vw;border-radius: 4px;
+    overflow: hidden;
+}
+
+
+.modu2 .list{
+  display: inline-block;
+  text-align: center;
+  width: 46vw;
+  height: 100%;
+  margin-bottom:6px;
+}
+.modu2 .list:nth-of-type(2n+1){
+  float: left;
+}
+.modu2 .list:nth-of-type(2n+2){
+  float: right;
+}
+.modu2 .list image{
+  width:100%;height:29vw;border-radius: 4px;
+    overflow: hidden;
+}
+
+.modu3{text-align: center;}
+.modu3 .list{
+  display: inline-block;
+  text-align: center;
+  width: 30vw;
+  height: 100%;
+  margin-bottom: 4px;
+}
+.modu3 .list:nth-of-type(3n+1){
+  float: left;
+}
+.modu3 .list:nth-of-type(3n+3){
+  float: right;
+}
+.modu3 .list image{
+  width:100%;height:29vw;border-radius: 4px;
+    overflow: hidden;
+}

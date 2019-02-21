@@ -1,0 +1,133 @@
+<!--初次进入说明提示-->
+<view class='winning' wx:if='{{!isHasUserid}}' style='z-index: 10'>
+    <view class='winning-box' style='height: 752rpx;top: 322rpx;background: linear-gradient(#0EC055, #559697);'>
+		<view class='over-hint' style='padding: 20rpx 30rpx;font-size: 32rpx;text-align: left'>
+			<view class='sm-ling'> 
+				<view wx:for='{{note}}' wx:key='note'>{{item}}</view>	
+			</view>
+		</view>
+		<view style='margin-top: 18rpx;' class='get-btn' bindtap='fnCloseNoWing'>
+			<button open-type='getUserInfo' data-isgree='1' bindgetuserinfo='fnDecodeUserMsg'>我同意</button>
+		</view>
+    </view>
+</view>
+
+<view class='content' wx:if='{{isOpenRedMsgView}}'>
+	<view class='msg-page-bg'>
+		<image src='../wheel/image/bg.png'></image>
+	</view>
+	<view class='msg-page-content'>
+		<view class='con-top'>
+			<view class='money-bg'>
+				<image src='../wheel/image/moneybg.png'></image>
+			</view>
+			<view wx:if='{{!activEndDesc}}' class='msg-money'>
+				<view class='surplus-money'>
+					<view class='surplus-money-1'>剩余红包</view>  
+					<view class='surplus-money-2'>{{eq_money/100}} 元</view>
+				</view>
+				<!--<view class='end-time'>
+					<view class='end-time-1'>离活动结束:</view>
+					<view class='end-time-2'>12:10:10</view>
+				</view>-->
+				
+			</view>
+			<view class='end-desc msg-money' wx:else>
+				{{activEndDesc}}
+			</view>
+			<view class='share-btn' wx:if='{{!activEndDesc}}'>
+				<button open-type='share'>分享好友</button>
+			</view>
+			
+		</view>
+		
+		<view class='grab-red-msg'>
+			<view class='note-title'>
+				<view></view>
+				<view>看朋友手气如何</view>
+				<view></view>
+			</view>
+			<!--<view class='grab-lead'>
+				红包已放至您的账户 <text>去提现 ></text>
+			</view>-->
+			<view class='grab-red-list' wx:for='{{grabList}}' wx:key='grabList'>
+				<view class='user-icon'>
+					<image src='{{item.head}}'></image>
+				</view>
+				<view class='user-nick' style='line-height: 44rpx;'>
+					<text class='yellow-text'>{{item.nick}}</text><image wx:if='{{max_index==index+1}}' src='../wheel/image/MVP.png'></image>
+					<text>\n{{item.time}}</text>
+				</view>
+				<view class='grab-red-num'>
+					<text class='yellow-text'>{{item.red_num/100}}元</text>
+				</view>
+			</view>
+		</view>
+
+		<view class='note-text'>
+			<view class='note-title'>
+				<view style='width: 36%'></view>
+				<view style='width: 28%'>活动细则</view>
+				<view style='width: 36%'></view>
+			</view>
+			<view class='note-list-box'>
+				<view>1.红包是“转盘来了”抽奖发给小伙伴的。</view>
+				<view>2.系统按照领取顺序发放一个最大的红包。</view>
+				<view>3.红包小于0.3元存在“转盘来了”账号上；0.3元以上可提现。</view>
+				<view>4.其他未尽事宜，请咨询客服。</view>
+			</view>
+		</view>
+	</view>
+	
+	<view class='back-index-page' bindtap='fnGoIndex'>
+		更多红包
+	</view>
+</view>
+
+<!--抢红包-->
+<view class='grab-red-box' wx:if='{{isOpenGrabRedView}}'>
+	<view class='content-page-bg'>
+		<image src='../wheel/image/indexbg.jpg'></image>
+	</view>
+	<view class='content-page-bg-color'></view>
+	<view class='content-bg'>
+		<image src='../wheel/image/redbg.png'></image>
+	</view>
+	<view class='grab-red-content'>
+		<view class='content-msg'>
+			<view class='send-red-icon'>
+				<image src='{{shareUser.head}}'></image>
+			</view>
+			<view class='send-red-name'>{{shareUser.nick}}</view>
+			<view class='red-rend-hint1'>给你分享了一个红包</view>
+			<view class='grab-btn' bindtap='fnOpenRed'>
+				
+			</view>
+		</view>
+	</view>
+</view>
+<!--显示抢到金额-->
+<view class='grab-red-money' wx:if='{{isOpenMoneyNum}}'>
+	<view class='grab-red-num-content'>
+		<view wx:if='{{!activEndDesc}}'>
+			<view class='grab-red-text-1'>
+				已领取红包
+			</view>
+			<view class='money-num-text'>
+				{{redmoney/100}}元
+			</view>
+			<view class='grab-red-text-2'>
+				已存入余额
+			</view>
+			<view class='check-msg-btn' bindtap='fnCheckRedMsg'>
+				查看详情
+			</view>
+		</view>
+		<view class='end-desc' wx:else>
+			<view>{{activEndDesc}}</view>
+			<view class='check-msg-btn' bindtap='fnGoIndex'>
+				去首页看看
+			</view>
+		</view>
+	</view>
+</view>

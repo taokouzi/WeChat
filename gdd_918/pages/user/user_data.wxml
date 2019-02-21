@@ -1,0 +1,117 @@
+
+<view class="row">
+<form bindsubmit="formSubmit" bindreset="formReset">
+ 
+  <view class="data data1 section">
+
+      <view class='clear'>
+          <text class="left">姓名</text>
+          <input confirm-type="done" name='rename' type='text' value='{{ userDatas.rename }}' class="right uname" placeholder='请输入您的姓名'/>
+      </view>
+
+      <view class='clear'>
+          <text class="left">身份证号码</text>
+          <input confirm-type="done" name='idCard' type='idcard' value='{{ userDatas.id_num }}' class="right idcard" placeholder='请填写您的身份证号码'/>
+      </view>
+
+  </view>
+  
+
+  <view class='row_hui'></view>
+
+
+  <view class="data data2 section">
+
+
+      <view class='clear'>
+          <text class="left">汽车品牌</text>
+          <picker name='car' class='num1' style='width:30%;display:inline-block;' bindtap='clickCar' bindchange="bindPickerChange0" value="{{ brandindex }}" range="{{ brands }}">  
+              <view class="picker num1">{{ brands[brandindex] }}</view>  
+          </picker>
+         <picker name='carModel' class='num1' style='width:40%;display:inline-block;' bindchange="bindPickerChange1" value="{{ brandindex2 }}" range="{{ models }}">  
+              <view class="picker num1">{{ models[brandindex2] }}</view>  
+          </picker>
+      </view>
+
+
+      <view class='clear'>
+          <text class="left">颜色</text>
+          <picker name='color' bindchange="bindColorChange" value="{{indexColor}}" range="{{arrayColor}}">
+            <view class="picker">{{arrayColor[indexColor]}}</view>
+          </picker>
+      </view>
+
+      <view class='clear'>
+          <text class="left">购车年份</text>
+          <picker mode="date" name='year' fields='year' class='right' value="{{buy_date}}" start="2000-01-01" end="{{ buy_car_end_year }}" bindchange="bindBuyCarDateChange">
+              <view class="picker bri">{{buy_date}}</view>
+          </picker>
+      </view>
+
+  </view>
+
+
+  <view class='row_hui'></view>
+
+
+  <view class="data data3 section">
+
+      <view class='clear'>
+          <text class="left">车主类型</text>
+           <radio-group name='carR_style' class="right" bindchange="radioChange">
+              <label class="radio lineB" wx:for="{{car_style}}">
+                <radio style='transform:scale(.8)' value="{{item.name}}" color="{{iconColor}}" checked="{{item.checked}}"/>{{item.value}}
+              </label>
+          </radio-group> 
+      </view>
+
+  </view>
+
+
+  <view class='row_hui'></view>
+
+
+  <view class="data data4 section">
+
+      <view class='card'>
+          <text>驾驶证</text>
+          <view>
+            <image class= "show-image" bindtap="jiashiChange" mode="widthFix" src="{{jiashiSrc}}"></image>
+          </view>
+      </view>
+      <!-- mode="aspectFitf" -->
+      <view class='card'>
+          <text>行驶证</text>
+          <view>
+            <image class= "show-image" bindtap="xingshiChange" mode="widthFix" src="{{xingshiSrc}}"></image>
+          </view>
+      </view>
+
+  </view>
+
+
+
+    
+      <button wx:if="{{ tel != '0' }}" form-type="submit" style='width:90%;margin:0 auto;background:#008be6;color:#fff;margin-bottom:20px;' type='default'>提交</button>
+      <button wx:else form-type="submit" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" style='width:90%;margin:0 auto;background:#008be6;color:#fff;margin-bottom:20px;' type='default'>提交</button>
+      
+  
+  </form>  
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

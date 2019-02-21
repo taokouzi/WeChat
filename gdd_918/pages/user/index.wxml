@@ -1,0 +1,126 @@
+<!--index.wxml-->
+
+<!--9011错误代码-->
+<!-- <view style='width:100%; text-align:center;font-size:14px;margin-top:100px;' wx:if="{{ is9011 }}"> 
+    <view>代码：9011</view>
+</view> -->
+
+<view class='_top'>
+  <view class='top_box'>
+
+    <view class="top_left">
+        <view wx:if="{{ id == 2 }}" class="bai num1 lineB sh_type">审核中...</view>
+        <image class="head_photo" src="{{avatarUrl}}"></image>
+        <text class='num1'>{{nickName}}</text>
+    </view>
+  </view>
+
+  <view class='top_box2'></view>
+
+</view>
+<view class='top_list clear'>
+  <view class="left num1">
+  <view class="hui2">收益总计</view>
+    <text class="lan cash_widthrawal">￥{{ total_red }}</text>
+    
+  </view>
+  <view class='right num1'>
+  <view class="hui2">账户资金</view>
+    <text class="block_funds hui2">￥{{ frozen_red }}</text>
+    
+  </view>
+</view>
+
+<view class='row_hui'></view>
+
+<!--菜单式列表 -->
+<view class="list">
+
+    <navigator url="get_money" hover-class="none" >   
+        <view class="clear list_tel list_li" >
+          <text class="left">提现</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <text class="right hui">￥{{ amount }}</text>
+        </view>
+    </navigator>
+
+    <navigator url="recommend" hover-class="none"> 
+      <view class="clear list_gift list_li" >
+          <text class="left">推荐有奖</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <text class="right"></text>
+        </view>
+    </navigator>
+
+    <navigator url="message_notif" hover-class="none">   
+        <view class="clear list_notice list_li" >
+          <text class="left">提醒通知</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <text class="right bai" wx:if="{{ msg_num > 0 }}" >{{msg_num}}</text>
+        </view>
+    </navigator>
+
+    <navigator bindtap='call_me' hover-class="none">
+        <view class="clear list_agreement list_li" >
+          <text class="left">商家投放广告热线</text>
+           <image class="right jiant" src="images/dayu.png"></image> 
+          <text class="right hui">023-46737885</text>
+        </view>
+    </navigator>
+   </view> 
+
+<view class='row_hui'></view>
+
+<view class="list">
+  <!--点击获取手机号  -->
+    <navigator wx:if="{{ tel == '0' }}" url="" hover-class="none" >   
+        <view class="clear list_tel list_li" >
+          <text class="left">手机号码</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <button  class="right lan btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">手机号授权</button>
+        </view>
+    </navigator>
+    <!--修改手机号  -->
+    <navigator wx:else url="edit_phone?tel={{ tel }}" hover-class="none" >   
+        <view class="clear list_tel list_li">
+          <text class="left">手机号码</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <text  class="right hui">{{ tel }}</text>
+        </view>
+    </navigator>
+
+
+    <!--审核中  -->
+    <navigator wx:if="{{ id == 2 }}" hover-class="none" bindtap='shenhe_data'>   
+        <view class="clear list_data list_li" >
+          <text class="left">认证资料</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <text style='font-size:12px;' class="right hui">审核中</text>
+        </view>
+    </navigator>
+
+    <navigator wx:else url="user_data?id={{ id }}&from=user_center" hover-class="none">   
+        <view class="clear list_data list_li" >
+          <text class="left">认证资料</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <text class="right red" wx:if="{{ id == 0 }}"></text>  <!--is_invite完善领红包-->
+        </view>
+    </navigator>
+
+    <navigator url="profit_history" hover-class="none">   
+        <view class="clear list_history list_li" >
+          <text class="left">历史收益</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <text class="right"></text>
+        </view>
+    </navigator>
+
+    <navigator url="about" hover-class="none">   
+        <view class="clear list_agreement list_li" >
+          <text class="left">合作协议</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <text class="right"></text>
+        </view>
+    </navigator>
+
+</view>

@@ -1,0 +1,309 @@
+<view wx:if="{{ is_login == 1 }}" >
+
+<scroll-view 
+  class="map" 
+
+  bindscrolltoupper="upper" 
+  bindscrolltolower="lower" 
+  bindscroll="scroll" 
+  
+  scroll-x="true" 
+  scroll-y="true" 
+  bindtouchstart="touchstartCallback"  
+  bindtouchmove="touchmoveCallback" 
+  bindtouchend="touchendCallback" >
+    <image bindload="mapOnLoadFunc" made='widthFix' style="min-width:{{ min_w }}px;min-height:{{ min_h }}px;zoom:{{stv.scale}};" src="{{ maps.map }}">
+
+      <!-- 车位   -->
+       <view class='car_box'>
+
+         <view wx:for="{{car_datas}}">   
+
+
+          <!-- company_id匹配时 则正常显示 -->
+           <view
+            class='car car{{ item.status }}' 
+            style='font-size:8rpx;left: {{ item.location[0]*coef }}px;top: {{ item.location[1]*coef }}px;width:{{ item.location[2]*coef }}px;height:{{ item.location[3]*coef }}px;transform:rotate( -{{ item.location[4] }}deg);' 
+            >
+              <image 
+                data-status='{{ item.status }}' 
+                id="{{item.parking_no}}" 
+                data-type='{{item.parking_type}}' 
+                data-size='{{item.parking_size}}' 
+                data-ln='{{item.lock_no}}' 
+                bindtap='showCarFunc'
+                style='width:100%;height:100%;' 
+                src='./images/bg_s.png'></image>
+
+                <!-- ==8 别人预约的    == 19 自己预约的  -->
+                <text wx:if='{{ item.status == 8 || item.status == 19 }}' style='font-size:0.5rem;width:200%;height:200%;display:block;transform:scale(0.45);position: relative;top:-15rpx;'>{{ item.parking_no }} 
+                 <text style='position: relative;top:10rpx;padding:0 2px;border-radius: 50%;border:1px solid #000;'>预</text> 
+                </text>
+
+                 <!-- ==16/17 自己停车  -->
+                <text wx:elif='{{ item.status == 16 || item.status == 17 }}' style='font-size:0.5rem;width:200%;height:200%;display:block;transform:scale(0.45);position: relative;top:-15rpx;'>{{ item.parking_no }} 
+                 <text style='position: relative;top:10rpx;padding:0 2px;border-radius: 50%;border:1px solid #000;'>停</text>  
+                </text>
+
+
+                 <text wx:else style='font-size:0.5rem;width:200%;height:200%;display:block;transform:scale(0.45);position: relative;top:-5rpx'>{{ item.parking_no }}</text>
+                
+          </view> 
+          <!-- company_id不匹配时 默认灰色（休眠中）状态 -->
+           <!-- <view 
+            wx:else 
+            class='car car4' 
+            style='font-size:8rpx;left: {{ item.location[0]*coef }}px;top: {{ item.location[1]*coef }}px;width:{{ item.location[2]*coef }}px;height:{{ item.location[3]*coef }}px;transform:rotate( -{{ item.location[4] }}deg);' 
+            >
+              <image 
+                data-status='4' 
+                id="{{item.parking_no}}" 
+                data-type='{{item.parking_type}}' 
+                data-size='{{item.parking_size}}' 
+                data-ln='{{item.lock_no}}' 
+                bindtap='showCarFunc' 
+                style='width:100%;height:100%;' 
+                src='./images/bg_s.png'></image>
+
+               <text style='font-size:0.5rem;width:200%;height:200%;display:block;transform:scale(0.45);position: relative;top:-5rpx'>{{ item.parking_no }}</text> 
+          </view> -->
+
+         </view>
+      </view>  
+    </image>
+</scroll-view>
+
+
+
+
+<view class="shadow_p9" bindtap='cnmFunc' id='{{alert_id}}' wx:if="{{ is_pass }}"></view>
+
+
+
+<!--车位详情  -->
+
+<!--蒙层  -->
+<view class="shadow_p1" data-status='{{ car_status }}' bindtap="hideCarFunc" wx:if="{{showCarStatus}}"></view>
+
+<view class='car_m car_m{{ car_status }}' animation="{{animationCar}}" wx:if="{{showCarStatus}}">
+
+  <text class='car_title num1'>{{ car_title }}</text>
+
+  <!--使用情况  -->
+  <view class='clear car_t car_status'>
+    <text class='left num1'>使用情况</text>
+    <text class='right num1 car_{{ car_status }}'>{{ car_made_status[car_status] }}</text>
+  </view>
+
+  <!--车位大小  -->
+  <view class='clear car_t car_size'>
+    <text class='left num1'>车位大小</text>
+    <text class='right num1'>{{ car_size }}</text>
+  </view>
+
+  <!--车位类型  -->
+  <view class='clear car_t car_style'>
+    <text class='left num1'>车位类型</text>
+    <!-- <text class='right num1' wx:if="{{ car_type == 12  || car_type == 0 }}">普通车位</text>
+    <text class='right num1' wx:elif="{{ car_type == 14 }}">领导车位</text>
+    <text class='right num1' wx:elif="{{ car_type == 36 }}">测试车位</text>
+    <text class='right num1' wx:elif="{{ car_type == 37 }}">规划部专用</text>  -->
+    <text class='right num1'>{{ car_type }}</text>
+  </view>
+
+  <!--位置  -->
+  <view class='clear car_t car_position'>
+    <text class='left num1'>位置</text>
+    <text class='right num1'>{{ foor_id }}F</text>
+  </view>
+
+
+  <!-- 状态为1（预约车位） -->
+  <button wx:if="{{ car_status == 1 }}" class='resv_car' data-status="{{ lock_tatus }}" data-id="{{lock_no}}" bindtap='resvCarTimeFunc' type="default" disabled='{{ disabled_type }}'>预约车位</button>
+
+  <!-- 状态为19（取消预约） -->
+  <button wx:if="{{ car_status == 19 }}" class='resv_car' data-status="{{ lock_tatus }}" data-id="{{lock_no}}" bindtap='unResvCarTimeFunc' type="default" disabled='{{ disabled_type }}'>取消预约</button>
+
+
+  <button class='open_lock' disabled='{{ disabled_type }}' data-id='{{ lock_id }}' bindtap='openLockFunc' type="default">{{ lock_name }}</button>
+
+  <button class='fault_declare' disabled='{{ disabled_type }}' data-carid='{{car_title}}' data-lockid='{{lock_no}}' bindtap='faultDeclareFunc' type="default">故障申报</button>
+
+  <button class='close' type="default" data-status='{{ car_status }}' bindtap="hideCarFunc" wx:if="{{showCarStatus}}">取消</button>
+
+</view> 
+
+
+
+
+<!--预约车位时间  -->
+
+<!--蒙层  -->
+<view class="shadow_p2"  bindtap="hideCarTimeFunc" wx:if="{{showCarTimeStatus}}"></view>
+
+<view class='car_y' animation="{{animationCarTime}}" wx:if="{{showCarTimeStatus}}">
+
+  <picker class='y_time' name='comp' bindchange="companyNameChangeFunc2" value="{{ y_time_i }}" range="{{ y_times }}">
+    <view class="picker">{{y_times[y_time_i]}}</view>
+  </picker>
+
+
+  <!--  -->
+  <button wx:if="{{ car_status == 1 }}" class='resv_car' data-time="{{ y_times[y_time_i] }}" data-status="{{ lock_tatus }}" data-id="{{lock_no}}" bindtap='resvCarFunc' type="default">预约车位</button>
+
+   <button class='close' type="default" bindtap="hideCarTimeFunc" wx:if="{{showCarTimeStatus}}">取消</button> 
+
+</view> 
+
+
+
+
+<!--停车场  -->
+<view class='park' bindtap='showParkFunc'>
+  <image class="img" src="./images/park.png"></image>
+</view>
+
+<!--蒙层  -->
+<view class="shadow_p" bindtap="hideParkFunc" wx:if="{{showParkStatus}}"></view>
+
+<!--停车场详情  -->
+<view class='park_m on' animation="{{animationPark}}" wx:if="{{showParkStatus}}">
+    <text class='park_title'>选择停车场</text>
+
+    <radio-group class="group" bindchange="radioParkFunc">
+
+      <view class="label_box" wx:for="{{radioParks}}">
+
+        <radio id="{{item.name}}" hidden value="{{item.name}}||{{ item.area_id }}" checked="{{item.checked}}"></radio>
+
+        <label class="park_name left clear" for="{{item.name}}">
+            <text class='num1 left'>{{item.name}}</text>
+            <image src='./images/sele{{item.checked ? 1: 0}}.png' class="park_icon right"></image>
+        </label>
+
+      </view>
+    </radio-group>
+</view>
+
+
+
+
+<!--楼层  -->
+<view class='foor' bindtap='foorFunc'>
+  <image class="img" src="./images/foor.png"></image>
+</view>
+<view wx:if="{{foor_toggle}}" class='foor_n' hidden='{{foor_isHide}}' bindtap='hideFoorFunc'>
+    <text class='on{{item.checked ? 1: 0}}' id="{{item.name}}" bindtap="radioFoorFunc" wx:for="{{radioFoors}}">{{item.foor_new}}</text>
+</view>
+
+
+
+<view class="map_zoom map_icon_shadow">
+  <image bindtap='enlargeFunc' data-id="{{ stv.scale }}" class="map_zoomin J_prevent" src='./images/jia.png'></image>
+  <image bindtap='narrowFunc' data-id="{{ stv.scale }}" class="map_zoomout J_prevent" src='./images/jian.png'></image>
+</view>
+
+
+
+
+<!--放大  -->
+<view bindtap='enlargeFunc' data-id="{{ stv.scale }}" class='sy none' style='left:90px;'>
+  <view class='sy_n'>+</view>
+  <view>放大</view>
+</view>
+
+<!--缩小  -->
+<view bindtap='narrowFunc' data-id="{{ stv.scale }}" class='sy none' style='left:150px;'>
+  <view class='sy_n'>-</view>
+  <view>缩小</view>
+</view>
+
+
+<!--个人中心  -->
+<!-- <navigator class='user' wx:if="{{ alert_id == 9 }}" url='../user_edit/index' hover-class="none">
+  <image class="img" src="./images/user.png"></image>
+</navigator>
+
+<navigator class='user' wx:else url='../user_info/index' hover-class="none">
+  <image class="img" src="./images/user.png"></image>
+</navigator> -->
+<navigator class='user' url='../user_info/index' hover-class="none">
+  <image class="img" src="./images/user.png"></image>
+</navigator>
+
+
+<!--刷新  -->
+<view class='sx' bindtap='sxFunc'>
+  <image class="img" src="{{ sx_img }}" animation="{{animation}}"></image>
+  <!-- <view>刷新</view> -->
+</view>
+
+
+<!--帮助  -->
+ <navigator class='bz' url='../help/index' hover-class="none"> 
+  <image class="img" src="./images/bz.png"></image>
+  <!-- <view>帮助</view> -->
+</navigator>
+
+
+<!--我预约的  -->
+ <view class='my_yuy' bindtap='myReserveShowFunc'> 
+  <image class="img" src="./images/yuy.png"></image>
+  <!-- <view>预约</view> -->
+</view>
+
+
+<!--剩余（可用车位）  -->
+ <view class='sy' bindtap='syCarShowFunc'>
+  <view wx:if='{{ useful }}' class='sy_n'>{{ useful }}</view>
+  <view wx:else class='sy_n'>0</view>
+  <!-- <view>剩余</view> -->
+</view> 
+
+
+
+<!--我的预约 || 剩余车位 -->
+<!--蒙层  -->
+<view class="shadow_my"  bindtap="myReserveHideFunc" wx:if="{{showMyCarStatus}}"></view>
+<view class='car_my' animation="{{animationMyCarTime}}" wx:if="{{showMyCarStatus}}">
+  <view class='my_car_title'>{{my_title}}</view>
+
+    <view wx:if="{{ cars.length > 0 }}">
+      <view class='my_cars'>
+        <view class='my_car' wx:for='{{cars}}'>
+          <image 
+            data-status='{{ item.status }}' 
+            id="{{item.parking_no}}" 
+            data-type='{{item.parking_type}}' 
+            data-size='{{item.parking_size}}' 
+            data-ln='{{item.lock_no}}' 
+            bindtap='showCarFunc' 
+            style='width:100%;height:100%;' 
+            src='./images/bg_s.png'>
+          </image>
+          <text>{{ item.parking_no }}</text> 
+        </view>
+      </view> 
+    </view>
+
+    <view class='my_car_none' wx:else>{{ my_car_none }}</view>
+
+</view> 
+
+ 
+
+
+
+  <!--缩放滑块  -->
+  <!-- <view class="slider_box" style=''>
+        <text>-</text>
+        <slider style='transform:rotate(0deg);display: inline-block;width:100px;position: relative;top:-4px;' bindchange='zoomFunc' bindchanging='zoomFunc' left-icon="cancel" right-icon="success_no_circle" block-color='rgba(44,165,242,.8)' block-size='20' data-id="{{ stv.scale }}" color='#BDBDBD' activeColor='#1E9FFF' value='' min='1' max='4' name="slider" step='0.01'></slider>
+        <text>+</text>
+  </view> -->
+
+
+
+</view>
+
+
+

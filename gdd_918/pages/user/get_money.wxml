@@ -1,0 +1,18 @@
+<!--pages/get_money/index.wxml-->
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class='center90'>
+    <view class='money_title'>提现到微信零钱</view>
+
+    <view class='clear money'> 
+        <text class='left'>￥</text>
+        <input type='digit' bindinput="bindTabTap" name="money" value="{{val}}" confirm-type="done" class="left {{inputClass}}" placeholder='可提现{{amount}}元，冻结{{frozen_red}}元'/>
+    </view>
+    <view wx:if="{{ is_tixian_show == '1' }}" style='font-size:10px;margin-bottom:40px;'>最多可提现：<text>{{amount}}元，</text> <text bindtap='totalMoney' class="lan"> 全部提现？</text></view>
+    <view wx:else style='font-size:10px;margin-bottom:40px;'>您当前无可提现资金</view>
+
+    <button form-type="submit" wx:if="{{ is_show_btn == 1 }}" style='width:100%;margin:20px auto;background:#008be6;color:#fff;' type='default'>确认提现</button> 
+    <button wx:else disabled style='width:100%;margin:20px auto;' type='default'>确认提现</button> 
+
+</view>
+</form>

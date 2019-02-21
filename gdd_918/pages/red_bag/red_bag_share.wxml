@@ -1,0 +1,63 @@
+<!--pages/red_bag_share/index.wxml-->
+
+<view class='center90'>
+
+    <view class="share_link">  
+          <view class='share'>{{ share.task_name }}</view>   
+          <image src="{{ shareRedImgUrl }}{{ share.pic1 }}" class="slide-image" mode="aspectFill"/>
+          <view class='hui smoll num1'>最大收益：
+              <text class='red'>￥{{ share.max_money }}元</text>
+          </view>
+          <view class='hui smoll num1'>任务说明：</view>
+          <view class='kong hui smoll'>{{ share.explain }}</view>
+    </view> 
+
+    <!--<button style='width:100%;background:#008be6;color:#fff;margin-top:20px;' data-statu="open" bindtap='powerDrawer'  type='default'>分享领红包</button>-->
+
+   <button wx:if="{{ share.share_min_num-share.share_num > 0 }}" style='width:100%;background:#008be6;color:#fff;margin-top:20px;' data-statu="open" open-type="share" bindtap='Page.onShareAppMessage()'  type='default'>分享到群{{ share.share_min_num-share.share_num }}次领红包</button>
+  
+  <button wx:else style='width:100%;background:#008be6;color:#fff;margin-top:20px;' data-statu="open" open-type="share" bindtap='Page.onShareAppMessage()'  type='default'>分享</button>
+
+    <!--<view class='red smoll num1' style='line-height:34px;'>*需要分享{{ share.share_min_num }}次才能完成领取</view> -->
+</view>
+
+
+
+
+
+
+
+
+
+<!-- 背景蒙层 -->
+<view class="drawer_screen" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}"> 
+
+  <image src='images/red_bg.png' class='saoma_bg' style='height:{{redHeight}}px;padding:20px 0;'></image>
+
+  <view class='saomaRed_box'>
+      <view class="saoma_kou">
+          <image src='images/hua.png'></image>
+      </view> 
+
+      <view class='saoma_text'>恭喜你获得一个红包奖励</view>
+
+
+      <view wx:if="{{ red_over }}" style='font-size:15px !important;letter-spacing: 1px;' class="saoma_num">{{money_num}}</view>
+      <view wx:else class="saoma_num">￥{{money_num}}元</view>
+
+      <view class="btn_ok" >
+          <image bindtap="powerDrawer" data-statu="close" src='images/ok.png'></image>
+      </view> 
+
+      <view class='saoma_footer'>本次任务结束后到账</view>
+  </view>
+
+
+</view>
+
+
+
+

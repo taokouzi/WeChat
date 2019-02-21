@@ -1,0 +1,58 @@
+/* pages/top_reserve/index.wxss */
+
+.swiper {
+  height: 300rpx;
+  width: 100%;
+}
+.banner_link,.swiper image {
+  height: 100%;
+  width: 100%;
+}
+.swiper .wx-swiper-dot{
+    width:6px;
+    height:6px;
+    border-radius: 50%;
+}
+.swiper .wx-swiper-dots.wx-swiper-dots-horizontal{
+     margin-left:280rpx;
+}
+
+
+.service_wd,.service_time{
+  width:90%;
+  margin: 30rpx auto;
+  height:auto;
+  font-size: 14px;flex-grow: 2;color: #B0B0B0;line-height:24px;
+ }
+.service_wd .text_title,.service_time .text_title{
+  display: block;
+  width:100%;
+  border-bottom:1px solid #efefef;
+   /* padding-bottom:5px; */
+  font-size:14px;
+  line-height:38px;
+}
+.ser_box,.map{margin:10px 0;}
+.hui.smoll{line-height:30px;}
+.hui.smoll image{width:18px;height:18px;position:relative;top:4px;}
+.hui.smoll text{margin-left:5px;}
+
+.topDate,.topTime{width:45%;height:40px;}
+.ser_box.clear{height:40px;}
+.picker{width:100%;height:40px;line-height:40px;text-align: center;background:#efefef;border-radius:5px;}
+
+.shengy_sum{margin-bottom:50px;width:100%;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

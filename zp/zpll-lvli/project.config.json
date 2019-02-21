@@ -1,0 +1,78 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.0",
+	"appid": "wxe51ad4724b0dc13b",
+	"projectname": "%E8%BD%AC%E7%9B%98",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 4,
+			"list": [
+				{
+					"id": 0,
+					"name": "绿力渠道进入",
+					"pathName": "pages/index/index",
+					"query": "ditch=1"
+				},
+				{
+					"id": 1,
+					"name": "乐园渠道进入",
+					"pathName": "pages/index/index",
+					"query": "ditch=2"
+				},
+				{
+					"id": 2,
+					"name": "分享群",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群0",
+						"shareName": "nf0F7S3Hn8HZduVddHBi9319g44aiYQsqVbyX5atSyM@cr4dev",
+						"shareKey": "B2aacq5nGy-zqeMA9aG4qd4sMmjhhiP26TMoqKBWSslKL7LBNjb6rFY_7Gw_raTsj4dmDmWS5kl2ZMwQb9uA2A~~"
+					}
+				},
+				{
+					"id": 3,
+					"name": "带参二维码",
+					"pathName": "pages/index/index",
+					"query": "scene=ditch%3d1",
+					"scene": "1047"
+				},
+				{
+					"id": 4,
+					"name": "抢红包入口",
+					"pathName": "pages/index/index",
+					"query": "sid=a87c0913a7c80da4521750b246aa5c1b&ditch=1&goto=red"
+				}
+			]
+		}
+	}
+}

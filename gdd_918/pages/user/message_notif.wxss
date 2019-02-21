@@ -1,0 +1,31 @@
+/* pages/message_notif/index.wxss */
+
+.swiper {
+  height: 300rpx;
+  width: 100%;
+}
+.banner_link,.swiper image {
+  height: 100%;
+  width: 100%;
+}
+.swiper .wx-swiper-dot{
+    width:6px;
+    height:6px;
+    border-radius: 50%;
+}
+.swiper .wx-swiper-dots.wx-swiper-dots-horizontal{
+     margin-left:280rpx;
+}
+
+
+.center90{margin-top:15px;margin-bottom:15px;}
+.message_title{height:40px;line-height:40px;font-size:14px;border-bottom:1px solid #efefef;}
+.message_name{font-size:15px;line-height:44px;}
+.message_text{font-size:12px;line-height:20px;}
+
+.message_title .right.hui{font-size: 12px;}
+
+
+
+
+

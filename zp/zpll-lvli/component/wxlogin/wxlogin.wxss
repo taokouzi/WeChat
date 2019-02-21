@@ -1,0 +1,59 @@
+.login-box {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+.login-box .accredit-hint {
+	width: 600rpx;
+	height: 300rpx;
+	margin: 0 auto;
+	margin-top: 300rpx;
+	background-color: #FFF;
+	border-radius: 10rpx;
+}
+.login-box .hint-title {
+	font-size: 36rpx;
+	line-height: 90rpx;
+	text-align: center;
+	font-weight: bold;
+}
+.login-box .hint-text {
+	font-size: 32rpx;
+	line-height: 90rpx;
+	text-align: center;
+}
+.login-btn {
+	padding: 0;
+	width: 180rpx;
+	text-align: center;
+	line-height: 70rpx;
+	font-size: 32rpx;
+	background-color: #409eff;
+	color: #FFF;
+	margin: 0 auto;
+	margin-top: 20rpx;
+}
+.login-btn::after{
+	border: none;
+	outline: none;
+}
+.like-num {
+	width: 100%;
+	text-align: left;
+	position: relative;
+	top: -15rpx;
+}
+.like-num image {
+	width: 25rpx;
+	height: 25rpx;
+	vertical-align: middle;
+	padding-left:10rpx;
+}
+.like-num text {
+	font-size:24rpx;
+	margin-left:10rpx;
+	color: #898989
+}

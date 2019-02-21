@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/task_details",
+    "pages/index/top_reserve",
+    "pages/profit/index",
+    "pages/profit/charg_rule",
+    "pages/profit/phb_list",
+    "pages/profit/profit_now",
+    "pages/profit/saoma_interaction",
+    "pages/user/index",
+    "pages/user/get_money",
+    "pages/user/edit_phone",
+    "pages/user/user_data",
+    "pages/user/recommend",
+    "pages/user/profit_history",
+    "pages/user/message_notif",
+    "pages/user/about",
+    "pages/user/profit_details",
+    "pages/red_bag/index",
+    "pages/red_bag/red_bag_adv",
+    "pages/red_bag/red_bag_camera",
+    "pages/red_bag/red_bag_park",
+    "pages/red_bag/red_bag_share",
+    "pages/logs/logs",
+    "pages/profit/saoma_top_list",
+    "pages/profit/saoma_down_list",
+    "pages/profit/saoma",
+    "pages/profit/saoma_interaction_share",
+    "pages/auth/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#008be6",
+    "navigationBarTitleText": "广点点（广告接单平台）",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false
+  },
+  "item": "http://www.189h5.com/images/lgyBanner.png",
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#008be6",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "接单",
+        "iconPath": "images/sy0.png",
+        "selectedIconPath": "images/sy1.png"
+      },
+      {
+        "pagePath": "pages/profit/index",
+        "text": "收益",
+        "iconPath": "images/shyi0.png",
+        "selectedIconPath": "images/shyi1.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "images/wod0.png",
+        "selectedIconPath": "images/wod1.png"
+      }
+    ]
+  }
+}

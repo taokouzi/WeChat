@@ -1,0 +1,9 @@
+/* pages/help/index.wxss */
+.view{
+  width: 92%;
+  margin: 15px auto;
+}
+.text1,.text2{
+  font-size: 12px;
+  line-height: 24px;
+}

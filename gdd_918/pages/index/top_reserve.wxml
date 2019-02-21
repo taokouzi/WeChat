@@ -1,0 +1,65 @@
+<!--pages/top_reserve/index.wxml-->
+<swiper class="swiper" indicator-dots="{{indicatordots}}" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#ccc" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">    
+  <block wx:for="{{pic_arr}}" wx:key="*that" wx:for-index="index">    
+    <swiper-item>    
+      <navigator class="banner_link"  url="" hover-class="none">     
+          <image src="{{ pic_url }}{{ item }}" class="slide-image" mode="aspectFill"/>
+      </navigator> 
+    </swiper-item>  
+  </block>    
+</swiper>   
+
+<view class='row_hui'></view>
+
+
+
+<!--选择 预约上刊网点  <form bindsubmit="formSubmit" bindreset="formReset"></form>-->
+
+
+
+<view class='service_wd'>
+    <text class='text_title'>预约安装网点</text>
+    <view class='ser_box' bindchange='locationChange'>
+
+      <radio-group class='map' bindchange="radioCheckedChange">
+          <view wx:for="{{wzBox}}" wx:key="*that2" wx:for-index="index" >
+            <text class='block'>{{item.store_name}}</text>
+            <label form-type="submit" class="radio lineB smoll hui"  >  
+              <radio value='{{ item.store_id }}' style='transform:scale(.8);' color="#008be6" checked="true" form-type="submit"/>{{item.address}}
+            </label>
+          </view>
+      </radio-group> 
+
+    </view>
+</view>
+
+
+
+
+
+
+<view class='row_hui'></view>
+
+<!--预约上刊时间  -->
+
+<view class='service_time'>
+    <text class='text_title'>预约安装时间</text>
+    <view class='ser_box clear'>
+        <picker mode="date" class='topDate left' value="{{top_date}}" start="{{ front_date }}" end="{{ start_date }}" bindchange="topDateChange">
+            <view class="picker lan">{{top_date}}</view>
+        </picker>
+
+        <!--时间段  -->
+        <picker class='topTime right' value="{{timeIndex}}" range="{{arrayTime}}" bindchange="topTimeChange">
+            <view class="picker lan">{{arrayTime[timeIndex]}}</view>
+        </picker> 
+
+ 
+    </view>
+
+    <view class='red smoll num1 shengy_sum'>*本时段剩余可预约车辆：<text>{{can_use}}</text>辆</view> 
+    
+</view>
+
+<button style='width:90%;margin:0 auto;background:#008be6;color:#fff;margin-bottom:20px;' type='default' bindtap='sk_submit' >提交</button>
+

@@ -1,0 +1,35 @@
+/* pages/fault_history/index.wxss */
+.views{
+  padding:15px 4%;
+  font-size: 13px;
+  border-bottom: 1px solid #efefef;
+}
+.views view{
+  line-height:26px;
+}
+view.clear{
+  height: 26px;
+}
+image.right{
+  width: 18px;
+  height: 18px;
+  margin-top: 6px;
+}
+.views view.detail{
+  line-height: 20px;
+  color: #aaa;
+}
+
+.detail text{
+  color:#D81E07;
+} 
+
+
+
+
+
+
+
+
+
+

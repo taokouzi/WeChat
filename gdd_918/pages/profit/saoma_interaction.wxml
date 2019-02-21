@@ -1,0 +1,20 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class='center90'>
+
+    <!-- 上传侧后方45°车照 -->
+    <view class='camera_task camera'>
+        <text>上传任务中车辆照</text>
+        <view>
+
+          <image class= "show-image" name='parkImg' bindtap="taskChange" mode="widthFix" src="{{taskSrc}}"></image>
+
+        </view>
+    </view>
+
+    <view class='red smoll num1' style='line-height:34px;'>*汽车侧后方45°照片</view> 
+</view>
+
+
+<button form-type="submit"  data-statu="open" style='width:90%;margin:0 auto;margin-bottom:20px;background:#008be6;color:#fff;' type='default'>提交</button>
+
+</form>

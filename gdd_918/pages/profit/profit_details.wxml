@@ -1,0 +1,19 @@
+
+<view class='center90'>
+
+    <!--收益构成  -->
+    <view class='rule'>
+
+      <view class='rule_title'>
+          <image src='images/shu.png'></image>
+          <text class='rule_name'>收益构成</text>
+      </view>
+      <view class='rule_center'>
+          <view class='hui'>基础收益：50元（最大收益￥1000）</view>
+          <view class='hui'>里程：0.01元/km（≤1w公里）</view>
+          <view class='hui'>订单：5元/单（≤1000单）</view>
+      </view>
+      
+    </view>
+    
+</view>

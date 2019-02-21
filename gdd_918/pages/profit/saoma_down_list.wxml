@@ -1,0 +1,43 @@
+<!--pages/profit/saoma_top_list.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class='center90'>
+
+    <!-- 上传侧后方45°车照 -->
+    <view class='camera_car camera'>
+        <text>上传侧后方45°车照</text>
+        <view>
+          <image class= "show-image" bindtap="carPhoto45Change" mode="widthFix" src="{{carphoto45Src}}"></image>
+        </view>
+    </view>
+
+    <!--里程数  -->
+    <view class='camera'>
+        <view class='clear'>
+            <text class='left'>里程数</text>
+            <input type='digit' name='km'  class='right' confirm-type="done" placeholder=""/>
+        </view>
+        <text>上传里程照</text>
+        <view>
+          <image class= "show-image" bindtap="mileageSumChange" mode="widthFix" src="{{mileageSumSrc}}"></image>
+        </view>
+    </view>
+
+    <!--订单数  -->
+    <view class="camera" wx:if="{{ is_wang }}">
+        <view class="clear">
+            <text class='left'>订单数</text>
+            <input type='digit' name='ord' class='right' confirm-type="done" placeholder=""/>
+        </view>
+        <text>上传订单截图</text>
+        <view>
+          <image class= "show-image" bindtap="orderSumChange" mode="widthFix" src="{{orderSumSrc}}"></image>
+        </view>
+    </view>
+
+
+</view>
+
+
+<button data-statu="open" form-type="submit" style='width:90%;margin:0 auto;background:#008be6;color:#fff;margin-bottom:20px;' type='default'>提交</button>
+
+</form>

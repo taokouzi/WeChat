@@ -1,0 +1,109 @@
+<view wx:if="{{ is_show == '0' }}"></view>
+<view wx:else class='center90'>
+
+    <!--收益构成  -->
+    <view class='rule'>
+
+      <view class='rule_title'>
+          <text class='rule_name'>任务收益</text>
+      </view>
+
+      <view class='rule_center'>
+          <view class='hui'>
+            <text class='left'>基础收益：{{ task.init_money }}元</text>
+            <text class='right lan'>{{ task.init_money }}元</text>
+          </view>
+      </view>
+      <view class='rule_center'>
+          <view class='hui'>
+            <text class='left'>里程：{{ task.km_sum }}km*{{ task.km_money }}元/km（≤{{ task.max_km_num }}公里）</text>
+            <text class='right lan'>{{ task.km_sum*task.km_money }}元</text>
+          </view>
+      </view>
+      <view class='rule_center'>
+          <view class='hui'>
+            <text class='left'>订单：{{ task.ord_sum }}单*{{ task.order_money }}元/单（≤{{ task.max_order_num }}单）</text>
+            <text class='right lan'>{{ task.ord_sum*task.order_money }}元</text>
+          </view>
+      </view>
+      
+    </view>
+
+
+    <!--拍照收益  -->
+    <view class='rule' wx:if="{{ camara != '' }}">
+
+      <view class='rule_title'>
+          <text class='rule_name'>拍照收益</text>
+      </view>
+
+      <view class='rule_center' wx:for="{{ camara }}" wx:key="*that" wx:for-index="index" >
+          <view class='hui'>
+            <text class='left'>拍照红包：{{ item.date }}</text>
+            <text class='right lan'>{{ item.red_money }}元</text>
+          </view>
+      </view>
+
+      
+    </view>
+
+    <!--停车收益  -->
+    <view class='rule' wx:if="{{ stop != '' }}">
+
+      <view class='rule_title'>
+          <text class='rule_name'>停车收益</text>
+      </view>
+
+      <view class='rule_center' wx:for="{{ stop }}" wx:key="*that2" wx:for-index="index">
+          <view class='hui'>
+            <text class='left'>停车红包：{{ item.date }}</text>
+            <text class='right lan'>{{ item.red_money }}元</text>
+          </view>
+      </view>
+      
+    </view>
+
+
+
+     <!--广告收益  -->
+    <view class='rule' wx:if="{{ adv != '' }}">
+
+      <view class='rule_title'>
+          <text class='rule_name'>广告收益</text>
+      </view>
+
+      <view class='rule_center' wx:for="{{ adv }}" wx:key="*that2" wx:for-index="index">
+          <view class='hui'>
+            <text class='left'>广告红包：{{ item.date }}</text>
+            <text class='right lan'>{{ item.red_money }}元</text>
+          </view>
+      </view>
+      
+    </view>
+
+
+
+     <!--分享收益  -->
+    <view class='rule' wx:if="{{ share != '' }}">
+
+      <view class='rule_title'>
+          <text class='rule_name'>分享收益</text>
+      </view>
+
+      <view class='rule_center' wx:for="{{ share }}" wx:key="*that2" wx:for-index="index">
+          <view class='hui'>
+            <text class='left'>分享红包：{{ item.date }}</text>
+            <text class='right lan'>{{ item.red_money }}元</text>
+          </view>
+      </view>
+      
+    </view>
+    
+
+    <!--合计  -->
+    <view class='heji'>合计收益：
+        <text class='heji_scores red'>￥{{ all }}</text>
+    </view>
+
+
+</view>

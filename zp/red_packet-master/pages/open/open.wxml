@@ -1,0 +1,3 @@
+<view class="container cover">
+    <image class="cover_img" mode="widthFix" catchtap="bindViewTap" src="{{src}}"></image>
+</view>

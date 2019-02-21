@@ -1,0 +1,70 @@
+/**app.wxss**/
+view,text,button{font-family: '微软雅黑';}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.left{float: left;}
+.right{float: right}
+.clear:after{content: "";display: block;clear: both}
+.none{display: none !important;}
+.inlineB{display: inline-block;font-size: 0;}
+.block{display: block}
+.num1{overflow: hidden;text-overflow: ellipsis;-o-text-overflow: ellipsis;white-space: nowrap; }
+.num2{overflow: hidden;text-overflow: ellipsis;-o-text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical; }
+.num3{overflow: hidden;text-overflow: ellipsis;-o-text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical; }
+.num4{overflow: hidden;text-overflow: ellipsis;-o-text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical; }
+.num5{overflow: hidden;text-overflow: ellipsis;-o-text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical; }
+.num6{overflow: hidden;text-overflow: ellipsis;-o-text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical; }
+.num7{overflow: hidden;text-overflow: ellipsis;-o-text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical; }
+a:hover,a:visited,a:link,a{color:#333;}
+.alignL{text-align: left;}
+.alignR{text-align: right;}
+.alignC{text-align:center;}
+.fff{color: #FEFEFE !important;}
+.red{color:#E60012 !important;}
+.huang{color:#01AE78;}
+.b{border: 1px solid red;box-sizing: border-box;}
+input{-webkit-appearance: none;}
+.indent{text-indent:2em !important;}
+.line{width:100%;height:10px;background:#F4F4F4;}
+.kong{text-indent:20px;}
+.btm_pad{padding-bottom:90px;}
+.line {
+    width: 100%;
+    height: 10px;
+    background: #F4F4F4;
+}
+.nF{font-size: 12px !important;}
+@media screen and (max-width: 320px) {
+  .sF{font-size: 11px !important;}
+}
+view,image{padding: 0;margin:0;}
+image{font-size: 0;}
+.iSpan{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+}
+
+.icon{
+   display: inline-block;
+    position: relative;
+    width: 14px;
+    height: 14px;
+    top: 2px;
+    margin-right: 5px;
+}
+.row_hui {
+width:100%;
+height:12px;
+background:#F4F4F4;
+}

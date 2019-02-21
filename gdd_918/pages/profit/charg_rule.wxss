@@ -1,0 +1,26 @@
+/* pages/charg_rule/index.wxss */
+.rule{margin:10px 0;}
+.rule_name{font-size:15px;line-height:34px;width:100%;}
+.rule_title image{width:6px;height:16px;margin-right:5px;position: relative;top:2px;}
+
+
+.rule_center view{font-size:14px;line-height:26px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

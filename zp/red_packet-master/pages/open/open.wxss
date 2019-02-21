@@ -1,0 +1,12 @@
+.cover{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  height:100%;
+}
+.cover_img{
+  width:90%;
+  height:100%;
+}

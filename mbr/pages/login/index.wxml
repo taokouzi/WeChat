@@ -1,0 +1,18 @@
+<!--pages/login/index.wxml-->
+<form class='l_form' bindsubmit="formSubmit" bindreset="formReset">
+		<view class='label'>
+			<input type='number' class='tel' name='tel' value=''  placeholder='输入手机号码' maxlength='11'></input>
+		</view>
+		<view class='clear label'>
+			<input type='number' class='yzm left' name='code' value='' placeholder='验证码' maxlength='6'></input>
+			<button form-type="submit" data-id='code' class='button right'>{{ text }}</button>
+		</view>
+		
+		<button form-type="submit" data-id='login' class='login'>登录</button> 
+</form>
+
+<view style='margin-top:13vh;width:100%;text-align:center;line-height:6vh;font-size:12px;color:#66666;'>或</view>
+
+<view style='text-align:center;'>
+<button size='mini'  type='primary' style='background-color: transparent !important;border:none;text-decoration: underline;color:#D2AF6B;' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权登录</button>
+</view>

@@ -1,0 +1,6 @@
+<!--pages/shequ/index.wxml-->
+<view class='shequ'>
+  <navigator class='sq-img' wx:for="{{ banner }}">
+    <image src='{{ item.img }}'></image>
+  </navigator>
+</view>

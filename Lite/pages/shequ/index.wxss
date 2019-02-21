@@ -1,0 +1,4 @@
+/* pages/shequ/index.wxss */
+.shequ{width: 95vw;margin:2vh auto;}
+.sq-img{width: 100%;height:36.4vw;margin:2vh auto;}
+.sq-img image{width: 100%;height:100%;border-radius: 2vw;}

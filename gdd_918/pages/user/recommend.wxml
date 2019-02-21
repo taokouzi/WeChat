@@ -1,0 +1,25 @@
+<!--pages/red_bag_share/index.wxml-->
+<view wx:if="{{ is_show == '2' }}" style='width:100%; text-align:center;font-size:14px;margin-top:100px;'>暂无该活动哦~</view>
+<view wx:if="{{ is_show == '1' }}" class='center90'>
+
+    <view class="share_link" >  
+          <view class='share'>{{ shareArr.recommend_adver }}</view>   
+          <image src=" {{ http }}{{ shareArr.recommend_pic }}" class="slide-image" mode="aspectFill"/>
+          <view class='hui smoll num1'>推荐者可得到：
+              <text class='red'>￥{{ shareArr.recommender_red }}元</text>
+          </view>
+          <view class='hui smoll num1'>被推荐者可得到：
+              <text class='red'>￥{{ shareArr.pull_red }}元</text>
+          </view>
+          <view class='hui smoll num1'>发放规则：</view>
+          <view class='kong hui smoll'>
+              被推荐人领取完善认证资料后，双方均可获得推荐奖励金。奖励金直接发放到推荐者和被推荐者的微信钱包。
+          </view>
+    </view> 
+
+    <button bindtap='Page.onShareAppMessage()' open-type='share' style='width:100%;background:#008be6;color:#fff;margin-top:20px;' type='default'>推荐给好友</button>
+
+</view>
+
+
+

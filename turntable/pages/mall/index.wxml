@@ -1,0 +1,20 @@
+<!--pages/active/index.wxml-->
+
+<!-- 积分商城 -->
+<view style='background:#eeeeee;'>
+<scroll-view scroll-y='true' bindscrolltolower='lower' style='height:{{height}}px;margin-top:2vw;' class='clear gf_box'>
+  <view class='gf_li' wx:for="{{ gfs }}" wx:key='index' style='background:#ffffff;width:42vw;border-radius:6px;margin-bottom:2vw;padding:2vw 2vw 0 2vw;'>
+    <image class='' src='{{ item.src }}' style='width:100%;height:42vw;padding:2vw 0;'></image>
+    <text class='block num1' style='font-size:12px;line-height:20px;'>{{ index+1 }}号{{ item.name }}</text>
+    <view class='block num1 clear' style='font-size:12px;line-height:26px;color:#03A9F4;border-bottom:1px solid #eeeeee;'>
+      <view class='left' style='font-weight:bold;'><image src='./images/jf_icon.png' style='width:12px;height:12px;'></image> {{ item.jf }}</view>
+      <text class='right' style='font-size:10px;color:#aaaaaa;text-decoration:line-through;'>{{ item.old }}</text>
+    </view>
+    <view bindtap='excGfFunc' data-name='{{ index+1 }}号{{ item.name }}' style='color:#03A9F4;text-align:center;font-size:13px;line-height:40px;'>
+      <image src='./images/dh_icon.png' style='width:14px;height:14px;position:relative;top:2px;left:-5px;'></image>  立即拥有
+    </view>
+  </view>
+
+</scroll-view>
+
+</view>

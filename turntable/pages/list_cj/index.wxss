@@ -1,0 +1,8 @@
+/* pages/list_cj/index.wxss */
+.box{width: 94vw;margin: 0 auto;margin-top:70px;}
+
+.clear{font-size: 13px;color: #333333;line-height:40px;border-bottom: 1px solid #efefef;}
+
+.left,.right{width:47vw;}
+
+.right{text-align: right;font-size:11px;color: #999999;}

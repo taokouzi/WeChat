@@ -1,0 +1,124 @@
+<!-- 谢谢参与/再来一次 -->
+<view class='{{ isAshow }}' style='position:fixed;bottom:0;top:0;left:0;right:0;z-index:99;'>
+  <text style='position:fixed;bottom:0;top:0;left:0;right:0;background:rgba(0,0,0,.5);'></text>
+  <view class="good_box" animation="{{ animationA  }}" style="width:{{ bus_w }}px;height:{{ bus_h }}px;left: {{bus_x}}px; top: {{bus_y}}px;">
+    <image animation="{{ animationS  }}" style='transform:scale(0)' src="{{ animImg }}"></image>
+  </view>
+</view>
+
+
+<!-- 红包弹窗 -->
+<view class='{{ showRedBox }}' style='position:fixed;bottom:0;top:0;left:0;right:0;z-index:99;'>
+  <text bindtap='closeRedBoxFunc' style='position:fixed;bottom:0;top:0;left:0;right:0;background:rgba(0,0,0,.6);'></text>
+  <view animation="{{animation2}}" style='width:65vw;height:80vw;margin-top:-40vw;margin-left:-32.5vw;display:block;position: absolute;top:50%;left:50%;transform:scale(0.3);overflow:hidden;z-index:100;'>
+      <image style='width:100%;height:100%;' src='./images/red_bg.png'></image>
+      <text style='width:100%;position:absolute;z-index:9;text-align:center;top:22%;left:0;color:#EBCD9A;font-weight:blod;font-size:8vw;'>{{ redT }}</text>
+      <text class='{{ isNone }}' style='width:100%;position:absolute;z-index:9;text-align:center;top:38%;left:0;color:#EBCD9A;font-weight:blod;font-size:2.5vw;'>红包已放入您的账户中</text>
+      <image animation="{{ openAmt }}" bindtap='openRedBoxFunc' style='width:20vw;height:20vw;position:absolute;z-index:9;margin:-10vw 0 0 -10vw;left:50%;top:65%;' src='./images/ok.png'></image>
+  </view>
+</view>
+
+
+<!-- 右侧中奖提示 -->
+<view animation="{{animationTip}}"  style='right:-{{ W }}px;' class='tip num2'>
+  恭喜 <text class='num1' style='max-width:60px;display:inline-block;vertical-align:middle;position:relative;top:-1px;'>{{ tipText.name }}</text> 成功投食“<text style=''>{{ tipText.num }}</text>”，<text>{{ tipText.time }}</text>
+</view>
+
+
+<!-- 规则授权弹窗 -->
+<view class='{{ isUserInfo }}' style='position:fixed;bottom:0;top:0;left:0;right:0;z-index:99;'>
+  <text style='position:fixed;bottom:0;top:0;left:0;right:0;background:rgba(0,0,0,.5);'></text>
+  <view style='width:70vw;height:80vw;text-align:center;border-radius:2vw;background:#ffffff;position:fixed;top:50%;left:50%;margin:-40vw 0 0 -35vw;z-index:100;'>
+    <view style='width:100%;font-size:14px;text-align:center;margin-top:10vw;'>欢迎来到“隔壁投食”社区</view>
+    <image style='width:30vw;height:30vw;margin-top:8vw;' src='./images/logo.png'></image>
+    <button open-type='getUserInfo' bindgetuserinfo="onGotUserInfo" style='width:60%;color:#ffffff;background:#DC4A4A;font-size:14px;border-radius:20px;position:absolute;bottom:10vw;left:20%;'>微信授权</button>
+  </view>
+</view>
+
+
+<view class='_center {{ viewRoll }}'>
+
+<!-- 顶部红包/积分 margin-top:34px;-->
+<view class='clear' style='margin-top:34px;font-size:12px;padding-left:2vw;'>
+<view class='left num1' style='width:36vw;'>
+  <image style='width:14px;height:14px;position:relative;top:2px;' src='./images/rbag.png'></image>
+  <text style='padding-left:4px;'>红包：{{ hb_cnt }}</text>
+</view>
+<view class='left num1' style='width:30vw;'>
+  <image style='width:14px;height:14px;position:relative;top:2px;' src='./images/dh_icon.png'></image>
+  <text style='padding-left:4px;'>积分：{{ jf_cnt }}</text>
+</view>
+</view>
+
+
+<!-- top:70px; -->
+<view style='position:absolute;top:70px;font-size:9px;z-index:3;padding-left:2vw;'>
+  <view>今日剩余<text style='color:#DC4A4A;padding:0 2px;'>{{ jackpot }}</text>份奖品</view>
+  <view style='margin-top:5px;'>你还有<text style='color:#DC4A4A;padding:0 2px;'>{{ cs_cnt }}</text>次机会</view>
+</view>
+
+
+<!-- 转盘 -->
+<view style='position:relative;overflow:hidden;'>
+
+  <image animation="{{animation}}" src='{{ turntable_img }}' data-src='https://h5.laih5.cn/wxprogram/lyhd/zpll/public/static/zp.png?v=1.1.0' style='width:70vw;height:70vw;display:block;margin:4vw auto 1vw auto;'></image>
+
+  <image bindtap='rotate' src='./images/bt.png' style='width:34vw;height:34vw;display:block;margin:-17vw 0 0 -17vw;left:50%;top:52%;position:absolute;'></image>
+</view>
+
+
+<!-- 邀请好友列表 -->
+<view class='clear yq_box'>
+<view style='font-size:11px;text-align:center;margin-bottom:3vw;color:#666666;margin-top:3vw;letter-spacing:.5px;'>每邀请1位新用户即可获赠20积分</view>
+
+<scroll-view scroll-x class='fr_box left'>
+  <view wx:for="{{ frs }}" class='fr_li'>
+    <image style='' src='{{ item }}'></image>
+  </view>
+</scroll-view>
+
+<button class='fr_li right' open-type='share' hover-class="none" style='padding:0;background:none;'>
+  <image style='width:8.5vw;height:8.5vw;border:none;margin-top:2.5vw;' src='./images/j.png'></image>
+</button>
+
+</view>
+
+
+<!-- 轮播广告 -->
+<swiper bindtap='addrFunc' class='idx_banner none'
+  autoplay="true" interval="3500" duration="300" circular='true' style='margin:2vw auto;'>
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150"/>
+      <!-- <ad unit-id="adunit-0564ca87d5e267da"></ad> -->
+    </swiper-item>
+  </block>
+</swiper>
+
+
+
+<!-- 积分商城 -->
+<view style='background:#eeeeee;'>
+<image src='./images/xrzq.png' style='width:100vw;height:10vw;margin-bottom:2vw;'></image>
+
+<view scroll-y='true' class='clear gf_box'>
+  <view class='gf_li' wx:for="{{ goods }}" wx:key='index' style='background:#ffffff;width:43vw;border-radius:6px;margin-bottom:2vw;padding:2vw 2vw 0 2vw;'>
+    <image class='' src='https://oneh5.com/thq/zpll/thq/{{ item.head_img }}' style='width:100%;height:43vw;padding:0;background:#eeeeee;'></image>
+    <text class='block num1' style='font-size:12px;line-height:20px;'>{{ item.goods_name }}</text>
+    <view class='block num1 clear' style='font-size:12px;line-height:26px;color:#DF4948;border-bottom:1px solid #eeeeee;'>
+      <view class='left' style='font-weight:bold;'>
+      <!-- <image src='./images/jf_icon.png' class='none' style='width:12px;height:12px;'></image>  -->
+      ￥{{ item.price/100 }}
+      </view>
+      <text class='right' style='font-size:10px;color:#aaaaaa;text-decoration:line-through;'>原价:￥{{ item.old_price/100 }}</text>
+    </view>
+    <view bindtap='excGfFunc' data-id='{{ item.id }}' data-name='{{ item.goods_name }}' style='color:#DF4948;text-align:center;font-size:13px;line-height:40px;'>
+      <image src='./images/dh_icon.png' style='width:14px;height:14px;position:relative;top:2px;left:0;'></image>  我想食
+    </view>
+  </view>
+
+</view>
+
+</view>
+
+</view>

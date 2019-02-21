@@ -1,0 +1,29 @@
+/* pages/mbr_init/index.wxss */
+.jh_block_list>view{text-align: center;}
+.mbr_money{font-size: 16px;}
+.tc_name{font-size: 12px;}
+
+
+
+@media screen and (max-width: 320px) {
+  .mbr_m_text.sF{font-size: 10px !important;}
+}
+
+.mbr_tq .li{
+  float: left;
+  width: 20%;
+  text-align: center;
+}
+.mbr_tq .li image{
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.mbr_tq .li image+text{
+  display: block;
+  line-height: 30px;
+  font-size: 11px;
+}

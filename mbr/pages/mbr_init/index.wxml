@@ -1,0 +1,109 @@
+<!--pages/mbr_init/index.wxml-->
+
+<view class='mbr_t' style='background:url(http://www.oneh5.com/mbr_test/images/mbr_t.png)no-repeat;background-size:100% 100%;margin-top:0;'>
+  <view class="mbr_card_box c1" style='background:url(http://www.oneh5.com/mbr_test/images/mbr_card1.png)no-repeat;background-size:100% 100%;overflow:visible;'>
+			<image class="userPic2" src="http://www.oneh5.com/thq/FLH/backend_api/api/../images/head/frame004.png" style="background: url(http://www.oneh5.com/thq/FLH/backend_api/api/../images/head/05.png) center center / 100% no-repeat;overflow:visible;"></image>
+			
+			<text class="mbr_img_alt mbr" style='background:url(http://www.oneh5.com/mbr_test/images/mbr.png)no-repeat;background-size:100% 100%;'></text>
+			
+			<view class="mbr_title_box">	
+				<view class="user_name num1">路易（测试）</view>
+				<view class="mbr_title_alt num1">您的会员将于2018-09-18到期</view>
+				<text class="mbr_go_buy" href="javascript:;">立即续费</text>
+			</view>
+
+		</view>
+</view>
+
+
+
+
+<view class="mbr_hj mbr_h_title" style="position: relative;">
+		<view class="title modu_title">
+    <text class='icon' style='background:url(http://www.oneh5.com/mbr_test/images/titl.png)no-repeat center;background-size:100% 100%;'></text>黄金会员
+    </view>
+
+    <view class='clear jh_block_list pay_btn_box'>
+
+      <view class="left on1" style="width:46vw;height:33.5vw;background:url(http://www.oneh5.com/mbr_test/images/mbr_li_bg.png)no-repeat center;background-size:100% 100%;">
+        <navigator href="javascript:;" class="_give buy_com" data-typeid="4" data-t="card_shop" data-id="7">
+          <view class="tc_name num1" style="line-height:6.7vw; margin-top:3.35vw;">90天黄金会员</view>
+          <view class="mbr_money num1" style="line-height:10.05vw;">￥28.00</view>
+          <view class="mbr_m_text num1 nF sF" style="line-height:12.75vw; top:3.35vw;">赠送864贝贝值+
+            <view style="position:relative;display:inline-block;overflow:visible;">22元话费
+              <image class="" style="position:absolute;left:0;top:0;width:35px;height:11.5px;" src="http://www.oneh5.com/mbr_test/images/xshf0.png"></image>
+            </view>
+          </view>
+        </navigator>
+      </view>
+
+
+      <view class="left on2" style="width:46vw;height:33.5vw;background:url(http://www.oneh5.com/mbr_test/images/mbr_li_bg.png)no-repeat center;background-size:100% 100%;">
+        <navigator href="javascript:;" class="_give buy_com" data-typeid="4" data-t="card_shop" data-id="7">
+          <view class="tc_name num1" style="line-height:6.7vw; margin-top:3.35vw;">90天黄金会员</view>
+          <view class="mbr_money num1" style="line-height:10.05vw;">￥28.00</view>
+          <view class="mbr_m_text num1 nF sF" style="line-height:12.75vw; top:3.35vw;">赠送864贝贝值+
+            <view style="position:relative;display:inline-block;overflow:visible;">22元话费
+              <image class="" style="position:absolute;left:0;top:0;width:35px;height:11.5px;" src="http://www.oneh5.com/mbr_test/images/xshf0.png"></image>
+            </view>
+          </view>
+        </navigator>
+      </view>
+
+
+      <view class="left on3" style="width:46vw;height:33.5vw;background:url(http://www.oneh5.com/mbr_test/images/mbr_li_bg.png)no-repeat center;background-size:100% 100%;">
+        <navigator href="javascript:;" class="_give buy_com" data-typeid="4" data-t="card_shop" data-id="7">
+          <view class="tc_name num1" style="line-height:6.7vw; margin-top:3.35vw;">90天黄金会员</view>
+          <view class="mbr_money num1" style="line-height:10.05vw;">￥28.00</view>
+          <view class="mbr_m_text num1 nF sF" style="line-height:12.75vw; top:3.35vw;">赠送864贝贝值+
+            <view style="position:relative;display:inline-block;overflow:visible;">22元话费
+              <image class="" style="position:absolute;left:0;top:0;width:35px;height:11.5px;" src="http://www.oneh5.com/mbr_test/images/xshf0.png"></image>
+            </view>
+          </view>
+        </navigator>
+      </view>
+
+      <view class="left on4" style="width:46vw;height:33.5vw;background:url(http://www.oneh5.com/mbr_test/images/mbr_li_bg.png)no-repeat center;background-size:100% 100%;">
+        <navigator href="javascript:;" class="_give buy_com" data-typeid="4" data-t="card_shop" data-id="7">
+          <view class="tc_name num1" style="line-height:6.7vw; margin-top:3.35vw;">90天黄金会员</view>
+          <view class="mbr_money num1" style="line-height:10.05vw;">￥28.00</view>
+          <view class="mbr_m_text num1 nF sF" style="line-height:12.75vw; top:3.35vw;">赠送864贝贝值+
+            <view style="position:relative;display:inline-block;overflow:visible;">22元话费
+              <image class="" style="position:absolute;left:0;top:0;width:35px;height:11.5px;" src="http://www.oneh5.com/mbr_test/images/xshf0.png"></image>
+            </view>
+          </view>
+        </navigator>
+      </view>
+
+    </view>
+
+</view>
+
+
+
+
+
+
+
+<view class="mbr_tq mbr_h_title" style="position: relative;">
+		<view class="title modu_title">
+    <text class='icon' style='background:url(http://www.oneh5.com/mbr_test/images/titl.png)no-repeat center;background-size:100% 100%;'></text>会员特权
+    </view>
+    
+    <view class='clear'>
+
+
+      <view class='li' wx:for="{{ mbrIcons }}" wx:for-index="i"  data-id="{{ i+1 }}" style="position: relative;">
+				<image wx:if="{{ i == 0 }}" style="position: absolute;width:26px;height:10px;top:6px;right:5%;" src="http://www.oneh5.com/mbr_test/images/xshf1.png" alt=""></image>
+				<navigator url="./mbr_right.php?id=1">
+					<image wx:if="{{ i > 8 }}" src="http://www.oneh5.com/mbr_test/images/mb_icon{{ i+2 }}.png" alt=""></image>
+          <image wx:else src="http://www.oneh5.com/mbr_test/images/mb_icon{{ i+1 }}.png" alt=""></image>
+					<text>{{ item.text }}</text>		
+				</navigator>
+       </view> 
+    </view>
+
+
+
+</view>
+

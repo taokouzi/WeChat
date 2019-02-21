@@ -1,0 +1,16 @@
+<!--pages/about/index.wxml-->
+<view class='top'>
+  <image src='./images/icon.png'></image>
+  <text>容易停 v1.0.3</text>
+</view>
+
+
+
+
+<view class='bottom'>
+  <text>四川通信科研规划设计有限责任公司</text>
+  <text>028-85935227</text>
+  <text>Copyright @2018 SCD</text>
+  <text>All Right Reserved</text>
+</view>
+

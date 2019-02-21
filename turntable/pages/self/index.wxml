@@ -1,0 +1,72 @@
+
+<view class='_top'>
+
+    <view class="top_left">
+        <image class="head_photo" style='border-radius:50%;' src="{{ avatarUrl }}"></image>
+        <text class='num1 fff' style='margin-top:5px;'>{{ nickName }}</text>
+    </view>
+
+</view>
+<view class='top_list clear'>
+  <view class="left num1">
+    <text class="lan cash_widthrawal">{{ hb_num }}</text><text style='font-size:12px;padding-left:2px;'>元</text>
+    <view class="hui2">红包</view>
+  </view>
+  <view class='right num1'>
+    <text class="block_funds hui2">{{ jf_num }}</text><text style='font-size:12px;padding-left:2px;'></text>
+    <view class="hui2">积分</view>
+  </view>
+</view>
+
+<view class='row_hui'></view>
+
+
+<view class="list">
+
+    <view class='navigator' bindtap='txFunc' id='{{ hb_num }}'>   
+        <view class="clear list_history list_li" >
+          <view class="left">
+            <image src='./images/icon1.png' style='width:14px;height:14px;margin-right:5px;position:relative;top:2px;'></image> 提现
+          </view>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <text class="right" style='color:#DF4A49;font-size:12px;'>{{ hb_num }}元</text>
+        </view>
+    </view>
+
+    <navigator url="/pages/list_cj/index" hover-class="none">   
+        <view class="clear list_history list_li" >
+          <view class="left">
+            <image src='./images/icon1.png' style='width:14px;height:14px;margin-right:5px;position:relative;top:2px;'></image> 抽奖记录
+          </view>
+          <image class="right jiant" src="images/dayu.png"></image>
+        </view>
+    </navigator>
+
+    <navigator url="/pages/list_dh/index" hover-class="none">   
+        <view class="clear list_history list_li" >
+          <view class="left">
+            <image src='./images/icon2.png' style='width:14px;height:14px;margin-right:5px;position:relative;top:2px;'></image> 兑换记录
+          </view>
+          <image class="right jiant" src="images/dayu.png"></image>
+        </view>
+    </navigator>
+
+    <navigator url="/pages/addr/index" hover-class="none">   
+        <view class="clear list_agreement list_li" >
+          <view class="left">
+            <image src='./images/icon3.png' style='width:14px;height:14px;margin-right:5px;position:relative;top:2px;'></image> 收货地址
+          </view>
+          <image class="right jiant" src="images/dayu.png"></image>
+        </view>
+    </navigator>
+
+    <navigator url="/pages/rule/index" hover-class="none">   
+        <view class="clear list_history list_li" >
+          <view class="left">
+            <image src='./images/icon4.png' style='width:14px;height:14px;margin-right:5px;position:relative;top:2px;'></image> 规则说明
+          </view>
+          <image class="right jiant" src="images/dayu.png"></image>
+        </view>
+    </navigator>
+
+</view>

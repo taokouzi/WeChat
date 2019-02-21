@@ -1,0 +1,29 @@
+/* pages/about/index.wxss */
+view{
+  width: 92%;
+  margin:0 auto;
+  text-align: center;
+  font-size: 12px;
+}
+
+image{
+  width:100px;
+  height: 100px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+text{
+  display: block;
+}
+.top{
+  margin-top: 20px;
+}
+.bottom{
+  position: fixed;
+  bottom: 30px;
+  left: 4%;
+}
+.bottom text,.top text{
+  line-height: 26px;
+}

@@ -1,0 +1,79 @@
+<!--pages/user/index.wxml-->
+<view class='u-container'>
+<view class='user-top clear'>
+  <view class='left'>
+    <view class='head'><image src='{{ info.head }}'></image></view>
+  <view class='info'>
+    <view class='identity'>
+      <navigator class='lv' url='/pages/lv/index'>LV{{ info.lv }}：{{ info.lv_name }}</navigator>
+    </view>
+    <view class='nick num1'>{{ info.nick }}</view>
+  </view>
+  </view>
+  
+  <view class='right user-right'>
+    <view class='house'>9-1-19**</view>
+    <view bindtap='sign' data-status='{{ sign_status }}' class='play {{ sign_status == "1" ? "ov" : "" }}'>{{ sign_status == "1" ? "今日已打卡" : "点我打卡" }}</view>
+  </view>
+
+</view>
+
+
+
+<view class='users'>
+  <navigator class='user clear'>
+    <view class='left'>
+      <image src='./images/lj.png'></image>
+      <text class='user-title'>累计打卡</text>
+    </view>
+    <!-- <image class="right jiant" src="./images/dayu.png"></image>  -->
+    <view class='user-text right'>{{ info.visit_day_num }}天</view>
+  </navigator>
+
+  <navigator class='user clear' url='/pages/rank/index'>
+    <view class='left'>
+      <image src='./images/da.png'></image>
+      <text class='user-title'>打卡排行</text>
+    </view>
+    <image class="right jiant" src="./images/dayu.png"></image> 
+    <view class='user-text right'>{{ info.mc == 0 ? '暂无排名' : '第'+info.mc+'名' }}</view>
+  </navigator>
+
+
+  <navigator class='user clear'>
+    <view class='left'>
+      <image src='./images/zuo.png'></image>
+      <text class='user-title'>昨日访问量</text>
+    </view>
+    <view class='user-text right'>{{ info.yesterday_num }}</view>
+  </navigator>
+
+
+  <navigator class='user clear'>
+    <view class='left'>
+      <image src='./images/zong.png'></image>
+      <text class='user-title'>总访问量</text>
+    </view>
+    <view class='user-text right'>{{ info.nums }}</view>
+  </navigator>
+
+  <navigator class='user clear' url='/pages/about/index'>
+    <view class='left'>
+      <image src='./images/guan.png'></image>
+      <text class='user-title'>关于</text>
+    </view>
+    <image class="right jiant" src="./images/dayu.png"></image> 
+    <view class='user-text right'></view>
+  </navigator>
+
+
+</view>
+</view>
+
+
+
+<view class='opacity {{ isUf == 1 ? "none" : "" }}'></view>
+<view class='layer {{ isUf == 1 ? "none" : "" }}'>
+  <view>欢迎您，请先授权哦</view>
+  <button open-type='getUserInfo' bindgetuserinfo='getUserInfo'>点我授权</button>
+</view>

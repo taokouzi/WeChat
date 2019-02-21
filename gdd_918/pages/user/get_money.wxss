@@ -1,0 +1,11 @@
+/* pages/get_money/index.wxss */
+
+.money_title{font-size:15px;border-bottom:1px solid #efefef;line-height:50px;}
+
+.money{height:40px;line-height:40px;margin:10px 0;margin-bottom:20px;}
+.money text{font-size:30px;font-weight:bold;}
+
+.money input{display: inline-block;width:85%;height:40px;line-height:40px;padding:0 5px;font-size:14px;color:#000000;}
+.money input.active{font-weight:bold;font-size:30px;}
+
+.money input::-webkit-input-placeholder{color:#f00;} 

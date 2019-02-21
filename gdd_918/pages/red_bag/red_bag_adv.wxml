@@ -1,0 +1,40 @@
+<!--pages/red_bag_adv/index.wxml-->
+<view class='adv' style='height:{{advHeight}}px'>
+    <image class= "show-image" mode="scaleToFill" style='height:100% !important;' src="{{ advRedImgUrl }}{{advSrc}}"></image>
+</view>
+
+
+<button wx:if="{{ share_min_n - share_n > 0 }}" style='width:90%;margin:20px auto;background:#ffffff;' data-statu="open" open-type="share" bindtap='Page.onShareAppMessage()' type='default'>分享到群{{ share_min_n - share_n }}次领红包</button>
+<button wx:else style='width:90%;margin:20px auto;background:#ffffff;' data-statu="open" open-type="share" bindtap='Page.onShareAppMessage()' type='default'>分享</button>
+
+
+
+
+
+<!-- 背景蒙层 -->
+<view class="drawer_screen" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}"> 
+
+  <image src='images/red_bg.png' class='saoma_bg' style='height:{{redHeight}}px;padding:20px 0;'></image>
+
+  <view class='saomaRed_box'>
+      <view class="saoma_kou">
+          <image src='images/hua.png'></image>
+      </view> 
+
+      <view class='saoma_text'>恭喜你获得一个红包奖励</view>
+
+      <view wx:if="{{ red_over }}" style='font-size:15px !important;letter-spacing: 1px;' class="saoma_num">{{money_num}}</view>
+      <view wx:else class="saoma_num">￥{{money_num}}元</view>
+
+      <view class="btn_ok" >
+          <image bindtap="powerDrawer" data-statu="close" src='images/ok.png'></image>
+      </view> 
+
+      <view class='saoma_footer'>本次任务结束后到账</view>
+  </view>
+
+
+</view>

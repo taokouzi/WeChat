@@ -1,0 +1,88 @@
+/* pages/user/index.wxss */
+.left{float: left;}
+.right{float: right}
+.clear:after{content: "";display: block;clear: both}
+.num1{overflow: hidden;text-overflow: ellipsis;-o-text-overflow: ellipsis;white-space: nowrap; }
+.num2{overflow: hidden;text-overflow: ellipsis;-o-text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical; }
+.none{display: none}
+
+.top,.fromBox{
+  padding:0 4%;
+}
+.top{
+  height:150px;
+  /* background: #FF674F; */
+  background: -webkit-linear-gradient(#FF674F, #FF894B); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#FF674F, #FF894B); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#FF674F, #FF894B); /* Firefox 3.6 - 15 */
+  background: linear-gradient(#FF674F, #FF894B); /* 标准的语法 */
+}
+.top image{
+  width:70px;
+  height: 70px;
+  margin-top: 35px;
+  border-radius: 50%;
+  padding: 2px;
+  background: #ffffff;
+}
+.top>.clear{
+  width:80%;
+}
+.userBox{
+  width: 55%;
+  font-size: 12px;
+  margin-left:15px;
+  margin-top:20px;
+}
+.nick{
+  width:100%;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 30px;
+  margin-top:20px;
+  color: #ffffff;
+}
+.style{
+  width:100%;
+  line-height:30px;
+  color: #ffffff;
+}
+.sh_type{
+  font-size: 12px;
+  color:#ffffff;
+  line-height: 140px;
+}
+.car{
+  width:50%;
+  border-radius: 5px;
+}
+.fromBox{
+  font-size: 14px;
+  margin:20px 0 0 0;
+  /* margin-bottom:80px; */
+}
+.fromBox>.clear{
+  line-height: 48px;
+}
+.jiant{margin-top:15px;width:14px;height:14px;margin-left:20rpx;color:#aaaaaa;}
+
+
+.my_btn{
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background: -webkit-linear-gradient(right,#FF674F, #FF894B); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right,#FF674F, #FF894B); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right,#FF674F, #FF894B); /* Firefox 3.6 - 15 */
+  background: linear-gradient(right,#FF674F, #FF894B); /* 标准的语法 */
+}
+
+
+.edit{
+  color: #ffffff;
+  font-size: 14px;
+  text-align: right;
+  position: relative;
+  top: 20px;
+}

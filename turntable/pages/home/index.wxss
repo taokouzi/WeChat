@@ -1,0 +1,131 @@
+.animation-element-wrapper {
+  display: flex;
+  width: 100%;
+  padding-top: 150rpx;
+  padding-bottom: 150rpx;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+._center.on{
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.animation-element {
+  width: 200rpx;
+  height: 200rpx;
+  background-color: #1AAD19;
+}
+.animation-buttons {
+  padding: 30rpx 50rpx 10rpx;
+  width: 100%;
+  height: 600rpx;
+  box-sizing: border-box;
+}
+.animation-button {
+  float: left;
+  line-height: 2;
+  width: 300rpx;
+  margin: 15rpx 12rpx;
+}
+
+.animation-button-reset {
+  width: 620rpx;
+}
+
+
+
+.container2 {height: 100%;display: flex;flex-direction: column;justify-content: space-between;box-sizing: border-box;position: relative;z-index: 10;border-radius:50%;overflow:hidden;top:10vw;
+}
+.scrolltxt{padding:0 20rpx;background:#f8f8f8;}
+.marquee_box {position:relative;color:#333;height:90rpx;display:block;overflow:hidden;} 
+.marquee_text {white-space: nowrap;position:absolute;top:0;font-size:14px;height:90rpx;line-height:90rpx;}
+
+.tip{
+  background:rgba(100,100,100,.9);
+  position: fixed;
+  top:60px;
+  right: -90vw;
+  z-index: 98;
+  color: #ffffff;
+  border-radius:5px;
+  font-size: 8px;
+  padding:2px 4px;
+  opacity: 1;
+  width: 120px;
+}
+
+.fr_box{
+  width: 80vw;
+  display:inline-block;
+  white-space: nowrap;
+}
+
+.fr_li{
+  display: inline-block;
+  width:16vw;
+  height: 13.5vw;
+  text-align: center;
+  overflow: hidden;
+}
+
+button.fr_li::after {
+  border: 0;
+}
+
+
+.fr_li image,button.fr_li{
+  width: 13.5vw;
+  height: 13.5vw;
+  border-radius:2vw;
+  border:1px solid rgba(239,81,69,.5);
+  box-sizing:border-box;
+}
+
+button.fr_li{
+  margin-right: 1.1vw;
+}
+.idx_banner{
+  width: 100vw;
+  height: 30vw;
+}
+.idx_banner image{width: 100%;height: 100%;}
+
+.gf_box,.yq_box{
+  width:96vw;
+  margin:0 auto;
+}
+.gf_box .gf_li:nth-child(2n+1)
+{
+  float: left;
+}
+.gf_box .gf_li:nth-child(2n+2)
+{
+  float: right;
+}
+
+
+
+
+
+
+
+
+.good_box {
+  position: fixed;
+  /* border-radius: 50%; */
+  overflow: hidden;
+  /* left: 50%;
+  top: 50%; */
+  z-index: +99;
+  /* border: 1px solid rgba(0, 116, 255, 0.61); */
+  /* background: rgba(120, 188, 255, 0.2); */
+}
+.good_box image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

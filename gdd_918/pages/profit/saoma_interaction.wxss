@@ -1,0 +1,73 @@
+/* pages/saoma_interaction/index.wxss */
+
+.camera{border-bottom:1px solid #efefef;}
+.camera text,.camera .clear{font-size:14px;height:44px;line-height:44px;}
+.camera image{width:100%;height:350rpx;margin-bottom:5px;border-radius:5px;}
+
+
+
+
+
+/*mask*/
+.drawer_screen { 
+ width: 100%; 
+ height: 100%; 
+ position: fixed; 
+ top: 0; 
+ left: 0; 
+ z-index: 1000; 
+ background: #000; 
+ opacity: 0.6; 
+ overflow: hidden; 
+} 
+  
+/*content*/
+.drawer_box{ 
+ width: 300px; 
+ height:460px;
+ margin:-230px 0 0 -150px;
+ overflow: hidden; 
+ position: fixed; 
+ 
+ top:45%; 
+ left: 50%; 
+ z-index: 1001; 
+ border-radius:5px; 
+} 
+.drawer_box .saoma_bg{
+    width:100%;
+}
+
+.saomaRed_box{position: absolute;top:30px;left:0;width:100%;text-align: center;}
+.btn_ok{text-align: center;width:100%;}
+.btn_ok image{width:200rpx;height:200rpx;}
+
+.saoma_kou{text-align: center;width:100%;margin:10px 0;}
+.saoma_kou image{width:100rpx;height:100rpx;}
+
+.saoma_text{text-align: center;font-size:18px;color:#EBCD99;line-height:40px;letter-spacing:1px;opacity:.9;}
+
+.saoma_num{font-size:40px;font-weight:bold;color:#EBCD99;text-align: center;line-height:60px;margin:10px 0;margin-bottom: 20px;}
+
+.saoma_footer{text-align: center;font-size:12px;color:#EBCD99;line-height:40px;opacity:.4;margin-top:20px;}
+
+
+
+
+
+
+
+@media screen and (min-width:320px) and (max-width: 374px){
+  .saoma_text{font-size:15px;}
+  .saoma_num{font-size:30px;line-height:50px;}
+  .drawer_box{ 
+    width: 260px; 
+    height:380px;
+    margin:-190px 0 0 -130px;
+  }
+  .saoma_footer{margin-top:10px;font-size:10px;}
+
+}
+
+
+

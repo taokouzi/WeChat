@@ -1,0 +1,17 @@
+<!--pages/login/index.wxml-->
+
+<form wx:if="{{ is_wait_end == 1 }}" bindsubmit="formSubmit" bindreset="formReset">
+
+  <input class='text' confirm-type="done" bindinput="mobileInputEvent" name='idTel' type='idTel' value='{{ tel }}' placeholder='输入电话号码' />
+
+
+  <view class='text2 clear'>
+    <input confirm-type="done" name='code' class='left' type='code' value='{{ code }}' placeholder='验证码'/>
+
+    <button bindtap='getCodeFunc' class='my_yzm right' disabled="{{buttonDisable}}" type='default' style='color: #ffffff;'>{{verifyCodeTime}}</button>
+  </view>
+
+
+  <button form-type="submit" class='my_btn' type='default' style='color: #ffffff;'>免密登录</button>
+
+</form>  

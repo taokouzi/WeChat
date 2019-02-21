@@ -1,0 +1,5 @@
+<!--pages/help/index.wxml-->
+<view class='view' wx:for="{{ faq }}">
+  <view class='text1'>{{ item.title }}</view>
+  <view class='text2'>{{ item.content }}</view>
+</view>

@@ -1,0 +1,122 @@
+<!--pages/red_bag/index.wxml-->
+
+<view class="list">
+
+<!-- 拍照红包 -->
+    <navigator wx:if="{{ isCamera && cameraIsZuo == '0' }}" url="red_bag_camera?taskId={{ cameraId }}&activeId={{ cameraActiveId }}&memberId={{ cameraMemberId }}" hover-class="none" >   
+        <view class="clear list_tel list_li" >
+          <image class='red_icon left' src="images/camera.png"></image>
+          <text class="left {{ isCamera?'':'hui' }}">拍照红包</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+        </view>
+    </navigator>
+
+    <navigator wx:if="{{ isCamera && cameraIsZuo == '1' }}" bindtap='cameraTap' hover-class="none" >   
+        <view class="clear list_tel list_li" >
+          <image class='red_icon left' src="images/camera.png"></image>
+          <text class="left {{ isCamera?'':'hui' }}">拍照红包</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <text class="right lan" style='font-size:12px;'>已领取</text>
+        </view>
+    </navigator>
+
+    <navigator wx:if="{{ !isCamera }}" hover-class="none" >   
+        <view class="clear list_tel list_li" >
+          <image class='red_icon left' src="images/camerao.png"></image>
+          <text class="left {{ isCamera?'':'hui' }}">拍照红包</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+        </view>
+    </navigator>
+
+
+
+<!--停车红包  -->
+    <navigator wx:if="{{ isPark && parkIsZuo == '0' }}" url="red_bag_park?taskId={{ parkId }}&activeId={{ parkActiveId }}&memberId={{ parkMemberId }}" hover-class="none" >   
+        <view class="clear list_tel list_li" >
+          <image class='red_icon left' src="images/car.png"></image>
+          <text class="left {{ isPark?'':'hui' }} ">停车红包</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+        </view>
+    </navigator>
+
+    <navigator wx:if="{{ isPark && parkIsZuo == '1' }}" bindtap='parkTap' hover-class="none" >   
+        <view class="clear list_tel list_li" >
+          <image class='red_icon left' src="images/car.png"></image>
+          <text class="left {{ isPark?'':'hui' }} ">停车红包</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <text class="right lan" style='font-size:12px;'>已领取</text>
+        </view>
+    </navigator>
+
+    <navigator wx:if="{{ !isPark }}" hover-class="none" >   
+        <view class="clear list_tel list_li" >
+          <image class='red_icon left' src="images/caro.png"></image>
+          <text class="left {{ isPark?'':'hui' }} ">停车红包</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+        </view>
+    </navigator>
+
+<!--广告红包  -->
+    <navigator wx:if="{{ isAdv }}" url="red_bag_adv?taskId={{ advId }}&activeId={{ advActiveId }}&memberId={{ advMemberId }}" hover-class="none" >   
+        <view class="clear list_tel list_li" >
+          <image class='red_icon left' src="images/guanggao.png"></image>
+          <text class="left {{ isAdv?'':'hui' }}">广告红包</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <text class="right lan" wx:if="{{ advIsZuo == '1' }}" style='font-size:12px;'>已领取</text>
+        </view>
+    </navigator>
+
+    <navigator wx:if="{{ !isAdv }}" hover-class="none" >   
+        <view class="clear list_tel list_li" >
+          <image class='red_icon left' src="images/guanggaoo.png"></image>
+          <text class="left {{ isAdv?'':'hui' }}">广告红包</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+        </view>
+    </navigator>
+
+<!--分享红包  -->
+    <navigator wx:if="{{ isShare }}" url="red_bag_share?taskId={{ shareId }}&activeId={{ shareActiveId }}&memberId={{ shareMemberId }}" hover-class="none" >   
+        <view class="clear list_tel list_li" >
+          <image class='red_icon left' src="images/share.png"></image>
+          <text class="left {{ isShare?'':'hui' }}">分享红包</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+          <text class="right lan" wx:if="{{ shareIsZuo == '1' }}" style='font-size:12px;'>已领取</text>
+        </view>
+    </navigator>
+
+    <navigator wx:if="{{ !isShare }}" hover-class="none" >   
+        <view class="clear list_tel list_li" >
+          <image class='red_icon left' src="images/shareo.png"></image>
+          <text class="left {{ isShare?'':'hui' }}">分享红包</text>
+          <image class="right jiant" src="images/dayu.png"></image>
+        </view>
+    </navigator>
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

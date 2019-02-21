@@ -1,0 +1,419 @@
+<!--背景图-->
+<image style="position:absolute;top:0;left:0; width: 100%; height: 100%;background-color:#000000; " src="image/bg.png"></image>
+
+<!--头像
+<view style="position:absolute;top:50rpx;left:20rpx; width: 60rpx; height: 60rpx; " class="head" bindtap='WinOpen'>
+  <open-data type="userAvatarUrl"></open-data>
+</view>
+<!--昵称->
+<view class="nick" style="position:absolute;top:46rpx;left:100rpx;">
+  <open-data type="userNickName"></open-data>
+</view>
+-->
+
+
+<!--剩余红包-->
+<label class="num" style="position:absolute;top:70rpx;left:0;width:100%;text-align:center;">今日剩余红包:
+  <label class="red_num">{{jackpot/100}}元</label>
+</label>
+
+
+<!--次数-->
+<view style="position:absolute;top:140rpx;left:30%; width: 40%; height: 50rpx;background-color:#000000; border-radius:30rpx;opacity:0.38"></view>
+<image style="position:absolute;top:134rpx;left:32%; width: 55rpx; height: 60rpx; " src='image/gifticon.png'></image>
+<label class="nick" style="position:absolute;top:144rpx;left:5%;width:95%;text-align:center;">您有
+  <label class="num_timer">{{times}}</label> 次机会
+</label>
+
+<!--幸运宝箱-亮-->
+<image bindtap='fnOpenNote' style="position:absolute;top:130rpx;left:40rpx; width: 90rpx; height: 130rpx;" src='image/gift.png'></image>
+<!--幸运宝箱-灰-->
+<scroll-view bindtap='fnOpenNote' animation='{{animMove}}' style="position:absolute;top:148rpx;left:40rpx; width: 90rpx; height: {{hui_height}}rpx; display:block;">
+  <image style="position:absolute;top:0;left:0; width: 90rpx; height: 96rpx; " src='image/gift_hui.png'></image>
+</scroll-view>
+<!--幸运宝箱-闪-->
+<image style="position:absolute;top:130rpx;left:40rpx; width: 90rpx; height: 130rpx; display:{{shine_show}};" src='image/gift_shine.png'></image>
+<!--幸运宝箱-闪-->
+<image style="position:absolute;top:130rpx;left:40rpx; width: 90rpx; height: 130rpx;z-index: {{isShowGift?10:-1}};opactiy:{{isShowGift?1:0}};" src='image/gift_shine.png' animation='{{animMove}}'></image>
+<!--积满有惊喜-->
+<label bindtap='fnOpenNote' class="nick" style="position:absolute;top:266rpx;left:25rpx;width: 120rpx;text-align:center">{{luck_desc}}</label>
+<view bindtap='fnOpenNote' style="position:absolute;top:130rpx;left:40rpx; width: 90rpx; height: 130rpx;z-index: 9"></view>
+
+
+
+
+<view class='content' style="width: 100%;position:absolute;top:13%;">
+  <view class='zp'>
+    <!--<canvas animation='{{animation}}' canvas-id='zp'></canvas>-->
+    <image animation='{{animation}}' class='zp-box' src='{{turntable_img}}'></image>
+    <!--授权登录-->
+    <button wx:if='{{!isHasUserid}}' data-isgree='0' open-type='getUserInfo' bindgetuserinfo='fnDecodeUserMsg' style="width: 168rpx;height: 231rpx;position:absolute;top:232rpx;left:50%;margin-left:-83rpx;background-color: rgba(0,0,0,0)">
+      <image class='zp-zhi' id='turnplate' src='image/turnplate{{!isSpace?1:2}}.png'></image>
+    </button>
+    <!--获取推送id按钮-->
+    <form wx:elif='{{isHasUserid}}' bindsubmit="FormBack" report-submit="true">
+      <button style="width: 168rpx;height: 231rpx;position:absolute;top:232rpx;left:50%;margin-left:-83rpx;background-color: rgba(0,0,0,0)" formType="submit">
+        <image class='zp-zhi' id='turnplate' src='image/turnplate{{!isSpace?1:2}}.png'></image>
+      </button>
+    </form>
+
+    <!--<image bindtap='fnFullClick' style='z-index: {{isShowGift?10:-1}};' id='gift' animation='{{animMove}}' class='gift-icon' src='../../images/zp/gift2.png'></image>-->
+  </view>
+
+  <!--恭喜中奖-->
+  <view class='winning' style='opacity: {{isOpenGet?1:0}};z-index: {{isOpenGet?10:-1}}'>
+    <view class='guang-box'>
+      <image src='./image/guang.png'></image>
+    </view>
+    <view class='winning-box' animation='{{animBox}}'>
+      <view class='title-text'>
+        <image src='./image/hint2.png'></image>
+      </view>
+      <view class='content-text'>
+        <image src='{{winningAward.imgUrl}}'></image>
+        <text style='color: #FFF;'>获得</text>
+        <text style='color: #FF2C2C;'>{{winningAward.title}}</text>
+        <view style='padding-top: 10rpx;'>{{winningAward.desc}}
+          <view style='font-size: 26rpx'>(点击"我的奖品"查看获奖记录)</view>
+        </view>
+      </view>
+      <view class='get-btn' bindtap='fnClickGet'>
+        <image src='./image/btnbg1.png'>
+          <button open-type='contact' session-from='{{ditch}}' wx:if='{{winningAward.awardType == 1 && winningAward.wallet >= 30}}'>点击领取</button>
+		  <button wx:elif='{{winningAward.awardType == 3 || winningAward.awardType == 2}}'>点击领取</button>
+		  <button wx:elif='{{winningAward.awardType == 7}}'>去打开</button>
+		  <button open-type='contact' session-from='{{ditch}}' wx:elif='{{winningAward.awardType != 1}}'>点击领取</button>
+		  <button wx:else>确认</button>
+        </image>
+      </view>
+      <!--<view class='close-btn' bindtap='fnCloseGet'>
+        <image src='image/close.png'></image>
+      </view>-->
+    </view>
+  </view>
+  <!--红包抢完提示-->
+  <view class='winning' style='opacity: {{isOpenHint?1:0}};z-index: {{isOpenHint?10:-1}}'>
+    <view class='winning-box'>
+      <view class='over-hint'>
+        <view>每天上午11点开始抢红包！</view>
+      </view>
+      <view style='margin-top: 50rpx;' class='get-btn' bindtap='fnCloseHint'>
+        <image src='./image/btnbg1.png'>
+          <label>好的</label>
+        </image>
+      </view>
+      <!--<view class='close-btn' bindtap='fnCloseHint'>
+        <image src='image/close.png'></image>
+      </view>-->
+    </view>
+  </view>
+  <!--次数用完提示-->
+  <view class='winning' wx:if='{{isOpenTimes}}' style='z-index: 10'>
+    <view class='winning-box'>
+      <view class='title-text'>
+        <image src='./image/hint1.png'></image>
+      </view>
+      <view class='over-hint'>
+        <view>去「领取奖励」获得更多</view>
+		<view class='week-hint'>每周五有机会获得6.66元</view>
+      </view>
+      <view style='margin-top: 50rpx;' class='get-btn' bindtap='TaskOpen'>
+        <image src='./image/btnbg1.png'>
+          <label>好的</label>
+        </image>
+      </view>
+      <view class='close-btn' bindtap='fnCloseTimesHint'>
+        <image src='image/close.png'></image>
+      </view>
+    </view>
+  </view>
+  <!--未中奖提示-->
+  <view class='winning' wx:if='{{isOpenNoWinnng}}' style='z-index: 10'>
+    <view class='winning-box'>
+      <view class='title-text'>
+        <image src='./image/hint3.png'></image>
+      </view>
+      <view class='over-hint'>
+        <view>差点就中奖了</view>
+      </view>
+      <view style='margin-top: 82rpx;' class='get-btn' bindtap='fnCloseNoWing'>
+        <image src='./image/btnbg1.png'>
+          <label>确认</label>
+        </image>
+      </view>
+      <!--<view class='close-btn' bindtap='fnCloseNoWing'>
+        <image src='image/close.png'></image>
+      </view>-->
+    </view>
+  </view>
+  <!--初次进入说明提示-->
+  <view class='winning' wx:if='{{isFirstPlay || isOpenNote}}' style='z-index: 10'>
+    <view class='winning-box' style='height: 752rpx;top: 322rpx;background: linear-gradient(#0EC055, #559697);'>
+      <view class='over-hint' style='padding: 20rpx 30rpx;font-size: 32rpx;text-align: left'>
+        <view class='sm-ling'> 
+					<view wx:for='{{note}}' wx:key='note'>{{item}}</view>
+					
+				</view>
+      </view>
+      <view style='margin-top: 18rpx;' class='get-btn' bindtap='fnCloseNoWing'>
+        <image src='./image/btnbg1.png'>
+          <button open-type='getUserInfo' wx:if='{{isFirstPlay}}' data-isgree='1' bindgetuserinfo='fnDecodeUserMsg'>我同意</button>
+		  <button wx:else bindtap='fnCloseNote'>确认</button>
+        </image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--下半部分-->
+  <view class='floor'>
+	<view class='join-people'>
+		已有{{joinnum}}人参与
+	</view>
+	<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" vertical='{{vertical}}' circular='{{circular}}'>
+		<block wx:for="{{roll_list}}" wx:key="roll_list">
+			<swiper-item>
+				<text class='msg-nick'>{{item.nick}}</text>
+				<text class='msg-text'>{{item.msg}}</text>
+				<text class='msg-time'>{{item.time}}</text>
+			</swiper-item>
+		</block>
+	</swiper>
+	<view class='btn-group'>
+		<button class='btn-group-1' bindtap="WinOpen">我的奖品</button>
+		<button class='btn-group-2' open-type='getUserInfo' bindgetuserinfo='fnGoComment'>答疑区</button>
+		<button class='btn-group-3' bindtap="FriendOpen">好友动态</button>
+	</view>
+  </view>
+
+<!--邀请奖励按钮-->
+<image style="position:absolute;top:142rpx;right:20rpx;width:120rpx;height:120rpx" bindtap='TaskOpen' src="image/ninquejiangli.png"></image>
+
+<!--我的奖品-->
+<!--<image style="position:absolute;bottom:412rpx;left:20rpx;width:160rpx;height:70rpx" bindtap="WinOpen" src="image/btnbg.png"></image>
+<label style="position:absolute;bottom:412rpx;left:20rpx;width:160rpx;height:70rpx; text-align:center;line-height:70rpx;" bindtap="WinOpen" class="nick">我的奖品</label>-->
+
+<!--参与人数-->
+<!--<label class="nick" style="position:absolute;bottom:420rpx;left:300rpx;">已有{{joinnum}}人参与</label>-->
+
+<!--好友-->
+<!--<image style="position:absolute;bottom:412rpx;right:20rpx;width:160rpx;height:70rpx" bindtap="FriendOpen" src="image/btnbg.png"></image>
+<label style="position:absolute;bottom:412rpx;right:20rpx;width:160rpx;height:70rpx; text-align:center;line-height:70rpx;" bindtap="FriendOpen" class="nick">好友</label>-->
+
+<!--跑马灯-->
+<!--跑马灯背景图-->
+<!--<image style="position:absolute;bottom:190rpx;left:0; width: 100%; height: 220rpx; " src='image/rollbg.png'></image>
+<scroll-view scroll-y style="position:absolute;bottom:200rpx;left:5%; width: 93%;height: 200rpx;">
+  <view wx:for="{{roll_list}}">
+    <label class="list_desc" style="left:1.5%;width:24%;height: 34rpx;text-overflow: ellipsis;white-space: nowrap;overflow : hidden;">{{item.nick}}</label>
+    <label class="list_desc" style="left:9%;width:38%;">{{item.msg}}</label>
+    <label class="list_desc" style="left:12%;width:21%;text-align:right;">{{item.time}}</label>
+  </view>
+</scroll-view>-->
+
+<!--广告<ad style="position:absolute;bottom:0;left:0;" unit-id="adunit-1ff1acdb6c46f55e"></ad>-->
+
+<!--中奖记录-->
+<view style="display:{{win_show}};">
+  <!--遮罩-->
+  <image style="position:absolute;top:0;left:0; width: 100%; height: 100%; background-color:#000000;opacity:0.85;" bindtap='WinClose'></image>
+  <!--列表背景-->
+  <image style="position:absolute;bottom:0;left:3%; width: 94%; height: 630rpx; " src='image/listbg.png'></image>
+  <!--关闭-->
+  <image style="position:absolute;bottom:540rpx;right:4%; width: 90rpx; height: 90rpx;z-index:5 " src='image/close.png' bindtap='WinClose'></image>
+  <!--标题-->
+  <label class="list_tile" style="position:absolute;bottom:562rpx;left:0;width:100%;text-align:center;">中奖记录</label>
+  <!--线-->
+  <label style="position:absolute;bottom:540rpx;left:3%;width:94%;height:1px;background-color:#0C944A;"></label>
+  <!--红包icon-->
+  <image style="position:absolute;bottom:460rpx;left:5%; width:76rpx; height: 76rpx; " src='image/redicon.png'></image>
+  <!--红包数额-->
+  <label class="red" style="position:absolute;bottom:475rpx;left:18%">¥{{wallet/100}}元</label>
+  <!--提现按钮-->
+  <image data-awardtype='1' style="position:absolute;bottom:460rpx;right:4%;width:160rpx;height:70rpx" bindtap="WinNotice" src="image/btnbg.png"></image>
+  <label data-awardtype='1'  style="position:absolute;bottom:460rpx;right:4%;width:160rpx;height:70rpx; text-align:center;line-height:70rpx;" bindtap="WinNotice" class="nick">提现</label>
+  <!--<view class='shuo-ming' bindtap='fnOpenNote'>
+	<image src='image/btnbg.png'>
+		<view>说明</view> 
+	</image>
+  </view>-->
+  <!--内容列表-->
+  <scroll-view scroll-y bindscrolltolower="GetSelfPrizeLog" style="position:absolute;bottom:220rpx;left:5%; width: 90%;height: 200rpx;">
+    <view wx:for="{{win_list}}" wx:key="win_list">
+      <label class="list_desc_win" style="left:2%;width:40%;">{{item.msg}}</label>
+      <label class="list_desc_win" style="left:20%;width:30%;">{{item.time}}</label>
+      <label class="list_desc_win list-get-btn" 
+			 data-awardtype='{{item.awardType}}' 
+			 data-fid='{{item.fid}}' 
+			 data-pid='{{item.pid}}'
+			 data-sid='{{item.sid}}'
+			 data-awardid='{{item.id}}' 
+			 bindtap='WinNotice'
+			 wx:if='{{item.show=="block"}}'
+			 style="left:14%;width:10%;text-align:right;color:#F9D450">
+			 <view>{{item.btn_text}}</view>
+	  </label>
+    </view>
+  </scroll-view>
+  <!--领取提示-->
+  <view class='winning' style='opacity: 1;z-index: 20;display:{{winnotice_show}}'>
+    <view class='winning-box'>
+      <view class='title-text'>
+        <image src='./image/alert_notice.png'></image>
+      </view>
+      <view class='over-hint' style="margin-top:0rpx;">
+        <view>{{winnotice_desc}}</view>
+      </view>
+      <view class='close-btn' bindtap='WinNoticeClose'>
+        <image src='image/close.png'></image>
+      </view>
+      <view class='get-btn' style='margin-top: 66rpx;'>
+        <image src='./image/btnbg1.png'>
+          <button open-type='contact' session-from='{{ditch}}' wx:if='{{isGetRed?wallet>=30?true:false:true}}'>点击领取</button>
+		  <button wx:else bindtap='WinNoticeClose'>确定</button>
+        </image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--好友动态-->
+<view style="display:{{friend_show}}">
+  <!--遮罩-->
+  <image style="position:absolute;top:0;left:0; width: 100%; height: 100%; background-color:#000000;opacity:0.85;" bindtap='FriendClose'></image>
+  <!--列表背景-->
+  <image style="position:absolute;bottom:0;left:3%; width: 94%; height: 630rpx; " src='image/listbg.png'></image>
+  <!--邀请好友提示-->
+  <image style="position:absolute;bottom:596rpx;left:3%; width: 300rpx; height: 124rpx; " src='image/share_notice.png'></image>
+  <!--关闭-->
+  <image style="position:absolute;bottom:540rpx;right:4%; width: 90rpx; height: 90rpx; z-index:5" src='image/close.png' bindtap='FriendClose'></image>
+  <!--标题-->
+  <label class="list_tile" style="position:absolute;bottom:562rpx;left:0;width:100%;text-align:center;">好友动态</label>
+  <!--线-->
+  <label style="position:absolute;bottom:540rpx;left:3%;width:94%;height:1px;background-color:#0C944A;"></label>
+  <!--内容列表-->
+  <scroll-view scroll-y style="position:absolute;bottom:220rpx;left:5%; width: 92%;height: 300rpx;">
+    <view wx:for="{{friend_list}}" wx:key="friend_list">
+      <image class="list_desc_win" style="left:2%;width: 60rpx; height: 60rpx; " class="head" src='{{item.head}}'></image>
+      <label class="list_desc_win" style="left:3.5%;top: -24rpx;width:24%;">{{item.nick}}</label>
+      <label class="list_desc_win" style="left:25%;top: -24rpx;width:38%;text-align:right;">{{item.msg}}</label>
+    </view>
+  </scroll-view>
+</view>
+
+<!--任务列表-->
+<view style="display:{{task_show}}">
+  <!--遮罩-->
+  <image style="position:absolute;top:0;left:0; width: 100%; height: 100%; background-color:#000000;opacity:0.7;" bindtap='TaskClose'></image>
+  <!--列表背景-->
+  <image style="position:absolute;bottom:0;left:3%; width: 94%; height: 630rpx; " src='image/listbg.png'></image>
+  <!--关闭-->
+  <image style="position:absolute;bottom:540rpx;right:4%; width: 90rpx; height: 90rpx; z-index:5" src='image/close.png' bindtap='TaskClose'></image>
+  <!--标题-->
+  <label class="list_tile" style="position:absolute;bottom:562rpx;left:0;width:100%;text-align:center;">领取奖励</label>
+  <!--线-->
+  <label style="position:absolute;bottom:540rpx;left:3%;width:94%;height:1px;background-color:#0C944A;"></label>
+  <!--内容列表-->
+  <scroll-view scroll-y style="position:absolute;bottom:220rpx;left:5%; width: 92%;height: 320rpx;">
+    <view wx:for="{{task_list}}" wx:key="task_list">
+      <!--名称-->
+      <label class="list_desc_win" style="left:1%;width:70%;height:50rpx;">{{item.name}}</label>
+      <!--领取-->
+      <image class="list_desc_win" style="left:7%;width:{{item.ninqu_w}}rpx;height:50rpx;top:16rpx" data-msg='{{item.id}}' bindtap="GetReward" src="image/ninqu.png"></image>
+      <!--分享触发按钮-->
+      <button bindtap='TaskClose' open-type="share" data-taskid="{{item.id}}" class="list_desc_win" style="left:7%;width:{{item.share_w}}rpx;height:50rpx;top:16rpx;border-radius:50rpx;">
+        <image style="width:140rpx;height:50rpx;" src="image/qianwang.png"></image>
+      </button>
+      <!--客服触发按钮-->
+      <button bindtap='TaskClose' open-type="contact" class="list_desc_win" style="left:7%;width:{{item.service_w}}rpx;height:50rpx;top:16rpx;border-radius:50rpx;">
+        <image style="width:140rpx;height:50rpx;" src="image/qianwang.png"></image>
+      </button>
+    </view>
+  </scroll-view>
+  <!--提示-->
+  <view class='winning' style='opacity: 1;z-index: 20;display:{{tasknotice_show}}'>
+    <view class='winning-box'>
+      <view class='title-text'>
+        <image src='./image/alert_notice.png'></image>
+      </view>
+      <view class='over-hint' style="margin-top:0rpx;">
+        <view>领取成功,点击"我的奖品"可查看获奖记录</view>
+      </view>
+      <view class='get-btn' bindtap='TaskNoticeClose'>
+        <image src='./image/btnbg1.png'>
+          <label>确认</label>
+        </image>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+
+
+<view class='slider-box' wx:if='{{isOpenVerify}}'>
+
+	<movable-area class='slider-content' id='stage'>
+		<view class='slider-hint'>
+			请拖动冬瓜茶至灰色灌中完成验证
+		</view>
+		<movable-view class='slider-image-2' bindtouchend="fnOverMove" x="{{pot_loc.x}}" y="{{pot_loc.y}}" id='pot-l' direction="horizontal">
+			<image src='../wheel/image/gift_shine.png'></image>
+			<image src='../wheel/image/slider1.png'></image>
+		</movable-view>
+		<view class='slider-image-1' id='pot-h' style='{{pot_h_style}}'>
+			<image src='../wheel/image/gift_hui1.png'></image>
+		</view>
+		<view class='slider-view'>
+			<view class='slider-view-image'>
+				<image src='../wheel/image/slider2.png'></image>
+			</view>
+		</view>
+	</movable-area>
+</view>
+
+<!-- 
+<swiper class='idx_banner'
+  autoplay="true" interval="3500" duration="300" circular='true' style='width:100vw;height:30vw;margin-top:100vw;padding:0;'>
+  <block wx:for="{{4}}">
+    <swiper-item>
+      <ad unit-id="adunit-0564ca87d5e267da"></ad>
+    </swiper-item>
+  </block>
+</swiper> -->
+
+
+<!--填写地址-->
+<view class='from-box' wx:if="{{isOpenAddress}}">
+	<view class='from-content'>
+		<view class='close-btn' bindtap='fnCloseAddress'>
+			<image src='image/close.png'></image>
+		</view>
+		<view class='from-title'>
+			{{mail.order===null?"请输入快递信息":"奖品信息"}}
+		</view>
+		<view class='input-group' wx:if="{{mail.order===null}}">
+			<view class='mail-name'>
+				<input maxlength="10" bindinput = "fnNameInputChang" placeholder="姓名" placeholder-class="input-placeholder" value="{{mail.name}}"></input>
+			</view>
+			<view class='mail-tel'>
+				<input maxlength="11" bindinput = "fnTelInputChang" placeholder="电话" value="{{mail.tel}}"></input>
+			</view>
+			<view class='mail-addr'>
+				<input maxlength="40" bindinput = "fnAddrInputChang" placeholder="地址" value="{{mail.address}}"></input>
+			</view>
+		</view>
+		<view class='order-num' wx:if="{{mail.order!==null}}">
+			{{mail.order}}
+		</view>
+		<view class='submit-addr' bindtap='fnSubmit' wx:if="{{mail.order===null}}">
+			确认
+		</view>
+	</view>
+</view>
+<!--广告-->
+<view style="width: 300px;position:absolute;bottom:0rpx;left: 50%;margin-left: -150px;"><ad unit-id="adunit-0564ca87d5e267da"></ad></view>
+

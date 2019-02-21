@@ -1,0 +1,106 @@
+<!--index.wxml
+
+<view wx:if="{{ is_show == '1' }}"></view> 
+
+<view wx:else>-->
+<!--顶部banner图  -->
+ <swiper class="swiper" indicator-dots="{{indicatordots}}" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#ccc" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">    
+  <block wx:for="{{images}}" wx:key="*that" wx:for-index="index">    
+    <swiper-item>    
+       <view class="banner_link" >     
+          <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>
+       </view> 
+    </swiper-item>  
+  </block>
+</swiper>
+ 
+<view class="locall" style='position: absolute;left:5%;top:10px;font-size:10px;background:#008be6;padding:2px 5px;border-radius: 5px;color:#ffffff;' >{{currentCity}}</view> 
+
+<!--菜单切换  -->
+ <view class='index_container' style="height:{{winHeight}}px;overflow-y: scroll;padding:10px 0;" > 
+      <!--任务列表 （普通） -->
+      <swiper-item style="height:{{winHeight}}px;overflow-y: scroll;width:90%;margin:0 auto;">
+      <!-- bindscrolltolower="bindDownLoad" bindscrolltoupper="topLoad" bindscroll="scroll" 上拉加载更多-->
+          <scroll-view scroll-y="true" class="scoll-h" >
+              <block wx:for="{{list}}" wx:key="*this">
+                  
+                  <!--可预约 -->
+                  <navigator wx:if="{{ item.the_end == 0 }}" url="task_details?id={{item.task_id}}&session_id={{session_id}}" hover-class="none" class="item-ans">
+                      <view class="avatar">
+                        <image src='images/index_title3.png' class='index_title' style='position:absolute;left:0;top:0;width:40%;height:60%;'></image>
+                          <image style="border-radius:5px;" class="img" src="{{taskImgUrl}}{{item.pic_logo}}"></image>
+                      </view>
+                      <view class="expertInfo">
+                          <view class="title num1">{{item.task_name}}</view>
+                          <view class="times num1">投放时间：{{ item.throw_day }}天</view>
+                          <view class="sum num1">总投放量：
+                              <text wx:if="{{item.car_num>10}}" class='lan'>{{item.car_num}}辆</text>
+                              <text wx:else class='red'>{{item.car_num}}辆</text>
+                          </view>
+                          <view class="max-money hei num1">最大收益：<text class='red'>￥{{item.max_money}}</text></view>
+                      </view>
+                  </navigator>
+
+
+                  <!--进行中/点击无跳转  -->
+                  <navigator bindtap='task_ing' wx:if="{{ item.the_end == 1 }}" url="" hover-class="none" class="item-ans">
+                      <view class="avatar">
+                          <image src='images/index_title2.png' class='index_title' style='position:absolute;left:0;top:0;width:40%;height:60%;'></image>
+                          <image style="border-radius:5px;" class="img" src="{{taskImgUrl}}{{item.pic_logo}}"></image>
+                      </view>
+                      <view class="expertInfo">
+                          <view class="title num1">{{item.task_name}}</view>
+                          <view class="times num1">投放时间：{{ item.throw_day }}天</view>
+                          <view class="sum num1">总投放量：
+                              <text wx:if="{{item.car_num>10}}" class='lan'>{{item.car_num}}辆</text>
+                              <text wx:else class='red'>{{item.car_num}}辆</text>
+                          </view>
+                          <view class="max-money hei num1">最大收益：<text class='red'>￥{{item.max_money}}</text></view>
+                      </view>
+                  </navigator>
+
+
+                  <!--已结束/点击无跳转  -->
+                  <navigator bindtap='task_over' wx:if="{{ item.the_end == 2 }}" url="" hover-class="none" class="item-ans">
+                      <view class="avatar">
+                          <image src='images/index_title.png' class='index_title' style='position:absolute;left:0;top:0;width:40%;height:60%;'></image>
+                          <image style="border-radius:5px;" class="img" src="{{taskImgUrl}}{{item.pic_logo}}"></image>
+                      </view>
+                      <view class="expertInfo">
+                          <view class="title num1">{{item.task_name}}</view>
+                          <view class="times num1">投放时间：{{ item.throw_day }}天</view>
+                          <view class="sum num1">总投放量：
+                              <text wx:if="{{item.car_num>10}}" class='hui'>-</text>
+                              <text wx:else class='hui'>-</text>
+                          </view>
+                          <view class="max-money hei num1">最大收益：<text class='red'>￥{{item.max_money}}</text></view>
+                      </view>
+                  </navigator>
+
+                  
+              </block>
+          </scroll-view>
+      </swiper-item>
+
+
+
+
+
+
+
+
+ </view> 
+
+
+
+
+<view wx:if="{{ is_sx == 1 }}" class='sx' bindtap='sxFun'>
+  <image class="img" src="./images/sx.png"></image>
+  <view>刷新</view>
+</view>
+
+<!--底部tab  
+
+
+
+</view>-->

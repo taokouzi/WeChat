@@ -1,0 +1,19 @@
+<view class="form_bg">
+    <view class="form_box">
+        <view class="form_title">{{redPaper.title}}</view>
+        <form bindsubmit="formSubmit">
+            <label><input id="phone" name="phone" bindchange="bindChange" maxlength="11" placeholder="请输入手机号" /></label>
+            <label><input id="code" name="code" bindchange="bindChange" maxlength="8" placeholder="请输入验证码" /><button catchtap="bindCodeTap" class="btn_code">获取验证码</button></label>
+            <button class="btn_get" formType="submit">点击领取</button>
+        </form>
+        <text class="form_hint">{{redPaper.hint}}</text>
+    </view>
+</view>
+<view class="hint" hidden="{{hint.hidden}}">
+    <text>{{hint.message}}</text>
+</view>
+<view class="cover" hidden="{{cover.hidden}}">
+    <view class="cover_img" style="background:url('{{cover.fail}}') center center no-repeat;background-size:cover;">
+        <button class="btn_cover" catchtap="bindConfirmTap">确定</button>
+    </view>
+</view>

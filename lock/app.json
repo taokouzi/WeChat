@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user_info/index",
+    "pages/fault/index",
+    "pages/fault_history/index",
+    "pages/user_edit/index",
+    "pages/park_history/index",
+    "pages/login/index",
+    "pages/about/index",
+    "pages/help/index",
+    "pages/test/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF674F",
+    "navigationBarTitleText": "容易停",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false
+  }
+}

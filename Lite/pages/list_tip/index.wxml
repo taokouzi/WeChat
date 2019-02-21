@@ -1,0 +1,31 @@
+<!--pages/user/index.wxml-->
+
+<view class='lists'>
+  <navigator class='clear list' data-id='addr' url='/pages/more_tip/index?id=addr'>
+    <text class='left tip-text num1'>忘记小区地址？请戳→</text>
+    <image class="right jiant" src="./images/dayu.png"></image> 
+    <text class='right tip-time'></text>
+  </navigator>
+</view>
+
+<view class='lists'>
+  <navigator class='clear list' data-id='qq' url='/pages/more_tip/index?id=qq'>
+    <text class='left tip-text num1'>小区QQ群</text>
+    <image class="right jiant" src="./images/dayu.png"></image> 
+    <text class='right tip-time'></text>
+  </navigator>
+</view>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+

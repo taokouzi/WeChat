@@ -1,0 +1,73 @@
+<!--pages/phb_list/index.wxml-->
+
+<view class='phb_top'>
+  <image class='phb_top_bg' src='images/phb_bg.png' style='width:100%;'></image>
+
+  <view class='phb_top3'>
+
+      <view class='phb_left num1'>
+          <view class='iconBox'>
+              <image class='user_icon' src='{{no2.wc_pic}}'></image>
+              <image class='phb_icon' src='images/two.png'></image>
+          </view>
+          <text class="user_socre">￥{{no2.frozen_money}}</text>
+      </view>
+
+      <view class='phb_center num1'>
+          <view class='iconBox iconBox1'>
+              <image class='user_icon' src='{{no1.wc_pic}}'></image>
+              <image class='phb_icon' src='images/one.png'></image>
+          </view>
+          <text class="user_socre">￥{{no1.frozen_money}}</text>
+      </view>
+
+      <view class='phb_right num1'>
+          <view class='iconBox'>
+              <image class='user_icon' src='{{no3.wc_pic}}'></image>
+              <image class='phb_icon' src='images/three.png'></image>
+          </view>
+          <text class="user_socre">￥{{no3.frozen_money}}</text>
+      </view>
+
+  </view>
+
+</view>
+<!--
+<view class='row_hui red smoll num1' style='height:30px;line-height:30px;width:90%;padding:0 5%;' >*任务结束后排名前3的用户可获得收益的1.2倍奖励</view>
+https://oneh5.com/thq/GDD/front_api/
+-->
+
+ <view class='user_row' wx:for="{{ phb_arr }}" wx:key="*that" wx:index="index2">
+ 
+  <view wx:if="{{ item.ranking != my_rank.ranking }}" >
+      <view class="clear user_li" >
+        <text class="left num hui">{{ item.ranking }}</text>
+        <image class='user_icon left' src="{{ item.wc_pic }}"></image> 
+        <text class="left num1 user_name">{{ item.nickname }}</text>
+        <text class="right user_socre">￥{{ item.frozen_money }}</text>
+      </view>
+  </view> 
+
+  <view wx:else class='rank' >
+      <view class="clear user_li" >
+        <text class="left num hui">{{ my_rank.ranking }}</text>
+        <image class='user_icon left' src="{{ my_rank[0].wc_pic }}"></image> 
+        <text class="left num1 user_name">{{ my_rank[0].nickname }}</text>
+        <text class="right user_socre">￥{{ my_rank[0].frozen_money }}</text>
+      </view>
+  </view>
+
+</view>    
+
+<!--排名第10之后  -->
+<view class='user_row rank' wx:if="{{ my_rank.ranking > 10 }}">
+    <view class="clear user_li" >
+  
+      <text class="left num hui">{{ my_rank.ranking }}</text>
+      <image class='user_icon left' src="{{ my_rank[0].wc_pic }}"></image> 
+      <text class="left num1 user_name">{{ my_rank[0].nickname }}</text>
+      <text class="right user_socre">￥{{ my_rank[0].frozen_money }}</text>
+      
+    </view>
+</view> 
+    

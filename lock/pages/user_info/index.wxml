@@ -1,0 +1,66 @@
+foor_nfoor_n
+<!--个人中心头部  -->
+<view class='top clear'>
+  <view class='clear left'>
+    <image class='left' src='{{ headIcon }}'></image>
+    <view class='left userBox'>
+        <view class='nick num1'>{{ user_datas.user_name }}</view>
+        <view class='style num1'>{{ user_datas.user_type || '普通用户' }}</view>
+    </view>
+  </view>
+
+  <navigator wx:if='{{ user_datas.status == 0 }}' class='edit' bindtap='noEditFunc' hover-class="none">修改</navigator>
+  <navigator wx:else class='edit' url='../user_edit/index' hover-class="none">修改</navigator>
+
+  <view wx:if='{{ user_datas.status == 0 }}' class='right sh_type'>审核中</view>
+  <view wx:if='{{ user_datas.status == 1 }}' class='right sh_type'>审核通过</view>
+  <view wx:if='{{ user_datas.status == 2 }}' class='right sh_type'>审核未通过</view>
+  <view wx:if='{{ user_datas.status == 3 }}' class='right sh_type'>用户已被注销</view>
+  <view wx:if='{{ user_datas.status == 4 }}' class='right sh_type'>单位已被注销</view>
+  
+</view>
+
+
+
+<!--个人中心表单  -->
+<view class='fromBox'>
+    
+    <view class='clear'>
+        <text class='left'>单位名称</text>
+        <text class='right'>{{ user_datas.company_name }}</text>
+    </view>
+
+    <view class='clear'>
+        <text class='left'>部门名称</text>
+        <text class='right'>{{ user_datas.department_name }}</text>
+    </view>
+
+    <view class='clear'>
+        <text class='left'>车型/车牌</text>
+        <text class='right'>{{ user_datas.plate_no }}</text>
+        <!-- <image class='car right' src='./images/car.jpg'></image> -->
+    </view>
+
+
+    <!--大图预加载  -->
+    <import src="../../img-loader/img-loader.wxml"/>
+    <template is="img-loader" data="{{ imgLoadList }}"></template>
+
+    <view class='clear'>
+        <image mode='widthFix' class='car right' src='{{ imgUrl }}' bindload="imageOnLoad" binderror="imageOnLoadError"></image>
+    </view>
+    <!--大图预加载  end-->
+
+    <navigator class='clear' url='../park_history/index' hover-class="none">
+        <text class='left'>停车记录</text>
+        <image class='right jiant' src='./images/dayu.png' ></image>
+    </navigator>
+    
+    <navigator class='clear' url='../about/index' hover-class="none">
+        <text class='left'>关于我们</text>
+        <image class='right jiant' src='./images/dayu.png' ></image>
+    </navigator>
+
+</view>
+
+<button form-type="submit" class='my_btn' bindtap='outLoginFunc' type='default' style='color:#ffffff;'>退出登录</button>

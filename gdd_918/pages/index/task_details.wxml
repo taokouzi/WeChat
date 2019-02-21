@@ -1,0 +1,92 @@
+<!--顶部banner图  -->
+
+<swiper class="swiper" indicator-dots="{{indicatordots}}" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#ccc" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">    
+  <block wx:for="{{ picArr }}" wx:key="*that" wx:for-index="index">    
+    <swiper-item>    
+      <navigator class="banner_link"  url="" hover-class="none">     
+          <image src="{{ taskImgUrl }}{{ item }}" class="slide-image" mode="aspectFill"/>
+      </navigator> 
+    </swiper-item>  
+  </block>    
+</swiper>   
+
+<view class="expertInfo" wx:for="{{task_detail}}" wx:key="*this">
+
+    <view class="title num1">{{item.task_name}}</view>
+    <view class="max-money hei num1">最大收益：<text class='red'>￥{{item.max_money}}</text></view>
+    <view class="times num1">投放周期：<text class='red'>{{ item.date_compare }}天（{{tf_date}}）</text></view>
+
+    <view class='clear'>
+
+        <view class='sumBox left'>
+            <view class="sum_socre num1">投放车辆：<text class='red'>{{item.car_num}}辆</text></view>
+            <view class="sum num1">剩余可预约车辆：<text class='lan'>{{item.car_left}}辆</text></view>
+        </view>
+
+        <!--资料已完善的用户 （已有电话） -->
+        <navigator wx:if="{{ item.status == '1' && is_accepted != '1' && tel != '0' && item.car_left > 0 }}" url='top_reserve?id={{task_id}}&session_id={{session_id}}' hover-class="none" class='get_task right'>
+            接 单
+        </navigator>
+
+        <!--资料已完善的用户 （没有电话）   -->
+        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" style='font-size:14px;' wx:if="{{ item.status == '1' && is_accepted != '1' && tel == '0' && item.car_left > 0 }}" class='get_task right'>
+            接 单
+        </button>
+
+        <!--游客用户  -->
+        <navigator wx:if="{{ item.status == '0' }}" url='../user/user_data?id=0&session_id={{session_id}}&from=task_details' hover-class="none" class='get_task right'>
+            接 单
+        </navigator>
+        <!--审核用户  -->
+        <navigator wx:if="{{ item.status == '2' }}" url='' bindtap='shenhe_data' hover-class="none" class='get_task right'>
+            接 单
+        </navigator>
+        <!--该用户已接过任务  -->
+        <navigator style='background:#A9A9A9;' bindtap='jie_rw' wx:if="{{ item.status == '1' && is_accepted == '1' && item.car_left>0 }}" url='' hover-class="none" class='get_task right'>
+          接 单
+        </navigator>
+
+        <!--剩余车辆为0  -->
+        <navigator style='background:#A9A9A9;' bindtap='jie_sy' wx:if="{{ item.status == '1' && item.car_left <= 0 }}" url='' hover-class="none" class='get_task right'>
+          接 单
+        </navigator>
+
+      
+
+
+        <!--
+        <view class='lan' style='font-size:10px;'>
+        *接单前必须要授权手机号码哦~
+        <navigator url='' hover-class="none" >
+          去授权
+        </navigator>
+        </view>
+-->
+    </view>
+</view>  
+
+<view class='row_hui'></view>
+
+<!--服务网点  -->
+<view class='service_wd'>
+    <text class='text_title'>服务网点</text>
+    <view class='ser_box' wx:for="{{service_addr}}" wx:key="*this2">
+
+          <view class='map1 map'>
+              <text>{{item[1]}}</text>
+              <view class='hui smoll'><image src='{{icon_wz}}' mode="aspectFill"></image><text>{{item[2]}}</text></view>
+              <view class='hui smoll'>
+                <image src='images/tel.png' mode="aspectFill"></image>
+                <text bindtap='call_me' id='{{item}}' style='margin-right:30rpx' wx:for="{{ wd_tel[item[0]-1] }}" wx:key="*this3">{{ item }}</text>
+              </view>
+          </view>
+
+    </view>
+</view>
+
+<view class='row_hui'></view>
+<!--说明  -->
+<view class='service_sm'>
+    <text class='text_title'>说明</text>
+    <view class='hui ser_box'>{{ say_text }}</view>
+</view>

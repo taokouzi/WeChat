@@ -1,0 +1,49 @@
+<!--pages/user_edit/index.wxml-->
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+  <view>
+    <text>姓名</text>
+    <input confirm-type="done" name='ename' type='ename' value='{{ user_datas.user_name }}' placeholder='输入你的姓名'/>
+  </view>
+
+
+  <view>
+    <text>电话号码</text>
+    <input confirm-type="done" name='idTel' type='idTel' value='{{ tel }}' disabled='disabled' />
+  </view>
+
+
+   <view>
+    <text>单位名称</text>
+    <picker name='comp' bindchange="companyNameChangeFunc" value="{{ comp_i }}" range="{{ comps }}">
+      <view class="picker">{{comps[comp_i]}}</view>
+    </picker>
+  </view>
+
+   <view>
+    <text>部门名称</text>
+    <picker name='dptm' bindchange="departmentNameChangeFunc" value="{{ dptm_i }}" range="{{ dptms }}">
+      <view class="picker">{{dptms[dptm_i]}}</view>
+    </picker>
+  </view>
+
+
+  <view>
+    <text>车牌号码</text>
+    <input confirm-type="done" name='carId' type='carId' value='{{ user_datas.plate_no }}' placeholder='输入车牌号码'/>
+  </view>
+
+
+
+  <view class='card'>
+    <text>上传45°车辆照片<text style='font-size:12px;color:#999999'> (点击图片上传/更换)</text></text>
+    <view>
+      <image class= "show-image" bindtap="carImgChangeFunc" mode="widthFix" src="{{ car_img }}"></image>
+    </view>
+  </view>
+
+
+
+  <button form-type="submit" class='my_btn' type='default' style='color: #ffffff;'>提交</button>
+</form>  

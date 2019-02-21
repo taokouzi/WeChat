@@ -1,0 +1,28 @@
+/* pages/profit_history/index.wxss */
+
+.swiper {
+  height: 300rpx;
+  width: 100%;
+}
+.banner_link,.swiper image {
+  height: 100%;
+  width: 100%;
+}
+.swiper .wx-swiper-dot{
+    width:6px;
+    height:6px;
+    border-radius: 50%;
+}
+.swiper .wx-swiper-dots.wx-swiper-dots-horizontal{
+     margin-left:280rpx;
+}
+
+
+.profit_text{padding:8px 0;border-bottom:1px solid #efefef;margin-top:10px;}
+.profit_text .title{font-size:15px;}
+.profit_text .times,.profit_text .max-money{line-height:24px;color:#aaaaaa;font-size:14px;}
+
+
+
+
+

@@ -1,0 +1,13 @@
+/* pages/active/index.wxss */
+.gf_box,.yq_box{
+  width:94vw;
+  margin:0 auto;
+}
+.gf_box .gf_li:nth-child(2n+1)
+{
+  float: left;
+}
+.gf_box .gf_li:nth-child(2n+2)
+{
+  float: right;
+}

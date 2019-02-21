@@ -1,0 +1,41 @@
+<!--pages/message_notif/index.wxml-->
+ <swiper class="swiper" indicator-dots="{{indicatordots}}" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#ccc" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">    
+  <block wx:for="{{images}}" wx:key="*that" wx:for-index="index">    
+    <swiper-item>    
+       <view class="banner_link">     
+          <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>
+       </view> 
+    </swiper-item>  
+  </block>    
+</swiper>     
+
+
+<block wx:for="{{ msg_list }}" wx:key="*this">
+
+
+<!--红包  -->
+<view>
+  <view class='row_hui'></view>
+  <view class='center90'>
+      <view class='clear message_title'  wx:if="{{ item.msg_type == 1 }}" >
+          <text class='left red'>红包</text>
+          <text class='right hui'>{{ item.add_time }}</text>
+      </view>
+      <view class='clear message_title' wx:if="{{ item.msg_type == 2 }}" >
+          <text class='left lan'>任务通知</text>
+          <text class='right hui'>{{ item.add_time }}</text>
+      </view>
+      <view class='clear message_title' wx:if="{{ item.msg_type == 3 }}" >
+          <text class='left lan'>系统通知</text>
+          <text class='right hui'>{{ item.add_time }}</text>
+      </view>
+      <view class=''>
+          <view class='message_name'>{{ item.msg_title }}</view>
+          <view class='message_text hui'>{{ item.msg }}</view>
+      </view>
+  </view>
+</view>
+
+
+
+</block>
